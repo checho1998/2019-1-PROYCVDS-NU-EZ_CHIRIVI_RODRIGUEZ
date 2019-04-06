@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [06/Apr/2019:16:14:49 -0500] "GET /faces/test.xhtml HTTP/1.1" 404 1057 http-bio-8080-exec-1 344
+0:0:0:0:0:0:0:1 - - [06/Apr/2019:16:14:56 -0500] "GET /faces/login.xhtml HTTP/1.1" 200 262 http-bio-8080-exec-3 909

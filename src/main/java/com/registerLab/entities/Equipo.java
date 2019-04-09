@@ -40,7 +40,7 @@ public class Equipo {
 	public void setElementos(ArrayList<Elemento> elementos){
 		this.elementos = elementos;
 	}
-	public void getElementos(){
+	public ArrayList<Elemento> getElementos(){
 		return elementos;
 	}
 	

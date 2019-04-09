@@ -1,4 +1,10 @@
+package com.registerLab.mappers;
 
-public interface LaboratorioMapper{
+import org.apache.ibatis.annotations.Param;
 
+import com.registerLab.entities.Laboratorio;
+import com.registerLab.entities.Usuario;
+
+public interface LaboratorioMapper {
+	public Laboratorio getLaboratorio(@Param("Id") int id);
 }

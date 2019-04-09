@@ -11,13 +11,21 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
+import com.google.inject.Injector;
+import com.registerLab.entities.Usuario;
+import com.registerLab.servicios.ServiciosECILabImpl;
+
 @ManagedBean(name="sesBean")
 @SessionScoped
-public class SessionBean {
+public class SessionBean extends BaseBeanRegisterLab{
 	private String email;
 	private String password;
+	private Usuario user;
+	private Injector injector;
+	private ServiciosECILabImpl servicios;
 	public SessionBean() {
-		
+		injector = super.getInjector();
+		servicios = injector.getInstance(ServiciosECILabImpl.class);
 	}
 	public void setEmail(String email) {
 		this.email = email;
@@ -43,9 +51,30 @@ public class SessionBean {
 			token.setRememberMe(true);
 			currentUser.login(token);
 			FacesContext.getCurrentInstance().getExternalContext().redirect("useradmin.xhtml");
-			//System.out.println("userAdmin");
-		}catch(Exception e) {
-			//System.out.println(SecurityUtils.getSubject().getPrincipal());		}
-	}
+			if(user==null) user = servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString());
+		}
+			catch(Exception e) {
+				
+			}
 }
+		public Usuario getUsuario(){
+			try {
+				if(SecurityUtils.getSubject().getPrincipal()==null) FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+
+			}catch(Exception e) {
+			}
+			if(user==null && SecurityUtils.getSubject().getPrincipal()!=null) user = servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString());
+			return user;
+		}
+		
+		public void logout() {
+			try {
+				SecurityUtils.getSubject().logout();
+				user =null;
+				FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 }

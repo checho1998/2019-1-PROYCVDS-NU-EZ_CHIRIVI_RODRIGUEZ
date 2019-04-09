@@ -1,4 +1,4 @@
-package com.registerLab.DAO;
+package com.registerLab.DAO ;
 
 import com.registerLab.entities.Equipo;
 

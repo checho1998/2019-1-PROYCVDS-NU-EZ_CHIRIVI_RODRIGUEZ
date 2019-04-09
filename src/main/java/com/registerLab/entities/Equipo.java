@@ -1,7 +1,7 @@
 package com.registerLab.entities;
 
 import java.sql.Date;
-
+import java.util.ArrayList;
 public class Equipo {
 	private int id;
 	private Date fechaInicioActividad;

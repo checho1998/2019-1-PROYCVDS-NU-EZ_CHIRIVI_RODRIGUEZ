@@ -10,7 +10,6 @@ public class Elemento {
 	private Date fechaAdquisicion;
 	private Date fechaInicioActividad;
 	private Date fechaFinActividad;
-	private int equipo ;
 	
 	public Elemento() {	
 	}
@@ -31,9 +30,6 @@ public class Elemento {
 		this.referencia = referencia;
 	}
 	
-	public void setEquipo(int equipo) {
-		this.equipo = equipo;
-	}
 	
 	public int getId() {
 		return id;
@@ -51,9 +47,6 @@ public class Elemento {
 		return referencia;
 	}
 	
-	public int getEquipo() {
-		return equipo;
-	}
 	
 	public Date getFechaInicioActividad() {
 		return fechaInicioActividad;

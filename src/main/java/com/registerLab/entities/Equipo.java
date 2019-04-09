@@ -7,7 +7,7 @@ public class Equipo {
 	private Date fechaInicioActividad;
 	private Date fechaFinActividad;
 	private Date fechaAdquisicion;
-	private int laboratorio;
+	private ArrayList<Elemento> elementos;
 	
 	public void setId(int id) {
 		this.id = id;
@@ -37,12 +37,11 @@ public class Equipo {
 		this.fechaAdquisicion = fechaAdquisicion;
 	}
 	
-	public int getLaboratorio() {
-		return laboratorio;
+	public void setElemmentos(ArrayList<Elemento> elementos){
+		this.elementos = elementos;
 	}
-	
-	public void setlaboratorio(int laboratorio) {
-		this.laboratorio = laboratorio;
+	public ArrayList<Elemento> getElementos(){
+		return elementos;
 	}
 	
 }

@@ -1,7 +1,7 @@
 package com.registerLab.entities;
 
 import java.sql.Date;
-
+import java.util.ArrayList;
 public class Equipo {
 	private int id;
 	private Date fechaInicioActividad;
@@ -35,6 +35,13 @@ public class Equipo {
 	
 	public void setFechaAdquisicion(Date fechaAdquisicion) {
 		this.fechaAdquisicion = fechaAdquisicion;
+	}
+	
+	public void setElementos(ArrayList<Elemento> elementos){
+		this.elementos = elementos;
+	}
+	public void getElementos(){
+		return elementos;
 	}
 	
 	

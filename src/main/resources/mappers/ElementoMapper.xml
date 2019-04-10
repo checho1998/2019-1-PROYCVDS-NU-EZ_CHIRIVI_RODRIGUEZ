@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.registerLab.mappers.ElementoMapper">
+	<!-- 
+	Example consulta
+	Select id as id_laboratorio form laboratorio where ....
+	
+	 -->
+	<resultMap type='Laboratorio' id='LaboratorioResult'>
+	    <id property='id' column='id_elemento'/>
+	    <result property="categoria" column="categoria"></result>
+	    <result property="fabricante" column="fabricante"></result>
+	    <result property="referencia" column="referencia"></result>
+	    <result property="fechaAdquisicion" column="fechaadquisicion_elemento"/>
+	    <result property="fechaInicioActividad" column="fechainicioactividad_elemento"/>
+	    <result property="fechaFinActividad" column="fechafinactividad_elemento"/>
+	</resultMap>
+</mapper>

@@ -11,6 +11,10 @@
     </properties>
     <typeAliases>
         <typeAlias type="com.registerLab.entities.Usuario" alias="Usuario"/>
+        <typeAlias type="com.registerLab.entities.Novedad" alias="Novedad"/>
+        <typeAlias type="com.registerLab.entities.Elemento" alias="Elemento"/>
+        <typeAlias type="com.registerLab.entities.Laboratorio" alias="Laboratorio"/>
+        <typeAlias type="com.registerLab.entities.Equipo" alias="Equipo"/>
     </typeAliases>	
 
     <environments default="development">
@@ -30,6 +34,10 @@
         
     <mappers> 
     	<mapper resource="mappers/UsuarioMapper.xml"></mapper>      
+    	<mapper resource="mappers/ElementoMapper.xml"></mapper>
+    	<mapper resource="mappers/LaboratorioMapper.xml"></mapper>
+    	<mapper resource="mappers/NovedadMapper.xml"></mapper>
+    	<mapper resource="mappers/EquipoMapper.xml"></mapper>
     </mappers> 
         
         

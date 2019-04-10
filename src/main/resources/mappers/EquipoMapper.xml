@@ -14,9 +14,9 @@
 	
 	<resultMap type='Equipo' id='EquipoResult'>
 	    <id property='id' column='Numero'/>
-	    <result property="fechainicioactividad" column="Fecha Inicio Actividad"></result>
-	    <result property="fechafinactividad" column="Fecha Fin Actividad"></result>
-	    <result property="fechaadquisicion" column="Fecha Adquisicion"></result>
-	    <result property="laboratorio" column="Laboratorio"/>       
+	    <result property="fechaInicioActividad" column="fechainicioactividad"></result>
+	    <result property="fechaFinActividad" column="fechafinactividad"></result>
+	    <result property="fechaAdquisicion" column="fechaadquisicion"></result>
+	    <association property="elementos" resultMap="com.registerLab.mappers.ElementoMapper"/>       
 	</resultMap>
 </mapper>

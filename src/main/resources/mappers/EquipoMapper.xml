@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.registerLab.mappers.EquipoMapper">
+	<select id="getEquipo" parameterType="map" resultMap="EquipoResult">
+		SELECT * FROM equipo WHERE id=#{Id}
+	</select>
+	
+	<insert parameterType="map" id="insertarEquipo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion,laboratorio) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq},#{idL})
+    </insert>
+	
+	<resultMap type='Equipo' id='EquipoResult'>
+	    <id property='id' column='Numero'/>
+	    <result property="fechainicioactividad" column="Fecha Inicio Actividad"></result>
+	    <result property="fechafinactividad" column="Fecha Fin Actividad"></result>
+	    <result property="fechaadquisicion" column="Fecha Adquisicion"></result>
+	    <result property="laboratorio" column="Laboratorio"/>       
+	</resultMap>
+</mapper>

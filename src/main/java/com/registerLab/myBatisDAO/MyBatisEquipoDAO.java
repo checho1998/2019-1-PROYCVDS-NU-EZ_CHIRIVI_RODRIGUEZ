@@ -1,5 +1,7 @@
 package com.registerLab.myBatisDAO;
 
+import java.sql.Date;
+
 import com.google.inject.Inject;
 import com.registerLab.DAO.EquipoDAO;
 import com.registerLab.entities.Equipo;
@@ -12,6 +14,11 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	@Override
 	public Equipo getEquipo(int id) {
 		return mapper.getEquipo(id);
+	}
+
+	@Override
+	public void insertarEquipo(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion, int laboratorio) {
+		mapper.insertarEquipo(id,fechainicioactividad,fechafinactividad,fechaadquisicion,laboratorio);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.registerLab.beans;
 
 import java.io.IOException;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -54,9 +55,11 @@ public class SessionBean extends BaseBeanRegisterLab{
 			if(user==null) user = servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString());
 		}
 			catch(Exception e) {
-				
+		        FacesContext context = FacesContext.getCurrentInstance();
+		        context.addMessage(null, new FacesMessage("Error","Revise sus credenciales, no fue posible iniciar secion") );
+
 			}
-}
+		}
 		public Usuario getUsuario(){
 			try {
 				if(SecurityUtils.getSubject().getPrincipal()==null) FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");

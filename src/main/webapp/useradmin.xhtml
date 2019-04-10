@@ -6,11 +6,25 @@ xmlns:p="http://primefaces.org/ui">
  	<style type="text/css">
  		.my_test li{
  			display:inline;
- 			padding:20px;
- 			margin:20px;
+ 			padding:10px;
+ 			margin:10px;
  		}
  		.my_test li:hover{
  			background:#D3D3D3;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#778899;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		.temp{
+ 			font-size:20px;
  		}
  	</style>
  </h:head>
@@ -19,20 +33,32 @@ xmlns:p="http://primefaces.org/ui">
  	<br></br>
  	<h:form>
 	<div style="margin:0px; padding:5px; background:#778899; width:100%">
+		<div style="text-align:right;">
 		<ul class="my_test">
-			<li><h:commandLink actionListener="usuarios" style="color:white;" value="Registrar Usuario"></h:commandLink></li>
-			<li><h:commandLink value="Registrar equipo" actionListener="register" style="color:white;"></h:commandLink></li>
-			<li><h:commandLink value="Registrar Laboratorio" style="color:white;"></h:commandLink></li>
-			<li><h:commandLink value="Laboratorios" actionListener="laboratorios" style="color:white;"></h:commandLink></li>
-			<li><h:commandLink value="Equipos" actionListner="Equipos" style="color:white;"></h:commandLink></li>
+			<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
 			<li><h:commandLink value="log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
 		</ul>
+		</div>
 	</div>
 	</h:form>
 	<br></br>
 	<div style="padding:10px;">
-		Bienvenido #{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}
-	
+		<b class="temp">Bienvenido al sistema de registro de equipos de la ecuela colombiana de ingenieria julio garavito.</b>
+		<br></br>
+		Aqui podras:
+		<br></br>
+		<ul>
+		</ul>
+	</div>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
 	</div>
  </h:body>
 </html>

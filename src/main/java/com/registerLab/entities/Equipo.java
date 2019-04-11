@@ -37,9 +37,10 @@ public class Equipo {
 		this.fechaAdquisicion = fechaAdquisicion;
 	}
 	
-	public void setElemmentos(ArrayList<Elemento> elementos){
+	public void setElementos(ArrayList<Elemento> elementos){
 		this.elementos = elementos;
 	}
+	
 	public ArrayList<Elemento> getElementos(){
 		return elementos;
 	}

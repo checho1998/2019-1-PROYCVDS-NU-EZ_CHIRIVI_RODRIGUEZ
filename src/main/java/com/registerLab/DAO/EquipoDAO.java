@@ -3,6 +3,7 @@ package com.registerLab.DAO ;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
 
@@ -15,6 +16,6 @@ public interface EquipoDAO{
 			Date fechafinactividad,
 			Date fechaadquisicion,
 			int laboratorio,
-			ArrayList<Elemento> elementos);
+			ArrayList<Elemento> elementos)throws ECILabException;
 
 }

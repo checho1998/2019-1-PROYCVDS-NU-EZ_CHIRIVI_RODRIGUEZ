@@ -24,6 +24,7 @@ public class SessionBean extends BaseBeanRegisterLab{
 	private Usuario user;
 	private Injector injector;
 	private ServiciosECILabImpl servicios;
+	
 	public SessionBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
@@ -77,6 +78,22 @@ public class SessionBean extends BaseBeanRegisterLab{
 				FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		public void registrarEquipo() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("registreEquipo.xhtml");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void regrese() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

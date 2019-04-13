@@ -14,13 +14,5 @@ public interface EquipoDAO{
 	void insertarEquipoSinLaboratorio(int id,
 			Date fechainicioactividad,
 			Date fechafinactividad,
-<<<<<<< HEAD
 			Date fechaadquisicion)throws ECILabException;
-
-=======
-			Date fechaadquisicion,
-			int laboratorio,
-			ArrayList<Elemento> elementos)throws ECILabException;
-	
->>>>>>> 8b402c698f478ffd2c715c36fae6bb0f978c66a2
 }

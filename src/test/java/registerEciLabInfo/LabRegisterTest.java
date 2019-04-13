@@ -17,6 +17,16 @@ public class LabRegisterTest extends TestBase{
 	private ServiciosECILabImpl lab;
 	@Test
 	public void siUnEquipoNoExisteDeberiaPoderRegistrarlo() {
-		assertTrue(true);
+		
+		qt().forAll(integers().between(0, 10000)).check(id->{
+			try {
+				lab.insertarEquipoSinLaboratorio(id, null,null, new Date(01,02,2017));
+				System.out.println("Salio");
+				Equipo eq = lab.getEquipo(id);
+				return eq.getId()==id;
+			}catch(ECILabException e) {
+				return lab.getEquipo(id)!=null;
+			}
+		});
 	}
 }

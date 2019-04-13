@@ -46,16 +46,16 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	<h:panelGrid columns="2" cellpadding="8">
 				<p:outputLabel value="Digite el codigo del Equipo:" />
-				<p:inputText value="#{Equipo.id}" />
+				<p:inputText value="#{Equipo.id}" binding="#{id}" />
 	
 				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
-				<input type="date" value="#{Equipo.fechaInicioActividad}" />
+				<input type="date" value="#{Equipo.fechaInicioActividad}" binding="#{feini}" />
 
 				<p:outputLabel value="Digite fecha de fin de Actividad:" />
-				<input type="date" value= "#{Equipo.fechaFinActividad}"/>
+				<input type="date" value= "#{Equipo.fechaFinActividad}" binding="#{fefi}"/>
 				
 				<p:outputLabel value="Digite fecha de Adquisicion:" />
-				<input type="date" value= "#{Equipo.fechaAdquisicion}"/>
+				<input type="date" value= "#{Equipo.fechaAdquisicion}" binding="#{fead}"/>
 				
 				 
 				 
@@ -68,14 +68,25 @@ xmlns:p="http://primefaces.org/ui">
 					<p:outputLabel value="Digite el codigo del monitor: " />
 					<p:inputText value= "#{Elemento.id}"/>
 					
+					
 					<p:outputLabel value="Digite el codigo del mouse: " />
 					<p:inputText value= "#{Elemento.id}"/>
+					
 					
 					<p:outputLabel value="Digite el codigo del teclado: " />
 					<p:inputText value= "#{Elemento.id}"/>
 				
-			</h:panelGrid>
+			</h:panelGrid>	
 			
+			<br></br>
 			
+			<p:commandButton outcome="registreEquipo" value = "Insertar equipo" 
+			
+				actionListener="#{equipo.registrarEquipo(id.value,feini.value,fefi.value,fead.value)}" id="boton">
+				
+					<p:confirm header="Confirmacion" message="Acepta el alquiler?" />
+					
+				</p:commandButton>
+				
  </h:body>
 </html>

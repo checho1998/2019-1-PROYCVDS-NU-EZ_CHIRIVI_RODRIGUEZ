@@ -1,5 +1,9 @@
 <html>
+  <title>Login</title>
 <body>
-<h2>Hello World!</h2>
+<%
+    String redirectURL = "/faces/login.xhtml";
+    response.sendRedirect(redirectURL);
+%>
 </body>
 </html>

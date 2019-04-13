@@ -17,5 +17,5 @@ public interface EquipoDAO{
 			Date fechaadquisicion,
 			int laboratorio,
 			ArrayList<Elemento> elementos)throws ECILabException;
-
+	
 }

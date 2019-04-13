@@ -49,25 +49,33 @@ xmlns:p="http://primefaces.org/ui">
 				<p:inputText value="#{Equipo.id}" />
 	
 				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
-				<p:inputText value="#{Equipo.fechaInicioActividad}" />
+				<input type="date" value="#{Equipo.fechaInicioActividad}" />
 
 				<p:outputLabel value="Digite fecha de fin de Actividad:" />
-				<p:inputText value= "#{Equipo.fechaFinActividad}"/>
+				<input type="date" value= "#{Equipo.fechaFinActividad}"/>
 				
 				<p:outputLabel value="Digite fecha de Adquisicion:" />
-				<p:inputText value= "#{Equipo.fechaAdquisicion}"/>
+				<input type="date" value= "#{Equipo.fechaAdquisicion}"/>
 				
 				 
 				 
 				<p:outputLabel value="Digite ID de Elementos:" />
-					<p:inputText value= "#{Equipo.fechaAdquisicion}"/>
 					<br></br>
-					<p:inputText value= "#{Equipo.fechaAdquisicion}"/>
-					<br></br>
-					<p:inputText value= "#{Equipo.fechaAdquisicion}"/>
-					<br></br>
-					<p:inputText value= "#{Equipo.fechaAdquisicion}"/>
+					<p:outputLabel value="Digite el codigo de la torre: " />
+					<p:inputText value= "#{Elemento.id}"/>
+					
+										
+					<p:outputLabel value="Digite el codigo del monitor: " />
+					<p:inputText value= "#{Elemento.id}"/>
+					
+					<p:outputLabel value="Digite el codigo del mouse: " />
+					<p:inputText value= "#{Elemento.id}"/>
+					
+					<p:outputLabel value="Digite el codigo del teclado: " />
+					<p:inputText value= "#{Elemento.id}"/>
 				
 			</h:panelGrid>
+			
+			
  </h:body>
 </html>

@@ -21,6 +21,7 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	@Inject
 	private EquipoMapper mapper;
 	
+	
 	@Override
 	public Equipo getEquipo(int id) {
 		return mapper.getEquipo(id);

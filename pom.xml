@@ -58,12 +58,14 @@
             <artifactId>javax.faces</artifactId>
             <version>2.2.7</version>
         </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+	<dependency>
+	    <groupId>javax</groupId>
+	    <artifactId>javaee-api</artifactId>
+	    <version>8.0.1</version>
+	    <scope>provided</scope>
+	</dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -150,8 +152,15 @@
             <version>1.1.1</version>
             <scope>provided</scope>
         </dependency>
+         <!-- https://mvnrepository.com/artifact/org.quicktheories/quicktheories -->
+		<dependency>
+		    <groupId>org.quicktheories</groupId>
+		    <artifactId>quicktheories</artifactId>
+		    <version>0.26</version>
+		    <scope>test</scope>
+		</dependency>
                 
-                        
+             
                                         
     </dependencies>
     
@@ -190,7 +199,7 @@
                     <driver>org.h2.Driver</driver>                    
                     <url>jdbc:h2:file:./target/db/testdb;MODE=PostgreSQL;</url>
                     <username>sa</username>
-                    <password></password>
+                    <password>sa</password>
                     <autocommit>false</autocommit>
                     <skip>${maven.test.skip}</skip>
                 </configuration>
@@ -228,8 +237,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>

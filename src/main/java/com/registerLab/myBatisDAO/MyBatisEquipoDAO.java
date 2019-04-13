@@ -28,19 +28,10 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	}
 
 	@Override
-	public void insertarEquipo(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion, int laboratorio,ArrayList<Elemento> elementos) 
+	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) 
 			throws ECILabException{
-		if(fechafinactividad == null) {
-			if(elementos.size() == 4) {
-				mapper.insertarEquipo(id,fechainicioactividad,fechafinactividad,fechaadquisicion,laboratorio,elementos);
-			}
-			else {
-				throw new ECILabException ("Se necesitan los elementos necesarios para su funcionamiento");
-			}
-		}
-		else {
-			throw new ECILabException ("El equipo ingresado no esta disponible para asociarlo a un laboratorio");
-		}
+		if(getEquipo(id)!=null) throw new ECILabException("Ya existe un equipo con esta id");
+		mapper.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
 	}
 
 }

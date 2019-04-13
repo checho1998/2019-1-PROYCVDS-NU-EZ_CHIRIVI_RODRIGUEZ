@@ -5,18 +5,20 @@
   
 <mapper namespace="com.registerLab.mappers.EquipoMapper">
 	<select id="getEquipo" parameterType="map" resultMap="EquipoResult">
-		SELECT * FROM equipo WHERE id=#{Id}
+		SELECT *
+		From equipo
+		WHERE id=#{id} 
 	</select>
 	
-	<insert parameterType="map" id="insertarEquipo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion,laboratorio) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq},#{idL})
+	<insert parameterType="map" id="insertarEquipoSinLaboratorio">
+        INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq})
     </insert>
 	
 	<resultMap type='Equipo' id='EquipoResult'>
-	    <id property='id' column='Numero'/>
+	    <id property='id' column='id'/>
 	    <result property="fechaInicioActividad" column="fechainicioactividad"></result>
 	    <result property="fechaFinActividad" column="fechafinactividad"></result>
 	    <result property="fechaAdquisicion" column="fechaadquisicion"></result>
-	    <association property="elementos" resultMap="com.registerLab.mappers.ElementoMapper"/>       
+	    <association property="elementos" resultMap="com.registerLab.mappers.ElementoMapper.ElementoResult"/>     
 	</resultMap>
 </mapper>

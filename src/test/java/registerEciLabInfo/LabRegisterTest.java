@@ -49,7 +49,7 @@ public class LabRegisterTest extends TestBase{
 			try {
 				lab.AgregarElemento(id,t,"LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
 			}catch(ECILabException e) {
-				if(e.getMessage().equals("Categiria Erronea")) return !(t.equals("TORRE") || t.equals("PANTALLA") || t.equals("TECLADO") || t.equals("MOUSE"));
+				if(e.getMessage().equals("Categoria Erronea")) return !(t.equals("TORRE") || t.equals("PANTALLA") || t.equals("TECLADO") || t.equals("MOUSE"));
 			}
 			return lab.getElemento(id)!=null;
 		});

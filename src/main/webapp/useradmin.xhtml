@@ -48,8 +48,9 @@ xmlns:p="http://primefaces.org/ui">
 	<div class="menu">
 		<div class="opt">
 		<ul>
-			<li><h:commandLink value="Registrar Equipo" style="color:white;" actionListener="#{sesBean.registrarEquipo()}"></h:commandLink></li>
-			<li><h:commandLink value="Registrar Elemento" style="color:white;" actionListener="#{sesBean.registrarElemento()}"></h:commandLink></li>
+			<li><h:commandLink value="Registrar Equipo" style="color:blue;" actionListener="#{sesBean.registrarEquipo()}"></h:commandLink></li>
+			<li><h:commandLink value="Registrar Elemento" style="color:blue;" actionListener="#{sesBean.registrarElemento()}"></h:commandLink></li>
+			<li><h:commandLink value="Historial Elemento" actionListener="#{sesBean.historialElemento()}" style="color:blue;"></h:commandLink></li>
 		</ul>
 		</div>
 			<div style="text-align:right;">
@@ -67,8 +68,8 @@ xmlns:p="http://primefaces.org/ui">
 		Aqui podras:
 		<br></br>
 		<ul>
-			<li>Registrar equipos</li>
-			<li>Registrar los elementos.</li>
+			<li>Registrar Equipos.</li>
+			<li>Registrar Elementos.</li>
 			<li>Registrar Laboratorios.</li>
 		</ul>
 	</div>

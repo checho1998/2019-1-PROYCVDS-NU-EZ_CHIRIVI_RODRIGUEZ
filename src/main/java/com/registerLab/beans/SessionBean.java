@@ -1,6 +1,8 @@
 package com.registerLab.beans;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -13,6 +15,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
 import com.google.inject.Injector;
+import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Usuario;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
@@ -82,6 +85,21 @@ public class SessionBean extends BaseBeanRegisterLab{
 			}
 		}
 		
+		public void historialElemento() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("historialElemento.xhtml");
+			} catch (Exception e) {
+			}	
+		}
+		public List<Elemento> getHistorialElementos(){
+			try{
+				List<Elemento> el = servicios.getElementos();
+				return el;
+			}catch(Exception e){
+				return null;
+			}
+		}
+		
 		public void registrarEquipo() {
 			try {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("registreEquipo.xhtml");
@@ -90,11 +108,31 @@ public class SessionBean extends BaseBeanRegisterLab{
 			}
 		}
 		
+		public void registrarEquipo( int id, Date fechainicioactividad, Date fechafinactividad , Date fechaadquisicion) {
+			try{
+				
+				servicios.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
+				
+			}catch(Exception e){
+				
+			}
+		}
+		
 		public void registrarElemento() {
 			try {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("registreElemento.xhtml");
 			} catch (Exception e) {
-				e.printStackTrace();
+				
+			}
+		}
+		
+		public void registrarElemento(int id, String categoria, String fabricante, String referecia,Date fechaadquisicion,Date fechainicioactividad,Date fechafinactividad) {
+			try {
+				
+				servicios.AgregarElemento(id, categoria, fabricante, referecia, fechaadquisicion, fechainicioactividad, fechafinactividad);
+				
+			} catch (Exception e) {
+				
 			}
 		}
 		

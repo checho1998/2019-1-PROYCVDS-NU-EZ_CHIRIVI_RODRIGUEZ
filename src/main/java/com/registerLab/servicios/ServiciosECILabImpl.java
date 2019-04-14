@@ -1,6 +1,8 @@
 package com.registerLab.servicios;
 
+
 import java.sql.Date;
+import java.util.List;
 
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
@@ -24,18 +26,27 @@ public class ServiciosECILabImpl implements ServiciosECILab{
 	private NovedadDAO novedad;
 	@Inject
 	private ElementoDAO elemento;
+	
 	public Usuario getUsuario(String correo) {
 		return usuario.getUsuario(correo);
 	}
+	
 	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) throws ECILabException {
 		equipo.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
 	}
+	
 	public Equipo getEquipo(int id) {
 		return equipo.getEquipo(id);
 	}
+	
 	public Elemento getElemento(int id) {
 		return elemento.getElemento(id);
 	}
+	
+	public List<Elemento> getElementos(){
+		return elemento.consultarElementos();
+	}
+	
 	public void AgregarElemento(int id, String categoria, String fabricante, String referencia, Date fechaAdquisicion, Date fechaInicioActividad, Date fechaFinActivida) throws ECILabException {
 		elemento.AgregarElemento(id, categoria, fabricante, referencia, fechaAdquisicion, fechaInicioActividad, fechaFinActivida);
 	}

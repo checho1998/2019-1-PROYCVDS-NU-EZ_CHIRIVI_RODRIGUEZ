@@ -74,9 +74,9 @@ xmlns:p="http://primefaces.org/ui">
 			
 			<p:commandButton outcome="registreElemento" value = "Insertar elemento" 
 			
-				actionListener="#{sesBean.registrarElemento(id.value,categ.value,fabric.value,refer.value,fead.value,feini.value,fefi.value)}" id="boton">
+				actionListener="#{elemento.registrarElemento(id.value,categ.value,fabric.value,refer.value,fead.value,feini.value,fefi.value)}" id="boton">
 				
-					<p:confirm header="Confirmacion" message="Acepta el Elemento" />
+					<p:confirm header="Confirmacion" message="Acepta el alquiler?" />
 					
 				</p:commandButton>
 				

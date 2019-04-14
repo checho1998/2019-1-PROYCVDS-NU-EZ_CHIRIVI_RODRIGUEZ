@@ -82,9 +82,9 @@ xmlns:p="http://primefaces.org/ui">
 			
 			<p:commandButton outcome="registreEquipo" value = "Insertar equipo" 
 			
-				actionListener="#{sesBean.registrarEquipo(id.value,feini.value,fefi.value,fead.value)}" id="boton">
+				actionListener="#{equipo.registrarEquipo(id.value,feini.value,fefi.value,fead.value)}" id="boton">
 				
-					<p:confirm header="Confirmacion" message="Acepta el Equipo" />
+					<p:confirm header="Confirmacion" message="Acepta el Equipo?" />
 					
 				</p:commandButton>
 				

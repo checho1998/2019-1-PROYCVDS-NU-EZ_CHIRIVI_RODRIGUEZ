@@ -4,12 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.registerLab.mappers.ElementoMapper">
-	<select id="ConsultarElemento" parameterType="map" resultMap="ElementoResult">
-		select * from elemento where id=#{ElemId} 
+	<select id="getElemento" parameterType="map" resultMap="ElementoResult">
+		select id as id_elemento,
+		categoria,
+		fabricante,
+		referecia as referencia,
+		fechaadquisicion as fechaadquisicion_elemento,
+		fechainicioactividad as fechainicioactividad_elemento,
+		fechafinactividad as fechafinactividad_elemento
+		 from elemento where id=#{ElemId} 
 	</select>
 	
 	<insert parameterType="map" id="AgregarElemento">
-		insert into elemento (id,categoria,fabricante,referencia,fechaaquisicion,fechainicioactividad,fechafinactividad)
+		insert into elemento (id,categoria,fabricante,referecia,fechaadquisicion,fechainicioactividad,fechafinactividad)
 		values (#{id},#{cat},#{fab},#{ref},#{fecAq},#{fecIn},#{fecFin})
 	</insert>
 	

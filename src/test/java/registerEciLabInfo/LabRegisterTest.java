@@ -18,7 +18,7 @@ public class LabRegisterTest extends TestBase{
 	@Test
 	public void siUnEquipoNoExisteDeberiaPoderRegistrarlo() {
 		
-		qt().forAll(integers().between(0, 10000)).check(id->{
+		qt().forAll(integers().between(0, 1000)).check(id->{
 			try {
 				lab.insertarEquipoSinLaboratorio(id, null,null, new Date(01,02,2017));
 				System.out.println("Salio");
@@ -27,6 +27,31 @@ public class LabRegisterTest extends TestBase{
 			}catch(ECILabException e) {
 				return lab.getEquipo(id)!=null;
 			}
+		});
+	}
+	@Test
+	public void deberiaRegistrarUnElementoSiNoExiste() {
+		qt().forAll(integers().between(0, 1000)).check(id->{
+			try {
+				lab.AgregarElemento(id,"TORRE","LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
+			}catch(ECILabException e) {
+				
+			}
+			System.out.println(lab.getElemento(id).getId()==id);
+			return lab.getElemento(id).getId()==id;
+		});
+		}
+	@Test
+	public void deberiaRegistrarUnElementoSiSuTipoEsCorrecto() {
+		qt().forAll(integers().between(0, 100),integers().between(0, 100)).check((num,id)->{
+			String[] arr = new String[] {"TORRE","PANTALLA","TECLADO","MOUSE","XXXXX","YYYYYY","ZZZZZZZ","WWWWWWW","KKKKKK","TORREX"};
+			String t = arr[num%10];
+			try {
+				lab.AgregarElemento(id,t,"LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
+			}catch(ECILabException e) {
+				if(e.getMessage().equals("Categiria Erronea")) return !(t.equals("TORRE") || t.equals("PANTALLA") || t.equals("TECLADO") || t.equals("MOUSE"));
+			}
+			return lab.getElemento(id)!=null;
 		});
 	}
 }

@@ -27,6 +27,9 @@ public class MyBatisElementoDAO implements ElementoDAO{
 		
 		if(fechaFinActividad != null) throw new ECILabException("la fecha fin de actividad debe ser nula");
 		
+		if(!(categoria.equals("TORRE")  || categoria.equals("PANTALLA") || categoria.equals("MOUSE") || categoria.equals("TECLADO"))) throw new ECILabException("Categiria Erronea");
+		
+		if(fechaAdquisicion==null) throw new ECILabException("la fecha de aquisicion, no debe ser nula");
 		mapper.AgregarElemento(id, categoria, fabricante, referencia, fechaAdquisicion, fechaInicioActividad, fechaFinActividad);
 		
 	}

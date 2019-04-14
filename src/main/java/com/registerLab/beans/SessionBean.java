@@ -15,6 +15,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.apache.shiro.subject.Subject;
 
 import com.google.inject.Injector;
+import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Usuario;
 import com.registerLab.servicios.ServiciosECILabImpl;
@@ -108,14 +109,8 @@ public class SessionBean extends BaseBeanRegisterLab{
 			}
 		}
 		
-		public void registrarEquipo( int id, Date fechainicioactividad, Date fechafinactividad , Date fechaadquisicion) {
-			try{
-				
+		public void registrarEquipo( int id, Date fechainicioactividad, Date fechafinactividad , Date fechaadquisicion) throws ECILabException {
 				servicios.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
-				
-			}catch(Exception e){
-				
-			}
 		}
 		
 		public void registrarElemento() {

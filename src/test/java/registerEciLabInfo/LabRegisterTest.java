@@ -15,7 +15,7 @@ import com.registerLab.servicios.ServiciosECILabImpl;
 public class LabRegisterTest extends TestBase{
 	@Inject
 	private ServiciosECILabImpl lab;
-	/*@Test
+	@Test
 	public void siUnEquipoNoExisteDeberiaPoderRegistrarlo() {
 		
 		qt().forAll(integers().between(0, 1000)).check(id->{
@@ -53,5 +53,5 @@ public class LabRegisterTest extends TestBase{
 			}
 			return lab.getElemento(id)!=null;
 		});
-	}*/
+	}
 }

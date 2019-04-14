@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+ <h:head><title>Registrar Elementos</title>
+  	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		.my_test li:hover{
+ 			background:#D3D3D3;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#778899;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		.temp{
+ 			font-size:20px;
+ 		}
+ 	</style>
+ </h:head>
+ 
+ <h:body style= "margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:20%;"></img>
+ <br></br>
+ 
+ 	<h:form>
+ 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 			<div style="text-align:right;">
+				<ul class="my_test">
+					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+				</ul>
+			</div>
+ 		</div>
+	</h:form>
+	<h:panelGrid columns="2" cellpadding="8">
+	
+				<p:outputLabel value="Digite el codigo del Elemento:" />
+				<p:inputText value="#{Elemento.id}" binding="#{id}" />
+				
+				<p:outputLabel value="Digite la categoria del elemento:" />
+				<input  value="#{Equipo.categoria}" binding="#{categ}" />
+				
+				<p:outputLabel value="Digite el fabricante del elemento:" />
+				<input  value="#{Equipo.fabricante}" binding="#{fabric}" />
+				
+				<p:outputLabel value="Digite la referencia del elemento:" />
+				<input  value="#{Equipo.referencia}" binding="#{refer}" />
+				
+				<p:outputLabel value="Digite fecha de Adquisicion:" />
+				<input type="date" value= "#{Equipo.fechaAdquisicion}" binding="#{fead}"/>
+				
+				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
+				<input type="date" value="#{Equipo.fechaInicioActividad}" binding="#{feini}" />
+
+				<p:outputLabel value="Digite fecha de fin de Actividad:" />
+				<input type="date" value= "#{Equipo.fechaFinActividad}" binding="#{fefi}"/>
+				
+				
+			</h:panelGrid>	
+			
+			<br></br>
+			
+			<p:commandButton outcome="registreElemento" value = "Insertar elemento" 
+			
+				actionListener="#{elemento.registrarElemento(id.value,categ.value,fabric.value,refer.value,fead.value,feini.value,fefi.value)}" id="boton">
+				
+					<p:confirm header="Confirmacion" message="Acepta el alquiler?" />
+					
+				</p:commandButton>
+				
+ </h:body>
+</html>

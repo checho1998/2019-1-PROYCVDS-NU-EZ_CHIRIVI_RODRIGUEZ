@@ -90,6 +90,14 @@ public class SessionBean extends BaseBeanRegisterLab{
 			}
 		}
 		
+		public void registrarElemento() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("registreElemento.xhtml");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		public void regrese() {
 			try {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");

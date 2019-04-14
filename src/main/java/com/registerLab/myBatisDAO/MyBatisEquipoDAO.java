@@ -30,7 +30,11 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	@Override
 	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) 
 			throws ECILabException{
+		
 		if(getEquipo(id)!=null) throw new ECILabException("Ya existe un equipo con esta id");
+		
+		if(fechafinactividad != null) throw new ECILabException("El equipo debe estar activo");
+	
 		mapper.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
 		
 	}

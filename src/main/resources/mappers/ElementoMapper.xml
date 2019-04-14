@@ -20,6 +20,11 @@
 		values (#{id},#{cat},#{fab},#{ref},#{fecAq},#{fecIn},#{fecFin})
 	</insert>
 	
+	<select id="ConsultarElementos" parameterType="map" resultMap="ElementoResult">
+		select * from elemento  
+	</select>
+	
+	
 	<resultMap type='Elemento' id='ElementoResult'>
 	    <id property='id' column='id_elemento'/>
 	    <result property="categoria" column="categoria"></result>

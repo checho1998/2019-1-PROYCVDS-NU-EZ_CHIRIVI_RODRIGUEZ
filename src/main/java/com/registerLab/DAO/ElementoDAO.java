@@ -1,6 +1,7 @@
 package com.registerLab.DAO;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
@@ -18,4 +19,7 @@ public interface ElementoDAO {
 			Date fechaAdquisicion,
 			Date fechaInicioActividad,
 			Date fechaFinActividad) throws ECILabException;
+
+	public List <Elemento> consultarElementos();
 }
+

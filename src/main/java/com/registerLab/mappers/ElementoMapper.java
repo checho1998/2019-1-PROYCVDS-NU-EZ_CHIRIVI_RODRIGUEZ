@@ -1,6 +1,7 @@
 package com.registerLab.mappers;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -17,4 +18,6 @@ public interface ElementoMapper {
 			,@Param("fecAq") Date fechaAdquisicion
 			,@Param("fecIn") Date fechaInicioActividad
 			,@Param("fecFin") Date fechaFinActividad);
+	
+	public List<Elemento> consultarElementos();
 }

@@ -1,6 +1,7 @@
 package com.registerLab.myBatisDAO;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
@@ -32,6 +33,11 @@ public class MyBatisElementoDAO implements ElementoDAO{
 		if(fechaAdquisicion==null) throw new ECILabException("la fecha de aquisicion, no debe ser nula");
 		mapper.AgregarElemento(id, categoria, fabricante, referencia, fechaAdquisicion, fechaInicioActividad, fechaFinActividad);
 		
+		
 	}
-
+	
+	@Override
+	public List <Elemento> consultarElementos() {
+		return mapper.consultarElementos();
+	}
 }

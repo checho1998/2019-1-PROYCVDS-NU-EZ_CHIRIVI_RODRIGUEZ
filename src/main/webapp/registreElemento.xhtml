@@ -44,41 +44,39 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
-	<h:panelGrid columns="2" cellpadding="8">
-	
-				<p:outputLabel value="Digite el codigo del Elemento:" />
-				<p:inputText value="#{Elemento.id}" binding="#{id}" />
-				
-				<p:outputLabel value="Digite la categoria del elemento:" />
-				<input  value="#{Equipo.categoria}" binding="#{categ}" />
-				
-				<p:outputLabel value="Digite el fabricante del elemento:" />
-				<input  value="#{Equipo.fabricante}" binding="#{fabric}" />
-				
-				<p:outputLabel value="Digite la referencia del elemento:" />
-				<input  value="#{Equipo.referencia}" binding="#{refer}" />
-				
-				<p:outputLabel value="Digite fecha de Adquisicion:" />
-				<input type="date" value= "#{Equipo.fechaAdquisicion}" binding="#{fead}"/>
-				
-				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
-				<input type="date" value="#{Equipo.fechaInicioActividad}" binding="#{feini}" />
-
-				<p:outputLabel value="Digite fecha de fin de Actividad:" />
-				<input type="date" value= "#{Equipo.fechaFinActividad}" binding="#{fefi}"/>
-				
-				
-			</h:panelGrid>	
-			
-			<br></br>
-			
-			<p:commandButton outcome="registreElemento" value = "Insertar elemento" 
-			
-				actionListener="#{sesBean.registrarElemento(id.value,categ.value,fabric.value,refer.value,fead.value,feini.value,fefi.value)}" id="boton">
-				
-					<p:confirm header="Confirmacion" message="Acepta el Elemento?" />
-					
-				</p:commandButton>
+	<h:form id="m_form">
+		<h:outputLabel value="Numero de elemento:"></h:outputLabel>
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<br></br>
+		<h:inputText value="#{elmBean.id}"></h:inputText>
+		<br></br>
+		<h:outputLabel value="Fabricante:"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{elmBean.fabricante}"></h:inputText>
+		<br></br>
+		<h:outputLabel value="Referencia:"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{elmBean.referencia}"></h:inputText>
+		<br></br>
+		<h:outputLabel value="fecha adquisicion:"></h:outputLabel>
+		<br></br>
+		<p:calendar value="#{elmBean.fechaAdquisicion}"></p:calendar>
+		<br></br>
+		<h:outputLabel value="Categoria:"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{elmBean.categoria}"></h:inputText>
+		<br></br>
+		<br></br>
+		<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="m_form" style="background:blue; color:white; padding:10px;"></h:commandLink>
+		<br></br>
+		<br></br>
+		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
+			<p:column headerText="Numeros">${elm.getId()}</p:column>
+			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
+			<p:column headerText="referencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="Fecha adquisicion:">${elm.getFechaAdquisicion()}</p:column>
+		</p:dataTable>
+	</h:form>
 				
  </h:body>
 </html>

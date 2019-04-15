@@ -12,7 +12,7 @@ public interface ServiciosECILab {
 	
 	public Usuario getUsuario(String correo);
 	
-	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) throws ECILabException;
+	public void insertarEquipoSinLaboratorio(int id,java.util.Date fechaInicioActividad,Date fechafinactividad,java.util.Date fechaAdquisicion) throws ECILabException;
 	
 	public Equipo getEquipo(int id);
 	

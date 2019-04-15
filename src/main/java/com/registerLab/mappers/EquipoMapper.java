@@ -14,7 +14,9 @@ public interface EquipoMapper {
 	public Equipo getEquipo(@Param("id") int id);
 	
 	public void insertarEquipoSinLaboratorio(@Param("idE")int id,
-			@Param("feiniact")Date fechainicioactividad,
-			@Param("fefinact")Date fechafinactividad,
-			@Param("feadq")Date fechaadquisicion);
+			@Param("feiniact")java.util.Date fechainicioactividad,
+			@Param("fefinact")java.util.Date fechafinactividad,
+			@Param("feadq")java.util.Date fechaadquisicion);
+	
+	public void asociarElemento(@Param("Elementos") ArrayList<Elemento> elementos,@Param("idequi") int idequipo);
 }

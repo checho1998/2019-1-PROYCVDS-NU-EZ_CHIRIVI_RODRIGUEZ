@@ -46,43 +46,44 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	<h:panelGrid columns="2" cellpadding="8">
 				<p:outputLabel value="Digite el codigo del Equipo:" />
-				<p:inputText value="#{Equipo.id}" binding="#{id}" />
+				<p:inputText value="#{EquipoBean.id}" binding="#{id}" />
 	
 				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
-				<input type="date" value="#{Equipo.fechaInicioActividad}" binding="#{feini}" />
-
-				<p:outputLabel value="Digite fecha de fin de Actividad:" />
-				<input type="date" value= "#{Equipo.fechaFinActividad}" binding="#{fefi}"/>
-				
+				<input type="date" value="#{EquipoBean.fechaInicioActividad}" binding="#{feini}" />
+								
 				<p:outputLabel value="Digite fecha de Adquisicion:" />
-				<input type="date" value= "#{Equipo.fechaAdquisicion}" binding="#{fead}"/>
+				<input type="date" value= "#{EquipoBean.fechaAdquisicion}" binding="#{fead}"/>
 				
 				 
 				 
-				<p:outputLabel value="Digite ID de Elementos:" />
+				<p:outputLabel value="Digite los elementos el cual va asociar a este equipo:" />
 					<br></br>
 					<p:outputLabel value="Digite el codigo de la torre: " />
-					<p:inputText value= "#{Elemento.id}"/>
+					<p:inputText value= "#{Elemento.id}" bingding="#{codTorre}"/>
+					<br></br>
 					
 										
 					<p:outputLabel value="Digite el codigo del monitor: " />
-					<p:inputText value= "#{Elemento.id}"/>
-					
+					<p:inputText value= "#{Elemento.id}" bingding="#{codMonitor}"/>
+					<br></br>
 					
 					<p:outputLabel value="Digite el codigo del mouse: " />
-					<p:inputText value= "#{Elemento.id}"/>
+					<p:inputText value= "#{Elemento.id}" bingding="#{codMouse}"/>
+					<br></br>
+					
 					
 					
 					<p:outputLabel value="Digite el codigo del teclado: " />
-					<p:inputText value= "#{Elemento.id}"/>
-				
+					<p:inputText value= "#{Elemento.id}" bingding="#{codTeclado}"/>
+					<br></br>
+					
 			</h:panelGrid>	
 			
 			<br></br>
 			
 			<p:commandButton outcome="registreEquipo" value = "Insertar equipo" 
 			
-				actionListener="#{sesBean.registrarEquipo(id.value,feini.value,fefi.value,fead.value)}" id="boton">
+				actionListener="#{equiBean.registrarEquipo(id.value,feini.value,fead.value)}" id="boton">
 				
 					<p:confirm header="Confirmacion" message="Acepta el Equipo?" />
 					

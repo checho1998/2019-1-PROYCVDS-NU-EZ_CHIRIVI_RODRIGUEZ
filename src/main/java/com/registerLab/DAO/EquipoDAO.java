@@ -12,7 +12,12 @@ public interface EquipoDAO{
 	Equipo getEquipo(int id);
 	
 	void insertarEquipoSinLaboratorio(int id,
-			Date fechainicioactividad,
-			Date fechafinactividad,
-			Date fechaadquisicion)throws ECILabException;
+			java.util.Date fechaInicioActividad,
+			java.util.Date fechafinactividad,
+			java.util.Date fechaAdquisicion)throws ECILabException;
+	
+	
+	void asociarElemento(ArrayList<Elemento> elemento,int idequipo)throws ECILabException;
+
+	
 }

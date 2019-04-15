@@ -2,6 +2,7 @@ package com.registerLab.servicios;
 
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -15,7 +16,7 @@ import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
 import com.registerLab.entities.Usuario;
 
-public class ServiciosECILabImpl implements ServiciosECILab{
+public  class ServiciosECILabImpl implements ServiciosECILab{
 	@Inject
 	private UsuarioDAO usuario;
 	@Inject
@@ -31,8 +32,8 @@ public class ServiciosECILabImpl implements ServiciosECILab{
 		return usuario.getUsuario(correo);
 	}
 	
-	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) throws ECILabException {
-		equipo.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
+	public void insertarEquipoSinLaboratorio(int id,java.util.Date fechaInicioActividad,Date fechafinactividad,java.util.Date fechaAdquisicion) throws ECILabException {
+		equipo.insertarEquipoSinLaboratorio(id, fechaInicioActividad, fechafinactividad, fechaAdquisicion);
 	}
 	
 	public Equipo getEquipo(int id) {
@@ -50,4 +51,11 @@ public class ServiciosECILabImpl implements ServiciosECILab{
 	public void AgregarElemento(int id, String categoria, String fabricante, String referencia, Date fechaAdquisicion, Date fechaInicioActividad, Date fechaFinActivida) throws ECILabException {
 		elemento.AgregarElemento(id, categoria, fabricante, referencia, fechaAdquisicion, fechaInicioActividad, fechaFinActivida);
 	}
+	
+	public void asociarElemento(ArrayList<Elemento>elementos,int idequipo) throws ECILabException{
+		equipo.asociarElemento(elementos, idequipo);
+	}
+	
+	
+	
 }

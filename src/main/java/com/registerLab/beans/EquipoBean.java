@@ -1,18 +1,20 @@
 package com.registerLab.beans;
 
 
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.registerLab.ECILabException;
-import com.registerLab.entities.Elemento;
-import com.registerLab.servicios.ServiciosECILabImpl;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.registerLab.ECILabException;
+import com.registerLab.entities.Elemento;
+import com.registerLab.servicios.ServiciosECILabImpl;
 
 
 
@@ -30,6 +32,7 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	private java.util.Date fechaInicioActividad;
 	private int idElemento;
 	private int idAnt;
+	private String descripcion;
 	private ArrayList<Elemento> elementos;
 	
 	
@@ -41,7 +44,7 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setfechainicioactividad(java.util.Date fechaInicioActividad) {
+	public void setfechaInicioActividad(java.util.Date fechaInicioActividad) {
 		this.fechaInicioActividad = fechaInicioActividad;
 	}
 	public void setfechaFinActividad(java.util.Date fechaFinActividad) {
@@ -53,6 +56,24 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public void setElementos(ArrayList<Elemento> elementos) {
 		this.elementos = elementos;
 	}
+	
+	public void setidAnt(int id) {
+		this.idAnt=id;
+	}
+	
+	public void setidElemento(int id) {
+		this.idElemento = id;
+	}
+	
+	public int getidElemento() {
+		return idElemento;
+	}
+	
+	public int getidAnt() {
+		return idAnt;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -74,9 +95,9 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 		try{
 			Date d=null; 
 			Date da=null;
-			if(fechaAdquisicion!=null) d= new Date(this.getFechaAdquisicion().getTime());
-			if(fechaInicioActividad!=null) da= new Date(this.getfechaInicioActividad().getTime());
-			servicios.insertarEquipoSinLaboratorio(this.getId(), da, null, d);
+			if(fechaAdquisicion!=null) d= new Date(fechaAdquisicion.getTime());
+			if(fechaInicioActividad!=null) da= new Date(fechaInicioActividad.getTime());
+			servicios.insertarEquipoSinLaboratorio(id, da, null, d);
 			context.addMessage(null, new FacesMessage("Succesfull","Equipo Insertado.") );
 			
 		}catch(Exception e){
@@ -88,18 +109,36 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 			elementos.add(servicios.getElemento(idElemento));
 			FacesContext context = FacesContext.getCurrentInstance();
 			try {
-				
+				Date actual=null;
+				java.util.Date fechaActual = new java.util.Date(); 		
+				actual=new Date (fechaActual.getTime());
+				int ultimo = servicios.getUltimaNovedad();
 				servicios.asociarElemento(elementos, id);
-				servicios.getElemento(id);
+				servicios.AgregarNovedad(ultimo+1,actual ,"Se realiza una nueva asociacion al elemento con su respectivo equipo","Nueva asociacion de elemento", id, idElemento);
 				context.addMessage(null, new FacesMessage("Succesfull","elemento asociado.") );
 				
 				
 			} catch (ECILabException e) {
-				context.addMessage(null, new FacesMessage("error",e.getMessage()) );
-			}
-			
-		
+				context.addMessage(null, new FacesMessage("error","No se pudo asociar el elemento verifique la informacion ingresada" ));
+			}		
 	}
+	
+	public void modificarAsociarElemento() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+		Date actual=null;
+		java.util.Date fechaActual = new java.util.Date(); 		
+		actual=new Date (fechaActual.getTime());
+		int ultimo = servicios.getUltimaNovedad();
+		servicios.AgregarNovedad(ultimo, actual, descripcion, "Cambio de asociacion del elemento a otro equipo", id, idElemento);
+		servicios.cambioAsociacionElemento(idElemento, id);
+		context.addMessage(null, new FacesMessage("Succesfull","Asociacion modificada.") );
+		}
+		catch(Exception e) {
+			context.addMessage(null, new FacesMessage("error","No se puede modificar la asociacion verifique la informacion ingresada") );
+		}
+	}
+	
 	
 	
 

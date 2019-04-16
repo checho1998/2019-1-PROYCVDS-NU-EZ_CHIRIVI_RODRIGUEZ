@@ -55,37 +55,39 @@ xmlns:p="http://primefaces.org/ui">
 			<p:outputLabel value="***Recuerde que para agregar una nueva asociacion el equipo y elementos deben estar previamente registrados***"></p:outputLabel>
 			<br></br>
 			<p:outputLabel value="Numero de codigo del equipo a asociar:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.id}" ></p:inputText>
+			<p:inputText value="#{equiBean.id}" ></p:inputText>
 			<p:outputLabel value="Numero de codido de la torre:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idElemento}" ></p:inputText>
+			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
 			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			<br></br>
 			<p:outputLabel value="Numero de codido de la pantalla:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idElemento}" ></p:inputText>
+			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
 			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			<br></br>
 			<p:outputLabel value="Numero de codido de la mouse:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idElemento}" ></p:inputText>
+			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
 			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			<br></br>
 			<p:outputLabel value="Numero de codido del teclado:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idElemento}" ></p:inputText>
+			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
 			<p:growl id="growl" showDetail="true" sticky="true" />
 			<br></br>
 			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			
 			
-			<center><p:outputLabel style="color:red;">------------------------------------------------------------------------------------------------------------------</p:outputLabel></center>
+			<center><p:outputLabel style="color:red;">----------------------------------------------------------------------------------------------------</p:outputLabel></center>
 			
 			<center><p:outputLabel style="color:red;">Modificar una asociacion de un elemento.</p:outputLabel></center>
 			<p:outputLabel value="***Recuerde que para agregar una nueva asociacion el equipo y elementos deben estar previamente registrados***" ></p:outputLabel>
 			<br></br>
 			<p:outputLabel value="Numero de codigo del equipo a asociar:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.id}" ></p:inputText>
+			<p:inputText value="#{equiBean.id}" ></p:inputText>
 			<p:outputLabel value="Numero de codigo del equipo a retirar la asociacion:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idAnt}" ></p:inputText>
+			<p:inputText value="#{equiBean.idAnt}" ></p:inputText>
 			<p:outputLabel value="Numero de codido del elemento:"></p:outputLabel>
-			<p:inputText value="#{EquipoBean.idElemento}" ></p:inputText>
+			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
+			<p:outputLabel value="Razon de la modificacion de la asociacion del elemento:"></p:outputLabel>
+			<p:inputText value="#{equiBean.descripcion}" maxlength="200" size="50" ></p:inputText>
 			<p:growl id="growl1" showDetail="true" sticky="true" />
 			<br></br>
 			<h:commandLink value="Modificar Asociacion del Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>

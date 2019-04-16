@@ -1,8 +1,26 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+
   
 <mapper namespace="com.registerLab.mappers.NovedadMapper">
+
+ 
+ <select id="getNovedad" parameterType="map"  resultMap="NovedadResult">
+ 	select * from novedad 
+ 	where id=#{idNov}
+ </select>
+ 
+ <select id="getUltimaNovedad" parameterType="map"  resultMap="NovedadResult" >
+ 	select max(id) from novedad
+ </select>
+ 
+ <insert id="agregarNovedad" parameterType="map">
+ 	inser into novedad (id,fechanovedad,descripcion,justificacion,equipo,elemento)
+ 	value (#{idNov},#{fechaNov},#{desc},#{just},#{idEquipo},#{idElem})
+ </insert>
+
 	<resultMap type='Novedad' id='NovedadResult'>
 	    <id property='id' column='id_novedad'/>
 	    <result property="fechaNovedad" column="fechanovedad"></result>

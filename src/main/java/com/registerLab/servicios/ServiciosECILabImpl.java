@@ -14,6 +14,7 @@ import com.registerLab.DAO.NovedadDAO;
 import com.registerLab.DAO.UsuarioDAO;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Novedad;
 import com.registerLab.entities.Usuario;
 
 public  class ServiciosECILabImpl implements ServiciosECILab{
@@ -54,6 +55,26 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	
 	public void asociarElemento(ArrayList<Elemento>elementos,int idequipo) throws ECILabException{
 		equipo.asociarElemento(elementos, idequipo);
+	}
+	
+	public void AgregarNovedad(int id,Date fechaNovedad,String descripcion,String justificacion,int idEquipo,int idElemento) throws ECILabException {
+		
+		novedad.agregarNovedad(id, fechaNovedad, descripcion, justificacion, idEquipo, idElemento);
+	}
+
+	@Override
+	public Novedad getNovedad(int id) throws ECILabException  {
+		return novedad.getNovedad(id);
+	}
+	
+	@Override
+	public int getUltimaNovedad() {
+		return novedad.getUltimaNovedad();
+	}
+	
+	@Override
+	public void cambioAsociacionElemento(int idElemento, int IdEquipoN) throws ECILabException {
+		equipo.cambioAsociacionElemento(idElemento, IdEquipoN);
 	}
 
 	

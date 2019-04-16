@@ -18,6 +18,7 @@ public interface EquipoDAO{
 	
 	
 	void asociarElemento(ArrayList<Elemento> elemento,int idequipo)throws ECILabException;
-
+	
+	void cambioAsociacionElemento(int idElemento, int IdEquipoN)throws ECILabException;
 	
 }

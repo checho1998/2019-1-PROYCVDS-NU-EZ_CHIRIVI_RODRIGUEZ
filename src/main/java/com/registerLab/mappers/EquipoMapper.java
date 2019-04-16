@@ -19,4 +19,6 @@ public interface EquipoMapper {
 			@Param("feadq")Date fechaadquisicion);
 	
 	public void asociarElemento(@Param("Elementos") ArrayList<Elemento> elementos,@Param("idequi") int idequipo);
+
+	public void cambioAsociacionElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
 }

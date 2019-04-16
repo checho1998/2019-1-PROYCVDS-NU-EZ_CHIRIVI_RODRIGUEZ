@@ -22,6 +22,7 @@ public class ElementoBean extends BaseBeanRegisterLab{
 	private String fabricante;
 	private String referencia;
 	private java.util.Date fechaAdquisicion;
+	
 	public ElementoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
@@ -67,4 +68,5 @@ public class ElementoBean extends BaseBeanRegisterLab{
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}
 	}
+	
 }

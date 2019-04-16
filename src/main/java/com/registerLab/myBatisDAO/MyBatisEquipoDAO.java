@@ -10,6 +10,8 @@ import com.registerLab.ECILabException;
 
 import com.registerLab.DAO.EquipoDAO;
 
+import com.registerLab.myBatisDAO.MyBatisElementoDAO;
+
 import com.registerLab.entities.Elemento;
 
 import com.registerLab.entities.Equipo;
@@ -44,6 +46,11 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 		if (elemento.size() == 0) throw new ECILabException("No se encuentra ningun elemento");
 		
 		mapper.asociarElemento(elemento,idequipo);
+	}
+	@Override 
+	public void cambioAsociacionElemento(int idElemento, int IdEquipoN)throws ECILabException{
+		if(getEquipo(IdEquipoN) == null) throw new ECILabException("El equipo no se encuetra registrado");
+		mapper.cambioAsociacionElemento(idElemento, IdEquipoN);
 	}
 
 }

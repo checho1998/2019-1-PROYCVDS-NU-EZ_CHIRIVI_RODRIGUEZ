@@ -18,6 +18,11 @@
     	UPDATE elemento set equipo=#{idequi}
     	where id=#{Elementos.getIndex(0).id} and id=#{Elementos.getIndex(1).id} and id=#{Elementos.getIndex(2).id}
     </update>
+    
+    <update parameterType="map" id="cambioAsociacionElemento">
+    	UPDATE elemento set equipo=#{equipo}
+    	where id=#{elemento}
+    </update>
  
 	
 	<resultMap type='Equipo' id='EquipoResult'>

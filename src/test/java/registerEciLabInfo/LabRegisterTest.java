@@ -61,6 +61,10 @@ public class LabRegisterTest extends TestBase{
 				(idEle,idEq) -> {
 			try {
 				lab.AgregarElemento(idEle,"TORRE","LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
+			}catch(Exception e) {
+				
+			}
+			try {
 				lab.insertarEquipoSinLaboratorio(idEq, null,null, new Date(01,02,2017));
 			}catch(Exception e) {
 				

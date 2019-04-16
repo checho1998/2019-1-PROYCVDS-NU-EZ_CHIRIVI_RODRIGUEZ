@@ -13,6 +13,12 @@
 	<insert parameterType="map" id="insertarEquipoSinLaboratorio">
         INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq})
     </insert>
+    
+    <update parameterType="map" id="asociarElemento">
+    	UPDATE elemento set equipo=#{idequi}
+    	where id=#{Elementos.getIndex(0).id} and id=#{Elementos.getIndex(1).id} and id=#{Elementos.getIndex(2).id}
+    </update>
+ 
 	
 	<resultMap type='Equipo' id='EquipoResult'>
 	    <id property='id' column='id'/>

@@ -44,50 +44,28 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
+	<h:form id="m_from">
 	<h:panelGrid columns="2" cellpadding="8">
-				<p:outputLabel value="Digite el codigo del Equipo:" />
-				<p:inputText value="#{EquipoBean.id}" binding="#{id}" />
-	
-				<p:outputLabel value="Digite fecha de inicio de Actividad:" />
-				<input type="date" value="#{EquipoBean.fechaInicioActividad}" binding="#{feini}" />
-								
-				<p:outputLabel value="Digite fecha de Adquisicion:" />
-				<input type="date" value= "#{EquipoBean.fechaAdquisicion}" binding="#{fead}"/>
-				
-				 
-				 
-				<p:outputLabel value="Digite los elementos el cual va asociar a este equipo:" />
-					<br></br>
-					<p:outputLabel value="Digite el codigo de la torre: " />
-					<p:inputText value= "#{Elemento.id}" bingding="#{codTorre}"/>
-					<br></br>
+		
+		<p:outputLabel value="En este formulario realizara el registro de un equipo con su respectiva informacion:"></p:outputLabel>
+		<br></br>
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<br></br>		
+		<p:outputLabel value="Numero de Equipo:"></p:outputLabel>
+		<p:inputText value="#{EquipoBean.id}"></p:inputText>
+		<p:outputLabel value="Fecha de inicio de actividad:"></p:outputLabel>
+		<p:calendar value="#{EquipoBean.fechaInicioActividad}"></p:calendar>
+		<p:outputLabel value="Fecha de Adquisicion:"></p:outputLabel>
+		<p:calendar value="#{EquipoBean.fechaAdquisicion}"></p:calendar>
+		<br></br>
+		<br></br>
+		<center>
+		<h:commandLink value="Registrar elemento" actionListener="#{equiBean.registrarEquipo()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
+		</center>
 					
-										
-					<p:outputLabel value="Digite el codigo del monitor: " />
-					<p:inputText value= "#{Elemento.id}" bingding="#{codMonitor}"/>
-					<br></br>
-					
-					<p:outputLabel value="Digite el codigo del mouse: " />
-					<p:inputText value= "#{Elemento.id}" bingding="#{codMouse}"/>
-					<br></br>
-					
-					
-					
-					<p:outputLabel value="Digite el codigo del teclado: " />
-					<p:inputText value= "#{Elemento.id}" bingding="#{codTeclado}"/>
-					<br></br>
-					
-			</h:panelGrid>	
+	</h:panelGrid>			
+	</h:form>	
 			
-			<br></br>
 			
-			<p:commandButton outcome="registreEquipo" value = "Insertar equipo" 
-			
-				actionListener="#{equiBean.registrarEquipo(id.value,feini.value,fead.value)}" id="boton">
-				
-					<p:confirm header="Confirmacion" message="Acepta el Equipo?" />
-					
-				</p:commandButton>
-				
  </h:body>
 </html>

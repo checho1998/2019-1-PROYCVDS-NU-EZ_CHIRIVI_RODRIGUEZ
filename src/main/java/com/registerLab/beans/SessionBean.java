@@ -105,6 +105,16 @@ public class SessionBean extends BaseBeanRegisterLab{
 				FacesContext.getCurrentInstance().getExternalContext().redirect("registreEquipo.xhtml");
 			} catch (Exception e) {
 				e.printStackTrace();
+		
+			}
+		}
+		
+		public void asociarElemento() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("asociarElemento.xhtml");
+			} catch (Exception e) {
+				e.printStackTrace();
+		
 			}
 		}
 		

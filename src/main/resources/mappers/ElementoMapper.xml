@@ -7,14 +7,7 @@
 
 
 	<select id="getElemento" parameterType="map" resultMap="ElementoResult">
-		select id as id_elemento,
-		categoria,
-		fabricante,
-		referecia as referencia,
-		fechaadquisicion as fechaadquisicion_elemento,
-		fechainicioactividad as fechainicioactividad_elemento,
-		fechafinactividad as fechafinactividad_elemento
-		 from elemento where id=#{ElemId} 
+		select * from elemento where id=#{ElemId} 
 	</select>
 	
 	

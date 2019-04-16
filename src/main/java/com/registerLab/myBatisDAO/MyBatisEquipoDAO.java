@@ -28,7 +28,7 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	}
 
 	@Override
-	public void insertarEquipoSinLaboratorio(int id,java.util.Date fechainicioactividad,java.util.Date fechafinactividad,java.util.Date fechaadquisicion) 
+	public void insertarEquipoSinLaboratorio(int id,Date fechainicioactividad,Date fechafinactividad,Date fechaadquisicion) 
 			throws ECILabException{
 		
 		if(getEquipo(id)!=null) throw new ECILabException("Ya existe un equipo con esta id");

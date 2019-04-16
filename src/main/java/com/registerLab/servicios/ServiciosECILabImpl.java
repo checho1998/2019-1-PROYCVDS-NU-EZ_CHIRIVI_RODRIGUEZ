@@ -32,7 +32,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		return usuario.getUsuario(correo);
 	}
 	
-	public void insertarEquipoSinLaboratorio(int id,java.util.Date fechaInicioActividad,Date fechafinactividad,java.util.Date fechaAdquisicion) throws ECILabException {
+	public void insertarEquipoSinLaboratorio(int id,Date fechaInicioActividad,Date fechafinactividad,Date fechaAdquisicion) throws ECILabException {
 		equipo.insertarEquipoSinLaboratorio(id, fechaInicioActividad, fechafinactividad, fechaAdquisicion);
 	}
 	
@@ -55,6 +55,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void asociarElemento(ArrayList<Elemento>elementos,int idequipo) throws ECILabException{
 		equipo.asociarElemento(elementos, idequipo);
 	}
+
 	
 	
 	

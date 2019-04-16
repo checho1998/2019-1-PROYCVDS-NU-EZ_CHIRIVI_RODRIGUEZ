@@ -9,6 +9,7 @@ import java.sql.Date;
 
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
+import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
@@ -52,6 +53,29 @@ public class LabRegisterTest extends TestBase{
 				if(e.getMessage().equals("Categoria Erronea")) return !(t.equals("TORRE") || t.equals("PANTALLA") || t.equals("TECLADO") || t.equals("MOUSE"));
 			}
 			return lab.getElemento(id)!=null;
+		});
+	}
+	@Test
+	public void deberiaAsociarUnElementoAUnEquipo() {
+		qt().forAll(integers().allPositive(),integers().allPositive()).check(
+				(idEle,idEq) -> {
+			try {
+				lab.AgregarElemento(idEle,"TORRE","LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
+				lab.insertarEquipoSinLaboratorio(idEq, null,null, new Date(01,02,2017));
+			}catch(Exception e) {
+				
+			}
+			try {
+				lab.asociarElemento(idEle, idEq);
+			} catch (ECILabException e1) {
+				
+			}
+			Equipo equipo = lab.getEquipo(idEq);
+			for(Elemento e:equipo.getElementos()) {
+				if(e.getId()==idEle) return true;
+			}
+			return false;
+			
 		});
 	}
 }

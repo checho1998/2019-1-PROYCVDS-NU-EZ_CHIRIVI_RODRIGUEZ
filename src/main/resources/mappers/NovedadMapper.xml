@@ -18,7 +18,7 @@
  
  <insert id="agregarNovedad" parameterType="map">
  	inser into novedad (id,fechanovedad,descripcion,justificacion,equipo,elemento)
- 	value (#{idNov},#{fechaNov},#{desc},#{just},#{idEquipo},#{idElem})
+ 	select count(*)+1,#{idNov},#{fechaNov},#{desc},#{just},#{idEquipo},#{idElem} from novedad
  </insert>
 
 	<resultMap type='Novedad' id='NovedadResult'>

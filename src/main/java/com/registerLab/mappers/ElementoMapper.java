@@ -20,4 +20,6 @@ public interface ElementoMapper {
 			,@Param("fecFin") Date fechaFinActividad);
 	
 	public List<Elemento> consultarElementos();
+
+	public void desvincularElementos(@Param("categoria") String categoria,@Param("equipo") int id);
 }

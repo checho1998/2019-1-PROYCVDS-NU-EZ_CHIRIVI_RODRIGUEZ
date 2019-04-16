@@ -21,5 +21,7 @@ public interface ElementoDAO {
 			Date fechaFinActividad) throws ECILabException;
 
 	public List <Elemento> consultarElementos();
+
+	void desvincularElementos(String categoria, int id);
 }
 

@@ -3,6 +3,7 @@ package com.registerLab.myBatisDAO;
 import java.sql.Date;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.google.inject.Inject;
 
@@ -40,17 +41,17 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 		mapper.insertarEquipoSinLaboratorio(id, fechainicioactividad, fechafinactividad, fechaadquisicion);
 		
 	}
-	@Override
-	public void asociarElemento(ArrayList<Elemento> elemento, int idequipo) throws ECILabException{
-		
-		if (elemento.size() == 0) throw new ECILabException("No se encuentra ningun elemento");
-		
-		mapper.asociarElemento(elemento,idequipo);
-	}
 	@Override 
-	public void cambioAsociacionElemento(int idElemento, int IdEquipoN)throws ECILabException{
-		if(getEquipo(IdEquipoN) == null) throw new ECILabException("El equipo no se encuetra registrado");
-		mapper.cambioAsociacionElemento(idElemento, IdEquipoN);
+	public void asociarElemento(int idElemento, int IdEquipoN)throws ECILabException{
+		Equipo e = getEquipo(IdEquipoN);
+		if(e==null) throw new ECILabException("El equipo no se encuetra registrado");
+		if(e.getFechaFinActividad()!=null) throw new ECILabException("El equipo fue dado de baja, no se le pueden asociar elementos.");
+		mapper.asociarElemento(idElemento, IdEquipoN);
+	}
+
+	@Override
+	public List<Equipo> getEquipos() {
+		return mapper.getEquipos();
 	}
 
 }

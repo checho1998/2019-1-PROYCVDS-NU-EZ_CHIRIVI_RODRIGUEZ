@@ -3,6 +3,7 @@ package com.registerLab.mappers;
 import java.sql.Date;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -17,8 +18,8 @@ public interface EquipoMapper {
 			@Param("feiniact")Date fechainicioactividad,
 			@Param("fefinact")Date fechafinactividad,
 			@Param("feadq")Date fechaadquisicion);
-	
-	public void asociarElemento(@Param("Elementos") ArrayList<Elemento> elementos,@Param("idequi") int idequipo);
 
-	public void cambioAsociacionElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
+	public void asociarElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
+	
+	public List<Equipo> getEquipos();
 }

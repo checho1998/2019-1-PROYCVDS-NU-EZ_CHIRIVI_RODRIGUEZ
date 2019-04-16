@@ -7,7 +7,14 @@
 
 
 	<select id="getElemento" parameterType="map" resultMap="ElementoResult">
-		select * from elemento where id=#{ElemId} 
+		select id as id_elemento,
+		categoria,
+		fabricante,
+		referecia as referencia,
+		fechaadquisicion as fechaadquisicion_elemento,
+		fechainicioactividad as fechainicioactividad_elemento,
+		fechafinactividad as fechafinactividad_elemento
+	 	from elemento where id=#{ElemId} 
 	</select>
 	
 	
@@ -27,6 +34,9 @@
 		fechafinactividad as fechafinactividad_elemento
 		from elemento  
 	</select>
+	<update id="desvincularElementos" parameterType="map">
+		update elemento set equipo=NULL where equipo=#{equipo} and categoria=#{categoria}
+	</update>
 	
 	
 	<resultMap type='Elemento' id='ElementoResult'>

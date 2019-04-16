@@ -45,55 +45,32 @@ xmlns:p="http://primefaces.org/ui">
  		</div>
 	</h:form>
 	
-	<h:form>
-		<h:panelGrid columns="2" cellpadding="8">
-			<p:outputLabel value="En este formulario usted podra modificar o agregar una asociacion a un elemento"></p:outputLabel>
-			<br></br>
-			<br></br>
-			<center><p:outputLabel style="color:red;">Agregar una nueva asociacion a un elemento</p:outputLabel></center>
-			<br></br>
-			<p:outputLabel value="***Recuerde que para agregar una nueva asociacion el equipo y elementos deben estar previamente registrados***"></p:outputLabel>
-			<br></br>
-			<p:outputLabel value="Numero de codigo del equipo a asociar:"></p:outputLabel>
-			<p:inputText value="#{equiBean.id}" ></p:inputText>
-			<p:outputLabel value="Numero de codido de la torre:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
-			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
-			<br></br>
-			<p:outputLabel value="Numero de codido de la pantalla:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
-			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
-			<br></br>
-			<p:outputLabel value="Numero de codido de la mouse:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
-			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
-			<br></br>
-			<p:outputLabel value="Numero de codido del teclado:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
-			<p:growl id="growl" showDetail="true" sticky="true" />
-			<br></br>
-			<h:commandLink value="Asociar Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
-			
-			
-			<center><p:outputLabel style="color:red;">----------------------------------------------------------------------------------------------------</p:outputLabel></center>
-			
-			<center><p:outputLabel style="color:red;">Modificar una asociacion de un elemento.</p:outputLabel></center>
-			<p:outputLabel value="***Recuerde que para agregar una nueva asociacion el equipo y elementos deben estar previamente registrados***" ></p:outputLabel>
-			<br></br>
-			<p:outputLabel value="Numero de codigo del equipo a asociar:"></p:outputLabel>
-			<p:inputText value="#{equiBean.id}" ></p:inputText>
-			<p:outputLabel value="Numero de codigo del equipo a retirar la asociacion:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idAnt}" ></p:inputText>
-			<p:outputLabel value="Numero de codido del elemento:"></p:outputLabel>
-			<p:inputText value="#{equiBean.idElemento}" ></p:inputText>
-			<p:outputLabel value="Razon de la modificacion de la asociacion del elemento:"></p:outputLabel>
-			<p:inputText value="#{equiBean.descripcion}" maxlength="200" size="50" ></p:inputText>
-			<p:growl id="growl1" showDetail="true" sticky="true" />
-			<br></br>
-			<h:commandLink value="Modificar Asociacion del Elemento" actionListener="#{equiBean.asociarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
-			<br></br>
-		
-		</h:panelGrid>
+	<h:form id="m_form">
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		<h:outputLabel value="Id equipo:"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{asoBean.idEquipo}"></h:inputText>
+		<br></br>
+		<h:outputLabel value="Id elemento"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{asoBean.idElemento}"></h:inputText>
+		<br></br>
+		<h:commandLink value="Asociar" actionListener="#{asoBean.asociarElemento()}" update="m_form"></h:commandLink>
+		<br></br>
+		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
+			<p:column headerText="Id equipo">${elm.getId()}</p:column>
+			<p:column headerText="fabricante">${elm.getFabricante()}</p:column>
+			<p:column headerText="refrencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
+		</p:dataTable>
+		<p:dataTable value="#{asoBean.getEquipos()}" var="equ">
+			<p:column headerText="Id equipo">${equ.getId()}</p:column>
+			<p:column>
+				<p:dataTable value="${equ.getElementos()}" var="mel">
+					<p:column>${mel.getId()}</p:column>
+				</p:dataTable>
+			</p:column>
+		</p:dataTable>
 	</h:form>
 
 </h:body>

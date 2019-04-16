@@ -29,5 +29,7 @@ public interface ServiciosECILab {
 	
 	public int getUltimaNovedad();
 	
-	public void cambioAsociacionElemento(int idElemento, int IdEquipoN) throws ECILabException;
+	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
+	
+	public List<Equipo> getEquipos();
 }

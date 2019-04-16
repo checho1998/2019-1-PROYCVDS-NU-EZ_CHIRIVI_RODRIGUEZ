@@ -43,5 +43,11 @@ public class MyBatisElementoDAO implements ElementoDAO{
 		return mapper.consultarElementos();
 		
 	}
+
+	@Override
+	public void desvincularElementos(String categoria, int id) {
+		mapper.desvincularElementos(categoria,id);
+		
+	}
 	
 }

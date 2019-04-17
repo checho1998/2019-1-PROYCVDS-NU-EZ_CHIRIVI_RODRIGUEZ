@@ -32,6 +32,9 @@ public interface ServiciosECILab {
 	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException;
 	
 	public List<Equipo> getEquipos();
+	
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
+
 	public void registrarUsuario(int carnet,String nombre,String apellido,String correo,String rol,String contra);
+	
 }

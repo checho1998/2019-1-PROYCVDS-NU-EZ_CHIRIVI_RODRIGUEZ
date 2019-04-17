@@ -87,7 +87,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
 	
-
+	
 	@Override
 	public List<Equipo> getEquipos() {
 		return equipo.getEquipos();

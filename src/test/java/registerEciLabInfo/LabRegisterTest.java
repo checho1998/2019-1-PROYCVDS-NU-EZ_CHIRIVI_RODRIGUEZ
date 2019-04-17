@@ -85,15 +85,23 @@ public class LabRegisterTest extends TestBase{
 	@Test
 	public void deberiaRegistrarNovedad() {
 		try {
-			lab.registrarUsuario(-1, "juan", "pal", "juan@mail.escuelaing.edu.co", "admin", "kl");
+			lab.registrarUsuario(15, "juan", "pal", "juan@mail.escuelaing.edu.co", "admin", "kl");
+		}catch(Exception e) {
+			
+		}
+		try {
 			lab.AgregarElemento(-1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,null);
+		}catch(Exception e) {
+			
+		}
+		try {
 			lab.insertarEquipoSinLaboratorio(-1, new Date(2, 3, 2019),null,null);
 		}catch(Exception e) {
 			
 		}
 		qt().forAll(strings().allPossible().ofLength(50)).check(novedad->{
 			try {
-				lab.AgregarNovedad(novedad, novedad, -1, -1, -1);
+				lab.AgregarNovedad(novedad, novedad, -1, -1, 15);
 			} catch (ECILabException e) {
 				return false;
 			}

@@ -1,5 +1,14 @@
 # 2019-1-PROYCVDS-NUNEZ_CHIRIVI_RODRIGUEZ_SANCHEZ
 
+* Integrantes:
+	- Daniel Felipe Rodriguez Villalba
+	- Jimmy Armando Chirivi Nivia
+	- Jeisson Geovanny Sanchez Ramos
+	- Sergio Alejandro Nuñez Mendivelso
+	
+-----------------------------------------------------------------------------------
+
+
 BASE DE DATOS: 
 
 Host:  ec2-50-17-246-114.compute-1.amazonaws.com
@@ -26,11 +35,16 @@ Heroku CLI:  heroku pg:psql postgresql-colorful-25022 --app proyecto-test-cdvs
 Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
 
 
-Para iniciar secion en la app:
+-----------------------------------------------------------------------------------
+
+
+Para iniciar sesión en la app:
 
 Email: jeisson.sanchez@mail.escuelaing.edu.co
 
 Password:pw
+
+-----------------------------------------------------------------------------------
 
 
 ![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)

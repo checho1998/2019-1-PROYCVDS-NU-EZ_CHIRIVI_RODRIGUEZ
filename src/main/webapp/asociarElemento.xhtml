@@ -72,6 +72,7 @@ xmlns:p="http://primefaces.org/ui">
 		</p:dataTable>
 		<p:dataTable value="#{asoBean.getEquipos()}" var="equ">
 			<p:column headerText="Id equipo">${equ.getId()}</p:column>
+			<p:column headerText="Activo">${equ.getFechaFinActividad() eq null}</p:column>
 			<p:column headerText="Elementos asociados">
 				<p:dataTable value="${equ.getElementos()}" var="mel">
 					<p:column>${mel.getId()}</p:column>

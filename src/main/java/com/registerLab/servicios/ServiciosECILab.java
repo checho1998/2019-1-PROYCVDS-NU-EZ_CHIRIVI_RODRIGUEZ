@@ -23,13 +23,15 @@ public interface ServiciosECILab {
 	
 	public Novedad getNovedad(int id) throws ECILabException;
 	
-	public void AgregarNovedad(int id,Date fechaNovedad,String descripcion,String justificacion,int idEquipo,int idElemento) throws ECILabException;
+	public void AgregarNovedad(String descripcion,String justificacion,int idEquipo,int idElemento,int usuario) throws ECILabException;
 	
 	public void AgregarElemento(int id, String categoria, String fabricante, String referencia, Date fechaAdquisicion, Date fechaInicioActividad, Date fechaFinActivida) throws ECILabException; 
 	
 	public int getUltimaNovedad();
 	
-	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
+	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException;
 	
 	public List<Equipo> getEquipos();
+	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
+	public void registrarUsuario(int carnet,String nombre,String apellido,String correo,String rol,String contra);
 }

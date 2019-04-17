@@ -7,6 +7,9 @@
 	<select id="getUsuario" parameterType="map" resultMap="UsuarioResult">
 		SELECT * FROM usuario WHERE correo=#{Correo}
 	</select>
+	<insert id="registrarUsuario" parameterType="map">
+		insert into usuario values(#{carnet},#{nombre},#{apellido},#{correo},#{rol},#{contra})
+	</insert>
 	<resultMap type='Usuario' id='UsuarioResult'>
 	    <id property='id' column='carnet'/>
 	    <result property="nombre" column="nombre"></result>

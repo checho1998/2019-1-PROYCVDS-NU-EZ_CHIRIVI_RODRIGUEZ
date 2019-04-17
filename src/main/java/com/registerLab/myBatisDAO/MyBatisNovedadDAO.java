@@ -18,11 +18,10 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 	}
 	
 	@Override
-	public void agregarNovedad(int id,Date fechaNovedad,String descripcion,String justificacion,int idEquipo, int idElemento) throws ECILabException {
+	public void agregarNovedad(String descripcion,String justificacion,int idEquipo, int idElemento,int usuario) throws ECILabException {
 		if(justificacion =="" || justificacion== null) throw new ECILabException("No se puede agregar, debido a que no hay justificacion");
-		if(getNovedad(id) != null ) throw new ECILabException("Ya existe una novedad con este codigo");
-		if(justificacion =="" || justificacion== null) throw new ECILabException("No se puede agregar, debido a que no hay descripcion");
-		mapper.agregarNovedad(id, fechaNovedad, descripcion, justificacion,idEquipo,idElemento);
+		if(descripcion =="" || descripcion== null) throw new ECILabException("No se puede agregar, debido a que no hay descripcion");
+		mapper.agregarNovedad(descripcion, justificacion,idEquipo,idElemento,usuario);
 		
 	}
 	

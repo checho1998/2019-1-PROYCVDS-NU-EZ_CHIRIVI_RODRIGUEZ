@@ -10,12 +10,12 @@ public interface NovedadMapper {
 	
 	public Novedad getNovedad(@Param("idNov") int id);
 	
-	public void agregarNovedad(@Param("idNov") int id,
-			@Param("fechaNov") Date fechaNovedad,
+	public void agregarNovedad(
 			@Param("desc") String descripcion,
 			@Param("just") String justificacion,
 			@Param("idEquipo") int idEquipo,
-			@Param("idElem") int idElemento);
+			@Param("idElem") int idElemento,
+			@Param("usuario")int usuario);
 	
 	public int getUltimaNovedad();
 }

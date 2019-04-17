@@ -2,8 +2,12 @@ package com.registerLab.beans;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import org.apache.shiro.SecurityUtils;
 
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
@@ -36,9 +40,10 @@ public class AsociarBean extends BaseBeanRegisterLab{
 	}
 	public void asociarElemento() {
 		try {
-			servicios.asociarElemento(idElemento, idEquipo);
+			servicios.asociarElemento(idElemento, idEquipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 		} catch (ECILabException e) {
-			e.printStackTrace();
+			FacesContext context = FacesContext.getCurrentInstance();
+	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}
 	}
 	public List<Equipo> getEquipos(){

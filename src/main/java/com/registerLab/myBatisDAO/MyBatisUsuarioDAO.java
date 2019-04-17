@@ -14,4 +14,10 @@ public class MyBatisUsuarioDAO implements UsuarioDAO{
 		return mapper.getUsuario(correo);
 	}
 
+	@Override
+	public void registrarUsuario(int carnet, String nombre, String apellido, String correo, String rol, String contra) {
+		mapper.registrarUsuario(carnet,nombre,apellido,correo,rol,contra);
+		
+	}
+
 }

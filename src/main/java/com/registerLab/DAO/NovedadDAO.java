@@ -12,10 +12,9 @@ public interface NovedadDAO {
 		public int getUltimaNovedad();
 		
 		public void agregarNovedad(
-		int id,
-		Date fechaNovedad,
 		String descripcion,
 		String justificacion,
 		int idEquipo,
-		int idElemento) throws ECILabException;
+		int idElemento,
+		int usuario) throws ECILabException;
 }

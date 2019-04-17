@@ -54,9 +54,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 	
 	
-	public void AgregarNovedad(int id,Date fechaNovedad,String descripcion,String justificacion,int idEquipo,int idElemento) throws ECILabException {
-		
-		novedad.agregarNovedad(id, fechaNovedad, descripcion, justificacion, idEquipo, idElemento);
+	public void AgregarNovedad(String descripcion,String justificacion,int idEquipo,int idElemento,int usuario) throws ECILabException {
+		novedad.agregarNovedad(descripcion, justificacion, idEquipo, idElemento,usuario);
 	}
 
 	@Override
@@ -70,6 +69,15 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 	
 	@Override
+	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException {
+		Elemento e = getElemento(idElemento);
+		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
+		if(e.getFechaFinActividad()!=null) throw new ECILabException("El elemento a sido dado de baja, este no puede ser vinculado a ningun equipo.");
+		if(equipo.getEquipo(IdEquipoN)==null) throw new ECILabException("No existe este equipo.");
+		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
+		equipo.asociarElemento(idElemento, IdEquipoN);
+		novedad.agregarNovedad("Asociacion elemento","completar equipo", IdEquipoN, idElemento,usuario);
+	}
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException {
 		Elemento e = getElemento(idElemento);
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
@@ -78,11 +86,18 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
+	
 
 	@Override
 	public List<Equipo> getEquipos() {
 		return equipo.getEquipos();
 	}
+
+	@Override
+	public void registrarUsuario(int carnet, String nombre, String apellido, String correo, String rol, String contra) {
+		usuario.registrarUsuario(carnet,nombre,apellido,correo,rol,contra);
+	}
+
 
 	
 	

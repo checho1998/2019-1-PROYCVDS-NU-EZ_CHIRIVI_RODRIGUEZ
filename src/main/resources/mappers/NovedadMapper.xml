@@ -17,8 +17,8 @@
  </select>
  
  <insert id="agregarNovedad" parameterType="map">
- 	inser into novedad (id,fechanovedad,descripcion,justificacion,equipo,elemento)
- 	select count(*)+1,#{idNov},#{fechaNov},#{desc},#{just},#{idEquipo},#{idElem} from novedad
+ 	insert into novedad (id,fechanovedad,descripcion,justificacion,equipo,elemento,usuario)
+ 	select count(*)+1,now(),#{desc},#{just},#{idEquipo},#{idElem},#{usuario} from novedad
  </insert>
 
 	<resultMap type='Novedad' id='NovedadResult'>

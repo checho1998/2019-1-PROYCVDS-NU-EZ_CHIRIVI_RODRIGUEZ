@@ -46,7 +46,7 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:growl id="growl" showDetail="true" sticky="true" />
+		<p:growl id="message" showDetail="true" sticky="true" />
 		<h:outputLabel value="Id equipo:"></h:outputLabel>
 		<br></br>
 		<h:inputText value="#{asoBean.idEquipo}"></h:inputText>
@@ -55,7 +55,13 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<h:inputText value="#{asoBean.idElemento}"></h:inputText>
 		<br></br>
-		<h:commandLink value="Asociar" actionListener="#{asoBean.asociarElemento()}" update="m_form"></h:commandLink>
+		<p:commandLink value="Asociar" actionListener="#{asoBean.asociarElemento()}" update="m_form">
+			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+		</p:commandLink>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+        	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+    	</p:confirmDialog>     
 		<br></br>
 		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
 			<p:column headerText="Id equipo">${elm.getId()}</p:column>

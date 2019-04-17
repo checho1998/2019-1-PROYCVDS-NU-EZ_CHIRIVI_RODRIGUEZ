@@ -12,11 +12,7 @@ Port:  5432
 
 Password:  15d8f7b361d043657ce55a3f5a42fdca7e6a2901db11dee4a89ede4969a47320
 
-Para iniciar secion:
 
-Email: jeisson.sanchez@mail.escuelaing.edu.co
-
-Password:pw
 
 -----------------------------------------------------------------------------------
 
@@ -29,6 +25,12 @@ Heroku CLI:  heroku pg:psql postgresql-colorful-25022 --app proyecto-test-cdvs
 
 Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
 
+
+Para iniciar secion en la app:
+
+Email: jeisson.sanchez@mail.escuelaing.edu.co
+
+Password:pw
 
 
 ![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)

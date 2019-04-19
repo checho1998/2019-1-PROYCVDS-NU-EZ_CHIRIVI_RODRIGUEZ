@@ -37,7 +37,10 @@
 	<update id="desvincularElementos" parameterType="map">
 		update elemento set equipo=NULL where equipo=#{equipo} and categoria=#{categoria}
 	</update>
+	<update id="darBaja" parameterType="map">
+		update elemento set fechafinactividad=now() where id=#{elemento}
 	
+	</update>
 	
 	<resultMap type='Elemento' id='ElementoResult'>
 	    <id property='id' column='id_elemento'/>

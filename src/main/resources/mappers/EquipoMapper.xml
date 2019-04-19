@@ -27,6 +27,11 @@
 		elemento.fechafinactividad as fechafinactividad_elemento 
 		From equipo left join elemento on elemento.equipo = equipo.id
 	</select>
+	<select id="equipoPoseElemento" resultType="java.lang.Boolean">
+		SELECT COUNT(*)
+		FROM elemento
+		WHERE id=#{id} and equipo is not null
+	</select>
 	
 	<insert parameterType="map" id="insertarEquipoSinLaboratorio">
         INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq})

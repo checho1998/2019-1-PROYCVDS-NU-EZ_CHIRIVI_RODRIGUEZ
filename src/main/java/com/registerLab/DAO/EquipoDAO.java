@@ -21,4 +21,6 @@ public interface EquipoDAO{
 	
 	List<Equipo> getEquipos();
 	
+	boolean equipoPoseElemento(int elemento);
+	
 }

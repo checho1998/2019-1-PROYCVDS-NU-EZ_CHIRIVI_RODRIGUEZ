@@ -37,4 +37,8 @@ public interface ServiciosECILab {
 
 	public void registrarUsuario(int carnet,String nombre,String apellido,String correo,String rol,String contra);
 	
+	public boolean equipoPoseElemento(int elemento);
+	
+	public void darBajaElemento(int elemento) throws ECILabException ;
+	
 }

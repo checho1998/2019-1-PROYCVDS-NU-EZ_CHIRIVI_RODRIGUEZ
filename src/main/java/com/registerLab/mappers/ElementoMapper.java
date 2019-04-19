@@ -22,4 +22,6 @@ public interface ElementoMapper {
 	public List<Elemento> consultarElementos();
 
 	public void desvincularElementos(@Param("categoria") String categoria,@Param("equipo") int id);
+
+	public void darBaja(@Param("elemento")int elemento);
 }

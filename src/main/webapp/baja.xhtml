@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+ <h:head><title>Asociar Elementos</title>
+  	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		.my_test li:hover{
+ 			background:#D3D3D3;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#778899;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		.temp{
+ 			font-size:20px;
+ 		}
+ 	</style>
+ </h:head>
+ 
+ <h:body style="margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:20%;"></img>
+ <br></br>
+<br></br>
+ 
+ 	<h:form>
+ 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 			<div style="text-align:right;">
+				<ul class="my_test">
+					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+				</ul>
+			</div>
+ 		</div>
+	</h:form>
+	
+	<h:form id="m_form">
+		<p:growl id="message" showDetail="true" sticky="true" />
+		<h:outputLabel value="Dar de baja a un elemento:"></h:outputLabel>
+		<br></br>
+		<h:outputLabel value="Id elemento"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{elemBajaBean.elemento}"></h:inputText>
+		<br></br>
+		<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja()}" update="m_form">
+			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+		</p:commandLink>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+        	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+    	</p:confirmDialog>     
+		<br></br>
+		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
+			<p:column headerText="Id elemento">${elm.getId()}</p:column>
+			<p:column headerText="fabricante">${elm.getFabricante()}</p:column>
+			<p:column headerText="refrencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
+			<p:column headerText="Activo">${elm.getFechaFinActividad() eq null}</p:column>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

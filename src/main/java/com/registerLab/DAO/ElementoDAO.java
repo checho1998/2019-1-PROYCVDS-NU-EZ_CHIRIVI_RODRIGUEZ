@@ -23,5 +23,7 @@ public interface ElementoDAO {
 	public List <Elemento> consultarElementos();
 
 	void desvincularElementos(String categoria, int id);
+
+	void darBaja(int elemento);
 }
 

@@ -82,7 +82,7 @@ public class LabRegisterTest extends TestBase{
 			
 		});
 	}
-	@Test
+	/*@Test
 	public void deberiaRegistrarNovedad() {
 		try {
 			lab.registrarUsuario(15, "juan", "pal", "juan@mail.escuelaing.edu.co", "admin", "kl");
@@ -108,5 +108,21 @@ public class LabRegisterTest extends TestBase{
 			return true;
 		});
 		
+	}*/
+	@Test
+	public void deberiaDarDeBajaAElementos() {
+		qt().forAll(integers().between(0, 5000)).check(id->{
+			try {
+				lab.AgregarElemento(id, "TORRE", "LENOVO", "IDEA",new Date(1,2,2015), null, null);
+			}catch(ECILabException e) {
+			}
+			try {
+				lab.darBajaElemento(id);
+				return true;
+			}catch(ECILabException e) {
+				Elemento elm = lab.getElemento(id);
+				return lab.equipoPoseElemento(id) || elm==null  || elm.getFechaFinActividad()!=null;
+			}
+		});
 	}
 }

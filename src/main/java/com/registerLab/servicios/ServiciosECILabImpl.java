@@ -97,6 +97,21 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void registrarUsuario(int carnet, String nombre, String apellido, String correo, String rol, String contra) {
 		usuario.registrarUsuario(carnet,nombre,apellido,correo,rol,contra);
 	}
+	
+	@Override
+	public boolean equipoPoseElemento(int elemento) {
+		return equipo.equipoPoseElemento(elemento);
+	}
+	@Override
+	public void darBajaElemento(int elemento) throws ECILabException {
+		Elemento elm = this.elemento.getElemento(elemento);
+		if(elm==null) throw new ECILabException("Este equipo debe no estar asociado a algun equipoebe existir elemento");
+		if(equipoPoseElemento(elemento)) throw new ECILabException("Este equipo debe no estar asociado a algun equipo");
+		if(elm.getFechaFinActividad()!=null)  throw new ECILabException("Este elemento ya fue dado de baja.");
+		this.elemento.darBaja(elemento);
+		
+		
+	}
 
 
 	

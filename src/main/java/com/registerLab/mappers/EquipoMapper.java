@@ -22,4 +22,6 @@ public interface EquipoMapper {
 	public void asociarElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
 	
 	public List<Equipo> getEquipos();
+	
+	public boolean equipoPoseElemento(int elemento);
 }

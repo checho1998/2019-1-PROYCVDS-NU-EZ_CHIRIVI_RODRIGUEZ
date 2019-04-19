@@ -49,5 +49,11 @@ public class MyBatisElementoDAO implements ElementoDAO{
 		mapper.desvincularElementos(categoria,id);
 		
 	}
+
+	@Override
+	public void darBaja(int elemento) {
+		mapper.darBaja(elemento);
+		
+	}
 	
 }

@@ -82,7 +82,7 @@ public class LabRegisterTest extends TestBase{
 			
 		});
 	}
-	/*@Test
+	@Test
 	public void deberiaRegistrarNovedad() {
 		try {
 			lab.registrarUsuario(15, "juan", "pal", "juan@mail.escuelaing.edu.co", "admin", "kl");
@@ -108,5 +108,5 @@ public class LabRegisterTest extends TestBase{
 			return true;
 		});
 		
-	}*/
+	}
 }

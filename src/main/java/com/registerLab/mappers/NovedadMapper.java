@@ -18,4 +18,6 @@ public interface NovedadMapper {
 			@Param("usuario")int usuario);
 	
 	public int getUltimaNovedad();
+
+	public void registrarNovedadSinEquipo(@Param("descripcion") String descripcion,@Param("justificacion") String justificacion,@Param("elemento") int elemento,@Param("usuario") int usuario);
 }

@@ -17,4 +17,6 @@ public interface NovedadDAO {
 		int idEquipo,
 		int idElemento,
 		int usuario) throws ECILabException;
+
+		public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario);
 }

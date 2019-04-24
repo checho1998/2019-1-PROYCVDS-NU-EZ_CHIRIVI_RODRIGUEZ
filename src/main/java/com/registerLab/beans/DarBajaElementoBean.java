@@ -5,6 +5,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.servicios.ServiciosECILabImpl;
@@ -28,7 +30,7 @@ public class DarBajaElementoBean extends BaseBeanRegisterLab{
 	public void darBaja() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
-			servicios.darBajaElemento(elemento);
+			servicios.darBajaElemento(elemento,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			context.addMessage(null, new FacesMessage("Succesfull","El elemento a sido dado de baja."));
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("error",e.getMessage()));

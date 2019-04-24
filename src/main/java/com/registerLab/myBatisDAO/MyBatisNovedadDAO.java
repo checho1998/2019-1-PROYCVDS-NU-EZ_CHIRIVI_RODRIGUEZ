@@ -29,5 +29,11 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 	public int getUltimaNovedad() {
 		return mapper.getUltimaNovedad();
 	}
+
+	@Override
+	public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario) {
+		mapper.registrarNovedadSinEquipo(descripcion,justificacion,elemento,usuario);
+		
+	}
 	
 }

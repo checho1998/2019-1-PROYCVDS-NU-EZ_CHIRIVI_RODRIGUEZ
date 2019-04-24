@@ -103,16 +103,19 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		return equipo.equipoPoseElemento(elemento);
 	}
 	@Override
-	public void darBajaElemento(int elemento) throws ECILabException {
+	public void darBajaElemento(int elemento,int usuario) throws ECILabException {
 		Elemento elm = this.elemento.getElemento(elemento);
 		if(elm==null) throw new ECILabException("Este equipo debe no estar asociado a algun equipoebe existir elemento");
 		if(equipoPoseElemento(elemento)) throw new ECILabException("Este equipo debe no estar asociado a algun equipo");
 		if(elm.getFechaFinActividad()!=null)  throw new ECILabException("Este elemento ya fue dado de baja.");
-		this.elemento.darBaja(elemento);
 		
+		this.elemento.darBaja(elemento);
+		registrarNovedadSinEquipo("dar de baja","Tiempo o daño",elemento,usuario);
 		
 	}
-
+	public void registrarNovedadSinEquipo(String descripcion,String justificacion,int elemento,int usuario){
+		novedad.registrarNovedadSinEquipo(descripcion,justificacion,elemento,usuario);
+	}
 
 	
 	

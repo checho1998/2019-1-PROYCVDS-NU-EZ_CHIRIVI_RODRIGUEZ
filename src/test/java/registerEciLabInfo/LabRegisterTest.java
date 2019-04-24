@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 import static org.quicktheories.QuickTheory.qt;
 import static org.quicktheories.generators.Generate.*;
 import static org.quicktheories.generators.SourceDSL.*;
+
+import org.junit.Before;
 import org.junit.Test;
 import java.sql.Date;
 
@@ -16,6 +18,17 @@ import com.registerLab.servicios.ServiciosECILabImpl;
 public class LabRegisterTest extends TestBase{
 	@Inject
 	private ServiciosECILabImpl lab;
+	@Before
+	public void setUp() {
+		try {
+			lab.registrarUsuario(1, "juan","pal", "juan@escuelaing.edu.co", "ad", "cl");
+			lab.AgregarElemento(1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,null);
+			lab.insertarEquipoSinLaboratorio(1, new Date(2, 3, 2019),null,null);
+		} catch (ECILabException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@Test
 	public void siUnEquipoNoExisteDeberiaPoderRegistrarlo() {
 		
@@ -81,19 +94,9 @@ public class LabRegisterTest extends TestBase{
 			return false;
 			
 		});
-	}
-	/*@Test
+	}*/
+	@Test
 	public void deberiaRegistrarNovedad() {
-		try {
-			lab.registrarUsuario(15, "juan", "pal", "juan@mail.escuelaing.edu.co", "admin", "kl");
-		}catch(Exception e) {
-			
-		}
-		try {
-			lab.AgregarElemento(-1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,null);
-		}catch(Exception e) {
-			
-		}
 		try {
 			lab.insertarEquipoSinLaboratorio(-1, new Date(2, 3, 2019),null,null);
 		}catch(Exception e) {
@@ -101,14 +104,14 @@ public class LabRegisterTest extends TestBase{
 		}
 		qt().forAll(strings().allPossible().ofLength(50)).check(novedad->{
 			try {
-				lab.AgregarNovedad(novedad, novedad, -1, -1, 15);
+				lab.AgregarNovedad(novedad, novedad, 1, 1, 1);
 			} catch (ECILabException e) {
 				return false;
 			}
 			return true;
 		});
 		
-	}*/
+	}
 	@Test
 	public void deberiaDarDeBajaAElementos() {
 		qt().forAll(integers().between(0, 5000)).check(id->{
@@ -117,7 +120,7 @@ public class LabRegisterTest extends TestBase{
 			}catch(ECILabException e) {
 			}
 			try {
-				lab.darBajaElemento(id);
+				lab.darBajaElemento(id,1);
 				return true;
 			}catch(ECILabException e) {
 				Elemento elm = lab.getElemento(id);

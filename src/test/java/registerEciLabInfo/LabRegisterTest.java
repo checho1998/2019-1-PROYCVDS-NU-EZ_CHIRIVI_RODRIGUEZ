@@ -25,8 +25,7 @@ public class LabRegisterTest extends TestBase{
 			lab.AgregarElemento(1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,null);
 			lab.insertarEquipoSinLaboratorio(1, new Date(2, 3, 2019),null,null);
 		} catch (ECILabException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 	}
 	@Test

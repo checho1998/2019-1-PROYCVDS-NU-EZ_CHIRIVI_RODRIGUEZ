@@ -94,7 +94,7 @@ public class LabRegisterTest extends TestBase{
 			return false;
 			
 		});
-	}*/
+	}
 	@Test
 	public void deberiaRegistrarNovedad() {
 		try {

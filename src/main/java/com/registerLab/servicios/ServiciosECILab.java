@@ -34,6 +34,8 @@ public interface ServiciosECILab {
 	public List<Equipo> getEquipos();
 	
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
+	
+	public void asociarEquipo(int idEquipo, int IdLaboratorioN) throws ECILabException;
 
 	public void registrarUsuario(int carnet,String nombre,String apellido,String correo,String rol,String contra);
 	
@@ -44,5 +46,7 @@ public interface ServiciosECILab {
 	public void registrarNovedadSinEquipo(String descripcion,String justificacion,int elemento,int usuario);
 	
 	public void darBajaEquipo(int equipo,int usuario) throws ECILabException ;
+
+	public void asociarEquipo(int idEquipo, int IdLaboratorioN, int usuario) throws ECILabException;
 	
 }

@@ -62,6 +62,9 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	@Override
 	public void darBaja(int equipo) {
 		mapper.darBaja(equipo);
+	}
+	
+	public void desvincularEquipo(int idEquipo) {
 		
 	}
 

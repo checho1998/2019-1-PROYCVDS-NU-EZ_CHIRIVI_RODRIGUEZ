@@ -17,5 +17,8 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	public Laboratorio getLaboratorio(int id) {
 		return mapper.getLaboratorio(id);
 	}
-
+	
+	public void asociarEquipo(int idEquipo, int idLaboratorioN) {	
+		
+	}
 }

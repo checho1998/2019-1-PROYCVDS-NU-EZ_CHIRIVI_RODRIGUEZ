@@ -20,6 +20,7 @@ import com.registerLab.servicios.ServiciosECILabImpl;
 public class AsociarBean extends BaseBeanRegisterLab{
 	private int idEquipo;
 	private int idElemento;
+	private int idLaboratorio;
 	private Injector injector;
 	private ServiciosECILabImpl servicios;
 	public AsociarBean() {
@@ -47,6 +48,17 @@ public class AsociarBean extends BaseBeanRegisterLab{
 	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}
 	}
+	
+	public void asociarEquipo() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			servicios.asociarEquipo(idEquipo, idLaboratorio,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			context.addMessage(null, new FacesMessage("Succesfull","se a asociado correctamente"));
+		} catch (ECILabException e) {
+	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
+		}
+	}
+	
 	public List<Equipo> getEquipos(){
 		return servicios.getEquipos();
 	}

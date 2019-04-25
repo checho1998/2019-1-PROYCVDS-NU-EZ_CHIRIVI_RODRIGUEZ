@@ -7,4 +7,6 @@ public interface LaboratorioDAO{
 
 	Laboratorio getLaboratorio(int id);
 
+	void asociarEquipo(int idEquipo, int idLaboratorioN);
+
 }

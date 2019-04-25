@@ -25,4 +25,7 @@ public interface EquipoDAO{
 	
 	
 	void darBaja(int equipo);
+
+	void desvincularEquipo(int idEquipo);
+	
 }

@@ -90,6 +90,26 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
 	
+	@Override
+	public void asociarEquipo(int idEquipo, int IdLaboratorioN,int usuario) throws ECILabException {
+		Equipo e = getEquipo(idEquipo);
+		if(e==null) throw new ECILabException("No existe el equipo a vincular.");
+		if(e.getFechaFinActividad()!=null) throw new ECILabException("El equipo a sido dado de baja, este no puede ser vinculado a ningun laboratorio.");
+		if(laboratorio.getLaboratorio(IdLaboratorioN)==null) throw new ECILabException("No existe este laboratorio.");
+		equipo.desvincularEquipo(idEquipo);
+		laboratorio.asociarEquipo(idEquipo,IdLaboratorioN);
+		novedad.agregarNovedad("Asociacion elemento","completar equipo", IdLaboratorioN, idEquipo,usuario);
+	}
+	
+	public void asociarEquipo(int idEquipo, int IdLaboratorioN) throws ECILabException {
+		Equipo e = getEquipo(idEquipo);
+		if(e==null) throw new ECILabException("No existe el equipo a vincular.");
+		if(e.getFechaFinActividad()!=null) throw new ECILabException("El equipo a sido dado de baja, este no puede ser vinculado a ningun laboratorio.");
+		if(laboratorio.getLaboratorio(IdLaboratorioN) == null) throw new ECILabException("No existe este laboratorio.");
+		equipo.desvincularEquipo(idEquipo);
+		laboratorio.asociarEquipo(idEquipo,IdLaboratorioN);
+	}
+	
 	
 	@Override
 	public List<Equipo> getEquipos() {

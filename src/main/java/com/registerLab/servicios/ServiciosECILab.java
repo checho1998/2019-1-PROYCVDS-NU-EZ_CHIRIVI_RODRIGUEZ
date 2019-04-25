@@ -40,6 +40,9 @@ public interface ServiciosECILab {
 	public boolean equipoPoseElemento(int elemento);
 	
 	public void darBajaElemento(int elemento,int usuario) throws ECILabException ;
+	
 	public void registrarNovedadSinEquipo(String descripcion,String justificacion,int elemento,int usuario);
+	
+	public void darBajaEquipo(int equipo,int usuario) throws ECILabException ;
 	
 }

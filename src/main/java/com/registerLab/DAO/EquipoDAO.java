@@ -23,4 +23,6 @@ public interface EquipoDAO{
 	
 	boolean equipoPoseElemento(int elemento);
 	
+	
+	void darBaja(int equipo);
 }

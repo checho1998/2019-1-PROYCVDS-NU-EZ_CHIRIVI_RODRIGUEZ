@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://xmlns.jcp.org/jsf/html"
 xmlns:p="http://primefaces.org/ui">
- <h:head><title>Asociar Elementos</title>
+ <h:head><title>Dar de baja Elementos</title>
   	<style type="text/css">
  		.my_test li{
  			display:inline;
@@ -63,10 +63,10 @@ xmlns:p="http://primefaces.org/ui">
     	</p:confirmDialog>     
 		<br></br>
 		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
-			<p:column headerText="Id elemento">${elm.getId()}</p:column>
-			<p:column headerText="fabricante">${elm.getFabricante()}</p:column>
-			<p:column headerText="refrencia">${elm.getReferencia()}</p:column>
-			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
+			<p:column headerText="Id Elemento">${elm.getId()}</p:column>
+			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
+			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
 			<p:column headerText="Activo">${elm.getFechaFinActividad() eq null}</p:column>
 		</p:dataTable>
 	</h:form>

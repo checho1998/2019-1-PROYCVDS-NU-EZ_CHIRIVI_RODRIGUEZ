@@ -24,4 +24,6 @@ public interface EquipoMapper {
 	public List<Equipo> getEquipos();
 	
 	public boolean equipoPoseElemento(int elemento);
+	
+	public void darBaja(@Param("equipo")int equipo);
 }

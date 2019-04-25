@@ -41,7 +41,11 @@
     	UPDATE elemento set equipo=#{equipo}
     	where id=#{elemento}
     </update>
- 
+ 	
+ 	<update id="darBaja" parameterType="map">
+		update equipo set fechafinactividad=now() where id=#{equipo}
+	
+	</update>
 	
 	<resultMap type='Equipo' id='EquipoResult'>
 	    <id property='id' column='id'/>

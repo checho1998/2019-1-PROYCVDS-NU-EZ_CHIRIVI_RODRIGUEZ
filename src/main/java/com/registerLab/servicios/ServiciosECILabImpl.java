@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
 import com.registerLab.DAO.ElementoDAO;
@@ -78,6 +80,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		equipo.asociarElemento(idElemento, IdEquipoN);
 		novedad.agregarNovedad("Asociacion elemento","completar equipo", IdEquipoN, idElemento,usuario);
 	}
+	
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException {
 		Elemento e = getElemento(idElemento);
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
@@ -102,10 +105,11 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public boolean equipoPoseElemento(int elemento) {
 		return equipo.equipoPoseElemento(elemento);
 	}
+	
 	@Override
 	public void darBajaElemento(int elemento,int usuario) throws ECILabException {
 		Elemento elm = this.elemento.getElemento(elemento);
-		if(elm==null) throw new ECILabException("Este equipo debe no estar asociado a algun equipoebe existir elemento");
+		if(elm==null) throw new ECILabException("El elememento debe existir para poder eliminarlo");
 		if(equipoPoseElemento(elemento)) throw new ECILabException("Este equipo debe no estar asociado a algun equipo");
 		if(elm.getFechaFinActividad()!=null)  throw new ECILabException("Este elemento ya fue dado de baja.");
 		
@@ -113,11 +117,34 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		registrarNovedadSinEquipo("dar de baja","Tiempo o daño",elemento,usuario);
 		
 	}
+	
+	@Override
 	public void registrarNovedadSinEquipo(String descripcion,String justificacion,int elemento,int usuario){
 		novedad.registrarNovedadSinEquipo(descripcion,justificacion,elemento,usuario);
 	}
 
 	
-	
+	@Override
+	public void darBajaEquipo(int equipo,int usuario) throws ECILabException {
+		Equipo equi = this.equipo.getEquipo(equipo);
+		if(equi==null) throw new ECILabException("El equipo debe existir para poder eliminarlo");
+		if(equi.getFechaFinActividad()!=null)  throw new ECILabException("Este equipo ya fue dado de baja.");
+		if(equi.getElementos().size() != 0) {
+			for(Elemento e:equi.getElementos()) {
+				int input = JOptionPane.showConfirmDialog(null, "Quiere dar de baja el elemento numero " + e.getId() + "?", 
+						"Seleccione una opcion ",JOptionPane.YES_NO_CANCEL_OPTION);
+				if (input == 1) {
+					this.darBajaElemento(e.getId(), usuario);
+				}
+				else {
+					elemento.desvincularElementos(e.getCategoria(),equi.getId());
+				}
+			}
+		}
+		
+		this.equipo.darBaja(equipo);
+		
+		//novedad.re("Dado de baja", "Debido a un daño irreparable", equipo, usuario);
+	}
 	
 }

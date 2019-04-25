@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+
+ <h:head><title>Dar de baja Equipo</title>
+  	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		.my_test li:hover{
+ 			background:#D3D3D3;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#778899;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		.temp{
+ 			font-size:20px;
+ 		}
+ 	</style>
+ </h:head>
+ 
+ <h:body style="margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:20%;"></img>
+ <br></br>
+<br></br>
+ 
+ 	<h:form>
+ 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 			<div style="text-align:right;">
+				<ul class="my_test">
+					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+				</ul>
+			</div>
+ 		</div>
+	</h:form>
+	
+	<h:form id="m_form">
+		<p:growl id="message" showDetail="true" sticky="true" />
+		<h:outputLabel value="Dar de baja a un equipo:"></h:outputLabel>
+		<br></br>
+		<h:outputLabel value="Id Equipo"></h:outputLabel>
+		<br></br>
+		<h:inputText value="#{equiBajaBean.equipo}"></h:inputText>
+		<br></br>
+		<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja()}" update="m_form">
+			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+		</p:commandLink>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+        	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+    	</p:confirmDialog>     
+		<br></br>
+		<p:dataTable value="#{asoBean.getEquipos()}" var="equ">
+			<p:column headerText="Id equipo">${equ.getId()}</p:column>
+			<p:column headerText="Activo">${equ.getFechaFinActividad() eq null}</p:column>
+			<p:column headerText="Elementos asociados">
+				<p:dataTable value="${equ.getElementos()}" var="mel">
+					<p:column>${mel.getId()}</p:column>
+				</p:dataTable>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

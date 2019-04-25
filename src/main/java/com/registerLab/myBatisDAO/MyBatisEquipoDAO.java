@@ -58,5 +58,11 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	public boolean equipoPoseElemento(int elemento) {
 		return mapper.equipoPoseElemento(elemento);
 	}
+	
+	@Override
+	public void darBaja(int equipo) {
+		mapper.darBaja(equipo);
+		
+	}
 
 }

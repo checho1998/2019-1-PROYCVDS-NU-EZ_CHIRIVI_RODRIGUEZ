@@ -1,50 +1,51 @@
 package com.registerLab.beans;
 
 import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.ManagedBean;
+
 import javax.faces.bean.SessionScoped;
+
 import javax.faces.context.FacesContext;
 
 import org.apache.shiro.SecurityUtils;
 
 import com.google.inject.Injector;
+
 import com.registerLab.ECILabException;
+
 import com.registerLab.servicios.ServiciosECILabImpl;
 
-
-@ManagedBean(name="elemBajaBean")
+@ManagedBean(name="equiBajaBean")
 @SessionScoped
-public class DarBajaElementoBean extends BaseBeanRegisterLab{
+public class DarBajaEquipoBean extends BaseBeanRegisterLab{
 	private Injector injector;
 	private ServiciosECILabImpl servicios;
-	private int elemento;
+	private int equipo;
 	
-	public DarBajaElementoBean() {
+	public DarBajaEquipoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
 	}
 	
-	public void setElemento(int elemento) {
-		this.elemento = elemento;
+	public void setEquipo(int equipo) {
+		this.equipo = equipo;
 	}
 	
-	public int getElemento() {
-		return elemento;
+	public int getEquipo() {
+		return equipo;
 	}
 	
 	public void darBaja() {
-		
 		FacesContext context = FacesContext.getCurrentInstance();
-		
 		try {
-			servicios.darBajaElemento(elemento,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			context.addMessage(null, new FacesMessage("Succesfull","El elemento ha sido dado de baja."));
+			servicios.darBajaEquipo(equipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			context.addMessage(null, new FacesMessage("Succesfull","El equipo ha sido dado de baja."));
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("error",e.getMessage()));
 
 			
 		}
-		
 	}
 	
 	

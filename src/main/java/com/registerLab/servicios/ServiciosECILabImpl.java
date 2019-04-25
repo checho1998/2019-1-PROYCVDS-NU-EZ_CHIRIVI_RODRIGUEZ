@@ -57,7 +57,17 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	
 	
 	public void AgregarNovedad(String descripcion,String justificacion,int idEquipo,int idElemento,int usuario) throws ECILabException {
+		if(equipo.getEquipo(idEquipo)==null) throw new ECILabException("No existe el equipo.");
+		if(elemento.getElemento(idElemento)==null) throw new ECILabException("No existe el Elemento.");
+		if(!equipoPosee(equipo.getEquipo(idEquipo),idElemento)) throw new ECILabException("Equipo y elemento no se encuentran vinculados");
 		novedad.agregarNovedad(descripcion, justificacion, idEquipo, idElemento,usuario);
+	}
+
+	private boolean equipoPosee(Equipo equipo2, int idElemento) {
+		for(Elemento e:equipo2.getElementos()) {
+			if(e.getId()==idElemento) return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -111,6 +121,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 	
 	
+
 	@Override
 	public List<Equipo> getEquipos() {
 		return equipo.getEquipos();

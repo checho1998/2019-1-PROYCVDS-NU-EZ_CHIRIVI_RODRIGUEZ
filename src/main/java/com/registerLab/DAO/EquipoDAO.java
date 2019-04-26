@@ -17,6 +17,12 @@ public interface EquipoDAO{
 			Date fechafinactividad,
 			Date fechaAdquisicion)throws ECILabException;
 	
+	void insertarEquipo(int id,
+			Date fechaInicioActividad,
+			Date fechafinactividad,
+			Date fechaAdquisicion,
+			int lab)throws ECILabException;
+	
 	void asociarElemento(int idElemento, int IdEquipoN)throws ECILabException;
 	
 	List<Equipo> getEquipos();

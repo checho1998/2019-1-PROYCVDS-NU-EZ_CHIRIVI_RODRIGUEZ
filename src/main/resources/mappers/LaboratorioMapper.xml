@@ -4,11 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.registerLab.mappers.LaboratorioMapper">
+
 	<!-- 
 	Example consulta
 	Select id as id_laboratorio form laboratorio where ....
 	
 	 -->
+	 
+	 <update parameterType="map" id="asociarEquipo">
+    	UPDATE equipo set laboratorio = #{laboratorio}
+    	where id = #{equipo}
+    </update>
+    
 	<resultMap type='Laboratorio' id='LaboratorioResult'>
 	    <id property='id' column='id_laboratorio'/>
 	    <result property="nombre" column="nombre"></result>
@@ -16,4 +23,5 @@
 	    <result property="fechaCierre" column="fechacierre"></result>
 	    <collection property="equipos" resultMap="com.registerLab.mappers.EquipoMapper"/>       
 	</resultMap>
+	
 </mapper>

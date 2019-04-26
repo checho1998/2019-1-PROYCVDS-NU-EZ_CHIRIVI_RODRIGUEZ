@@ -18,6 +18,13 @@ public interface EquipoMapper {
 			@Param("feiniact")Date fechainicioactividad,
 			@Param("fefinact")Date fechafinactividad,
 			@Param("feadq")Date fechaadquisicion);
+	
+	public void insertarEquipo(
+			@Param("idE")int id,
+			@Param("feiniact")Date fechainicioactividad,
+			@Param("fefinact")Date fechafinactividad,
+			@Param("feadq")Date fechaadquisicion,
+			@Param("idL")int lab);
 
 	public void asociarElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
 	

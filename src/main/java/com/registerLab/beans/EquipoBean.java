@@ -103,7 +103,6 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 			context.addMessage(null, new FacesMessage("Succesfull","Equipo Insertado.") );
 			
 		}catch(Exception e){
-			
 			context.addMessage(null, new FacesMessage("Error","No es posible registrar el equipo") );			
 		}
 	}

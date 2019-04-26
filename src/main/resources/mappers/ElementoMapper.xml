@@ -34,9 +34,11 @@
 		fechafinactividad as fechafinactividad_elemento
 		from elemento  
 	</select>
+	
 	<update id="desvincularElementos" parameterType="map">
 		update elemento set equipo=NULL where equipo=#{equipo} and categoria=#{categoria}
 	</update>
+	
 	<update id="darBaja" parameterType="map">
 		update elemento set fechafinactividad=now() where id=#{elemento}
 	
@@ -51,4 +53,5 @@
 	    <result property="fechaInicioActividad" column="fechainicioactividad_elemento"/>
 	    <result property="fechaFinActividad" column="fechafinactividad_elemento"/>
 	</resultMap>
+	
 </mapper>

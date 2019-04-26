@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.registerLab.mappers.EquipoMapper">
+
 	<select id="getEquipo" parameterType="map" resultMap="EquipoResult">
 		SELECT equipo.id,equipo.fechainicioactividad,equipo.fechafinactividad,equipo.fechaadquisicion,
 		elemento.id as id_elemento,
@@ -16,6 +17,7 @@
 		From equipo left join elemento on elemento.equipo = equipo.id
 		WHERE equipo.id=#{id} 
 	</select>
+	
 	<select id="getEquipos" resultMap="EquipoResult">
 		SELECT equipo.id,equipo.fechainicioactividad,equipo.fechafinactividad,equipo.fechaadquisicion,
 		elemento.id as id_elemento,
@@ -27,6 +29,7 @@
 		elemento.fechafinactividad as fechafinactividad_elemento 
 		From equipo left join elemento on elemento.equipo = equipo.id
 	</select>
+	
 	<select id="equipoPoseElemento" resultType="java.lang.Boolean">
 		SELECT COUNT(*)
 		FROM elemento
@@ -35,6 +38,10 @@
 	
 	<insert parameterType="map" id="insertarEquipoSinLaboratorio">
         INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq})
+    </insert>
+    
+    <insert parameterType="map" id="insertarEquipo">
+        INSERT INTO equipo (id,fechainicioactividad, fechafinactividad , fechaadquisicion, laboratorio) VALUES (#{idE},#{feiniact},#{fefinact},#{feadq},#{idL})
     </insert>
     
     <update parameterType="map" id="asociarElemento">
@@ -54,4 +61,5 @@
 	    <result property="fechaAdquisicion" column="fechaadquisicion"></result>
 	    <collection property="elementos" resultMap="com.registerLab.mappers.ElementoMapper.ElementoResult"/>     
 	</resultMap>
+	
 </mapper>

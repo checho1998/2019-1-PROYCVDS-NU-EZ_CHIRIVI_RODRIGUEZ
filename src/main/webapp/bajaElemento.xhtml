@@ -47,28 +47,25 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:growl id="message" showDetail="true" sticky="true" />
-		<h:outputLabel value="Dar de baja a un elemento:"></h:outputLabel>
+		<p:growl id="message" showDetail="true" sticky="true"/>
+		<h:outputLabel value="  Dar de baja a un elemento:" style="font-size:30px;"></h:outputLabel>
 		<br></br>
-		<h:outputLabel value="Id elemento"></h:outputLabel>
-		<br></br>
-		<h:inputText value="#{elemBajaBean.elemento}"></h:inputText>
-		<br></br>
-		<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja()}" update="m_form">
-			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
-		</p:commandLink>
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
-        	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
-    	</p:confirmDialog>     
-		<br></br>
-		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
+		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm" rows="10" paginator="true">
 			<p:column headerText="Id Elemento">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
 			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
 			<p:column headerText="Activo">${elm.getFechaFinActividad() eq null}</p:column>
+			<p:column headerText="dar de baja:">
+				<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja(elm)}" update="@form">
+					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+				</p:commandLink>
+			</p:column>
 		</p:dataTable>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+        		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+    	</p:confirmDialog>   
 	</h:form>
 
 </h:body>

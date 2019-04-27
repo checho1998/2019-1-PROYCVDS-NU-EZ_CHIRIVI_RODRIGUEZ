@@ -72,7 +72,7 @@ xmlns:p="http://primefaces.org/ui">
 				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form"></h:commandLink>
 			</div>
 			<div>
-				<p:dataTable value="#{novBean.getNovedades()}" var="nov"  rows="20" paginator="true">
+				<p:dataTable value="#{novBean.getNovedades()}" var="nov"  rows="10" paginator="true">
 					<p:column headerText="id">${nov.getId()}</p:column>
 					<p:column headerText="descripcion">${nov.getDescripcion()}</p:column>
 					<p:column headerText="justificacion">${nov.getJustificacion()}</p:column>

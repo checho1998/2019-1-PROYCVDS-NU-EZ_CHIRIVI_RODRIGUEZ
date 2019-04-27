@@ -25,5 +25,6 @@ public interface ElementoDAO {
 	void desvincularElementos(String categoria, int id);
 
 	void darBaja(int elemento);
+	boolean elementoAsociadoaEquipo(int elemento);
 }
 

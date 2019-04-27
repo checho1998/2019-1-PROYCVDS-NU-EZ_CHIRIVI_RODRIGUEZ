@@ -55,5 +55,10 @@ public class MyBatisElementoDAO implements ElementoDAO{
 		mapper.darBaja(elemento);
 		
 	}
+
+	@Override
+	public boolean elementoAsociadoaEquipo(int elemento) {
+		return mapper.elementoAsociadoaEquipo(elemento);
+	}
 	
 }

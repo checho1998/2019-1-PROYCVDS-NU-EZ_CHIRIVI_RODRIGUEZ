@@ -84,6 +84,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException {
 		Elemento e = getElemento(idElemento);
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
+		if(elementoAsociadoaEquipo(idElemento)) throw new ECILabException("Este elemento ya se encuentra vinculado a otro equipo");
 		if(e.getFechaFinActividad()!=null) throw new ECILabException("El elemento a sido dado de baja, este no puede ser vinculado a ningun equipo.");
 		if(equipo.getEquipo(IdEquipoN)==null) throw new ECILabException("No existe este equipo.");
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
@@ -94,12 +95,17 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException {
 		Elemento e = getElemento(idElemento);
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
+		if(elementoAsociadoaEquipo(idElemento)) throw new ECILabException("Este elemento ya se encuentra vinculado a otro equipo");
 		if(e.getFechaFinActividad()!=null) throw new ECILabException("El elemento a sido dado de baja, este no puede ser vinculado a ningun equipo.");
 		if(equipo.getEquipo(IdEquipoN)==null) throw new ECILabException("No existe este equipo.");
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
 	
+	public boolean elementoAsociadoaEquipo(int elemento) {
+		return this.elemento.elementoAsociadoaEquipo(elemento);
+	}
+
 	@Override
 	public void asociarEquipo(int idEquipo, int IdLaboratorioN,int usuario) throws ECILabException {
 		Equipo e = getEquipo(idEquipo);

@@ -24,4 +24,6 @@ public interface ElementoMapper {
 	public void desvincularElementos(@Param("categoria") String categoria,@Param("equipo") int id);
 
 	public void darBaja(@Param("elemento")int elemento);
+
+	public boolean elementoAsociadoaEquipo(@Param("elemento")int elemento);
 }

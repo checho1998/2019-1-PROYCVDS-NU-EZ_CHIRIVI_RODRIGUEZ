@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -15,13 +17,16 @@ import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
+@SuppressWarnings("deprecation")
 @ManagedBean(name="asoBean")
-@SessionScoped
+@RequestScoped
 public class AsociarBean extends BaseBeanRegisterLab{
+	@ManagedProperty(value="#{param.idEquipo}")
 	private int idEquipo;
 	private int idElemento;
 	private int idLaboratorio;
 	private Injector injector;
+	private int equipo;
 	private ServiciosECILabImpl servicios;
 	public AsociarBean() {
 		injector = super.getInjector();
@@ -39,10 +44,11 @@ public class AsociarBean extends BaseBeanRegisterLab{
 	public int getIdElemento() {
 		return idElemento;
 	}
-	public void asociarElemento() {
+	public void asociarElemento(Elemento elm) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
-			servicios.asociarElemento(idElemento, idEquipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			System.out.println("id                 "+elm.getId()+" "+idEquipo);
+			servicios.asociarElemento(elm.getId(), idEquipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			context.addMessage(null, new FacesMessage("Succesfull","se a asociado correctamente"));
 		} catch (ECILabException e) {
 	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
@@ -61,5 +67,11 @@ public class AsociarBean extends BaseBeanRegisterLab{
 	
 	public List<Equipo> getEquipos(){
 		return servicios.getEquipos();
+	}
+	public Equipo getEquipo() {
+		return servicios.getEquipo(equipo);
+	}
+	public void setEquipo(int equipo) {
+		this.equipo = equipo;
 	}
 }

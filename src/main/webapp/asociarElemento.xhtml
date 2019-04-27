@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.org/ui">
  <h:head><title>Asociar Elementos</title>
   	<style type="text/css">
@@ -47,36 +48,13 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:growl id="message" showDetail="true" sticky="true" />
-		<h:outputLabel value="Id equipo:"></h:outputLabel>
-		<br></br>
-		<h:inputText value="#{asoBean.idEquipo}"></h:inputText>
-		<br></br>
-		<h:outputLabel value="Id elemento"></h:outputLabel>
-		<br></br>
-		<h:inputText value="#{asoBean.idElemento}"></h:inputText>
-		<br></br>
-		<p:commandLink value="Asociar" actionListener="#{asoBean.asociarElemento()}" update="m_form">
-			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
-		</p:commandLink>
-		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-        	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
-        	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
-    	</p:confirmDialog>     
-		<br></br>
-		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
-			<p:column headerText="Id elemento">${elm.getId()}</p:column>
-			<p:column headerText="fabricante">${elm.getFabricante()}</p:column>
-			<p:column headerText="refrencia">${elm.getReferencia()}</p:column>
-			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
-		</p:dataTable>
-		<p:dataTable value="#{asoBean.getEquipos()}" var="equ">
+		<p:dataTable value="#{asoBean.getEquipos()}" var="equ" rows="20" paginator="true">
 			<p:column headerText="Id equipo">${equ.getId()}</p:column>
 			<p:column headerText="Activo">${equ.getFechaFinActividad() eq null}</p:column>
-			<p:column headerText="Elementos asociados">
-				<p:dataTable value="${equ.getElementos()}" var="mel">
-					<p:column>${mel.getId()}</p:column>
-				</p:dataTable>
+			<p:column headerText="Revisar equipo">
+				<p:button outcome="elementos" value="Ver Equipo" >
+					<f:param name="idEquipo" value="${equ.getId()}" />
+				</p:button>
 			</p:column>
 		</p:dataTable>
 	</h:form>

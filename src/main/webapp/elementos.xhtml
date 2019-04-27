@@ -68,7 +68,7 @@ xmlns:p="http://primefaces.org/ui">
 		Selecciona los elementos a asociar:
 		<p:growl id="growl" showDetail="true" sticky="true" />
 		<br></br>
-    	<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elem" rows="20" paginator="true">
+    	<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elem" rows="10" paginator="true">
 		<p:column headerText="Codigo">
 			${elem.getId()}
 		</p:column>

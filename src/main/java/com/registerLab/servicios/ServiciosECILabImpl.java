@@ -97,7 +97,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
 		if(elementoAsociadoaEquipo(idElemento)) throw new ECILabException("Este elemento ya se encuentra vinculado a otro equipo");
 		if(e.getFechaFinActividad()!=null) throw new ECILabException("El elemento a sido dado de baja, este no puede ser vinculado a ningun equipo.");
-		if(equipo.getEquipo(IdEquipoN)==null) throw new ECILabException("No existe este equipo.");
+		Equipo eq =equipo.getEquipo(IdEquipoN); 
+		if(eq==null) throw new ECILabException("No existe este equipo.");
+		if(eq.getFechaFinActividad()!=null) throw new ECILabException("El equipo fue dado de baja, no se le pueden asociar elementos.");
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}

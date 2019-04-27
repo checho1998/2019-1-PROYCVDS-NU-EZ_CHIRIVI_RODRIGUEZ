@@ -26,6 +26,10 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.conf div{
+ 			float:left;
+ 			margin:8px;
+ 		}
  	</style>
  </h:head>
  
@@ -46,22 +50,35 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	<h:form id="m_form">
 		<p:growl id="growl" showDetail="true" sticky="true" />
-		<h:outputLabel value="Registro de novedades"></h:outputLabel>
-		<br></br>
-		<h:outputLabel value="Detalle:   "></h:outputLabel>
-		<h:inputText value="#{novBean.detalle}"></h:inputText>
-		<br></br>
-		<h:outputLabel value="Descripcion:   "></h:outputLabel>
-		<br></br>
-		<p:inputTextarea rows="6" cols="33" value="#{novBean.descripcion}"/>
-		<br></br>
-		<h:outputLabel value="Equipo: "></h:outputLabel>
-		<h:inputText value="#{novBean.detalle}"></h:inputText>
-		<br></br>
-		<h:outputLabel value="Elemento: "></h:outputLabel>
-		<h:inputText value="#{novBean.elemento}"></h:inputText>
-		<br></br>
-		<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form"></h:commandLink>
+			<h3 style="margin:10px;">Registrar Novedad</h3>
+			<br></br>
+			<div class="conf">
+			<div>
+				<h:outputLabel value="Registro de novedades"></h:outputLabel>
+				<br></br>
+				<h:outputLabel value="Detalle:   "></h:outputLabel>
+				<h:inputText value="#{novBean.detalle}"></h:inputText>
+				<br></br>
+				<h:outputLabel value="Descripcion:   "></h:outputLabel>
+				<br></br>
+				<p:inputTextarea rows="6" cols="33" value="#{novBean.descripcion}"/>
+				<br></br>
+				<h:outputLabel value="Equipo: "></h:outputLabel>
+				<h:inputText value="#{novBean.detalle}"></h:inputText>
+				<br></br>
+				<h:outputLabel value="Elemento: "></h:outputLabel>
+				<h:inputText value="#{novBean.elemento}"></h:inputText>
+				<br></br>
+				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form"></h:commandLink>
+			</div>
+			<div>
+				<p:dataTable value="#{novBean.getNovedades()}" var="nov"  rows="20" paginator="true">
+					<p:column headerText="id">${nov.getId()}</p:column>
+					<p:column headerText="descripcion">${nov.getDescripcion()}</p:column>
+					<p:column headerText="justificacion">${nov.getJustificacion()}</p:column>
+				</p:dataTable>
+			</div>
+			</div>
 	</h:form>
 				
  </h:body>

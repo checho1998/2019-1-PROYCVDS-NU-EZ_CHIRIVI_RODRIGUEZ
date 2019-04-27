@@ -1,6 +1,7 @@
 package com.registerLab.servicios;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.registerLab.ECILabException;
@@ -48,5 +49,7 @@ public interface ServiciosECILab {
 	public void darBajaEquipo(int equipo,int usuario) throws ECILabException ;
 
 	public void asociarEquipo(int idEquipo, int IdLaboratorioN, int usuario) throws ECILabException;
+	
+	public ArrayList<Novedad> getNovedades();
 	
 }

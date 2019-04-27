@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.org/ui">
  <h:head><title>Registrar Elementos</title>
   	<style type="text/css">
@@ -45,7 +46,7 @@ xmlns:p="http://primefaces.org/ui">
  		</div>
 	</h:form>
 	<h:form id="m_form">
-		<h:outputLabel value="Categoria de elemento: TORRE - MOUSE - TECLADO - PANTALLA"></h:outputLabel>
+		<h1>Registrar elemento</h1>
 		<br></br>
 		<h:outputLabel value="Numero de elemento:"></h:outputLabel>
 		<p:growl id="growl" showDetail="true" sticky="true" />
@@ -66,16 +67,22 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<h:outputLabel value="Categoria:"></h:outputLabel>
 		<br></br>
-		<h:inputText value="#{elmBean.categoria}"></h:inputText>
+		 <p:selectOneMenu id="categoria" value="#{elmBean.categoria}" style="width:150px">
+		 <f:selectItem itemLabel="TORRE" itemValue="TORRE" noSelectionOption="true" />
+		 <f:selectItem itemLabel="PANTALLA" itemValue="PANTALLA" noSelectionOption="true" />
+		 <f:selectItem itemLabel="MOUSE" itemValue="MOUSE" noSelectionOption="true" />
+		 <f:selectItem itemLabel="TECLADO" itemValue="TECLADO" noSelectionOption="true" />
+		 </p:selectOneMenu>
 		<br></br>
 		<br></br>
 		<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 		<br></br>
 		<br></br>
-		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm">
+		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm" rows="10" paginator="true">
 			<p:column headerText="Numeros">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
 			<p:column headerText="referencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
 			<p:column headerText="Fecha adquisicion:">${elm.getFechaAdquisicion()}</p:column>
 		</p:dataTable>
 	</h:form>

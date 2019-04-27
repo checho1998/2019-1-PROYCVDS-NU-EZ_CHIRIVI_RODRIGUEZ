@@ -1,5 +1,7 @@
 package com.registerLab.beans;
 
+import java.util.ArrayList;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -9,6 +11,7 @@ import org.apache.shiro.SecurityUtils;
 
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
+import com.registerLab.entities.Novedad;
 import com.registerLab.servicios.ServiciosECILabImpl;
 @ManagedBean(name="novBean")
 @SessionScoped
@@ -55,5 +58,8 @@ public class NovedadBean extends BaseBeanRegisterLab{
 		} catch (ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error","No fue posible realizar la insercion") );
 		}
+	}
+	public ArrayList<Novedad> getNovedades(){
+		return servicios.getNovedades();
 	}
 }

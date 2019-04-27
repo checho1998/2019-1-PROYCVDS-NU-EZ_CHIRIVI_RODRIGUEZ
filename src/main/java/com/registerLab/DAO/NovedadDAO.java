@@ -1,6 +1,7 @@
 package com.registerLab.DAO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Novedad;
@@ -19,4 +20,6 @@ public interface NovedadDAO {
 		int usuario) throws ECILabException;
 
 		public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario);
+		
+		public ArrayList<Novedad> getNovedades();
 }

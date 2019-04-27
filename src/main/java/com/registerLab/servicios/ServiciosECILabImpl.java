@@ -185,5 +185,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		
 		//novedad.re("Dado de baja", "Debido a un daño irreparable", equipo, usuario);
 	}
+
+	@Override
+	public ArrayList<Novedad> getNovedades() {
+		return novedad.getNovedades();
+	}
 	
 }

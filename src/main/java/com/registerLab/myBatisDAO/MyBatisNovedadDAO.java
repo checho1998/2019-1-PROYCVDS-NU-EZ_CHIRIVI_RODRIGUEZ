@@ -1,6 +1,7 @@
 package com.registerLab.myBatisDAO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
@@ -34,6 +35,9 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 	public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario) {
 		mapper.registrarNovedadSinEquipo(descripcion,justificacion,elemento,usuario);
 		
+	}
+	public ArrayList<Novedad> getNovedades(){
+		return mapper.getNovedades();
 	}
 	
 }

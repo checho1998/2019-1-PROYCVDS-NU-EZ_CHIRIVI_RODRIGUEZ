@@ -1,6 +1,7 @@
 package com.registerLab.mappers;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -18,6 +19,8 @@ public interface NovedadMapper {
 			@Param("usuario")int usuario);
 	
 	public int getUltimaNovedad();
+	
+	public ArrayList<Novedad> getNovedades();
 
 	public void registrarNovedadSinEquipo(@Param("descripcion") String descripcion,@Param("justificacion") String justificacion,@Param("elemento") int elemento,@Param("usuario") int usuario);
 }

@@ -5,7 +5,10 @@
 
   
 <mapper namespace="com.registerLab.mappers.NovedadMapper">
-
+	<select id="getNovedades" resultMap="NovedadResult" parameterType="map">
+		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
+		FROM NOVEDAD
+	</select>
  
  <select id="getNovedad" parameterType="map"  resultMap="NovedadResult">
  	select * from novedad 

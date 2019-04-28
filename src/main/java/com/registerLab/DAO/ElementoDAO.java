@@ -1,6 +1,7 @@
 package com.registerLab.DAO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.registerLab.entities.Elemento;
@@ -26,5 +27,7 @@ public interface ElementoDAO {
 
 	void darBaja(int elemento);
 	boolean elementoAsociadoaEquipo(int elemento);
+
+	ArrayList<Elemento> getElemento(String categoria);
 }
 

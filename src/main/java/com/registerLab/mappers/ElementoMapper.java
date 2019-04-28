@@ -1,6 +1,7 @@
 package com.registerLab.mappers;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -26,4 +27,6 @@ public interface ElementoMapper {
 	public void darBaja(@Param("elemento")int elemento);
 
 	public boolean elementoAsociadoaEquipo(@Param("elemento")int elemento);
+
+	public ArrayList<Elemento> getElementoPorCategoria(@Param("categoria") String categoria);
 }

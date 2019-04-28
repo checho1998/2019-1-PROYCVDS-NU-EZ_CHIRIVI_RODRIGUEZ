@@ -190,5 +190,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Novedad> getNovedades() {
 		return novedad.getNovedades();
 	}
+
+	public ArrayList<Elemento> getElementos(String categoria) {
+		return elemento.getElemento(categoria);
+	}
 	
 }

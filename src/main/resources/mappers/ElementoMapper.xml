@@ -9,6 +9,16 @@
 		FROM elemento
 		WHERE id=#{elemento} and equipo is not null
 	</select>
+	<select id="getElementoPorCategoria" parameterType="map" resultMap="ElementoResult">
+		select id as id_elemento,
+		categoria,
+		fabricante,
+		referecia as referencia,
+		fechaadquisicion as fechaadquisicion_elemento,
+		fechainicioactividad as fechainicioactividad_elemento,
+		fechafinactividad as fechafinactividad_elemento
+	 	from elemento where categoria=#{categoria} and fechafinactividad is null and equipo is null
+	</select>
 
 	<select id="getElemento" parameterType="map" resultMap="ElementoResult">
 		select id as id_elemento,

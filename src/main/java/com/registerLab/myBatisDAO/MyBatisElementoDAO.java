@@ -1,6 +1,7 @@
 package com.registerLab.myBatisDAO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.inject.Inject;
@@ -59,6 +60,11 @@ public class MyBatisElementoDAO implements ElementoDAO{
 	@Override
 	public boolean elementoAsociadoaEquipo(int elemento) {
 		return mapper.elementoAsociadoaEquipo(elemento);
+	}
+
+	@Override
+	public ArrayList<Elemento> getElemento(String categoria) {
+		return mapper.getElementoPorCategoria(categoria);
 	}
 	
 }

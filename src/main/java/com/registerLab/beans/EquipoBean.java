@@ -35,12 +35,48 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	private int idElemento;
 	private int idAnt;
 	private String descripcion;
+	private String categoria;
 	private ArrayList<Elemento> elementos;
 	
 	
 	public EquipoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
+		elementos = new ArrayList<Elemento>() {
+			@Override
+			public boolean add(Elemento e) {
+				if(e.getFechaFinActividad()==null || servicios.elementoAsociadoaEquipo(e.getId())) {
+					ArrayList<Elemento> toRemove = new ArrayList<>();
+					for(int i=0;i<size();i++) {
+						if(get(i).getCategoria().equals(e.getCategoria())) toRemove.add(get(i));
+					}
+					for(Elemento el:toRemove) {
+						remove(el);
+					}
+					return super.add(e);
+				}
+				else {
+					FacesContext context = FacesContext.getCurrentInstance();
+					context.addMessage(null, new FacesMessage("Succesfull","No fue posible añadir el elemento seleccionado") );
+					return false;
+				}
+			} 
+		};
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria=categoria;
+	}
+	public void add(Elemento e) {
+		elementos.add(e);
+	}
+	public ArrayList<Elemento> getElementos(String categoria) {
+		return servicios.getElementos(categoria);
+	}
+	public ArrayList<Elemento> getElementos() {
+		return elementos;
 	}
 	
 	public void setId(int id) {
@@ -97,13 +133,17 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 		try{
 			Date d=null; 
 			Date da=null;
+			if(elementos.size()<4) throw new ECILabException("Faltan elementos para registrar este equipo");
 			if(fechaAdquisicion!=null) d= new Date(fechaAdquisicion.getTime());
 			if(fechaInicioActividad!=null) da= new Date(fechaInicioActividad.getTime());
 			servicios.insertarEquipoSinLaboratorio(id, da, null, d);
+			for(Elemento e:elementos) {
+				servicios.asociarElemento(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			}
 			context.addMessage(null, new FacesMessage("Succesfull","Equipo Insertado.") );
-			
+			elementos.clear();
 		}catch(Exception e){
-			context.addMessage(null, new FacesMessage("Error","No es posible registrar el equipo") );			
+			context.addMessage(null, new FacesMessage("Error",e.getMessage()) );			
 		}
 	}
 	public void asociarElemento() {

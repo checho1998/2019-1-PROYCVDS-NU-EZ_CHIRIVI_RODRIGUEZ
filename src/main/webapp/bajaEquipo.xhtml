@@ -66,7 +66,7 @@ xmlns:p="http://primefaces.org/ui">
 				</p:dataTable>
 			</p:column>
 			<p:column headerText="Dar de baja:">
-				<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja(equ)}" update="@form" style="margin-right:20px;" styleClass="ui-priority-primary">
+				<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja(equ)}" update="@form" style="background:green; color:white; padding:10px;">
 					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 				</p:commandLink>
 				

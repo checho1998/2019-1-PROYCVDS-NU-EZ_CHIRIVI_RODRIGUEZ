@@ -79,11 +79,11 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<br></br>
 		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm" rows="10" paginator="true">
-			<p:column headerText="Numeros">${elm.getId()}</p:column>
-			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
-			<p:column headerText="referencia">${elm.getReferencia()}</p:column>
-			<p:column headerText="categoria">${elm.getCategoria()}</p:column>
-			<p:column headerText="Fecha adquisicion:">${elm.getFechaAdquisicion()}</p:column>
+			<p:column headerText="Numeros ">${elm.getId()}</p:column>
+			<p:column headerText="Fabricante ">${elm.getFabricante()}</p:column>
+			<p:column headerText="Referencia ">${elm.getReferencia()}</p:column>
+			<p:column headerText="Categoria ">${elm.getCategoria()}</p:column>
+			<p:column headerText="Fecha adquisicion ">${elm.getFechaAdquisicion()}</p:column>
 		</p:dataTable>
 	</h:form>
 				

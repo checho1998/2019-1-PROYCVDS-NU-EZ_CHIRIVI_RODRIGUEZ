@@ -69,7 +69,8 @@ xmlns:p="http://primefaces.org/ui">
 				<h:outputLabel value="Elemento: "></h:outputLabel>
 				<h:inputText value="#{novBean.elemento}"></h:inputText>
 				<br></br>
-				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form"></h:commandLink>
+				<br></br>
+				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			</div>
 			<div>
 				<p:dataTable value="#{novBean.getNovedades()}" var="nov"  rows="10" paginator="true">

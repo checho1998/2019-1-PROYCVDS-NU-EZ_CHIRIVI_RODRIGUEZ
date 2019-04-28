@@ -58,7 +58,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:outputLabel value="Fecha de Adquisicion:"></p:outputLabel>
 		<p:calendar value="#{equiBean.fechaAdquisicion}"></p:calendar>
 		<br></br>
-		<p:commandButton id="imageBtn" value="Registrar elemento" type="button" />
+		<p:commandButton id="imageBtn" value="Registrar un nuevo elemento" type="button" />
 	    <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
 			        <h1>Registrar elemento</h1>
 				<br></br>
@@ -95,7 +95,7 @@ xmlns:p="http://primefaces.org/ui">
 		</center>
 		</h:panelGrid>	
 		<div style="text-align:left;">
-		<h1>Elementos Viculado</h1>
+		<h1>Elementos Vinculados</h1>
 		<br></br>Nota:Para registrar el equipo es necesario que el equipo cuente con un elemento de cada categoria
 		<br></br>
 		<p:dataTable value="#{equiBean.getElementos()}" var="el">

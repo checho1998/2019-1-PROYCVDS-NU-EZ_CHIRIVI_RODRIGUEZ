@@ -57,7 +57,7 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
 			<p:column headerText="Activo">${elm.getFechaFinActividad() eq null}</p:column>
 			<p:column headerText="Dar de baja:">
-				<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja(elm)}" update="@form">
+				<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja(elm)}" update="@form" style="background:green; color:white; padding:10px;">
 					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 				</p:commandLink>
 			</p:column>

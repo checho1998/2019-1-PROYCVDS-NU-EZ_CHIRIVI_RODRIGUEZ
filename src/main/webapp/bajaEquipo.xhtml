@@ -48,16 +48,9 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:growl id="message" showDetail="true" sticky="true" />
-		<h:outputLabel value="Dar de baja a un equipo:"></h:outputLabel>
+		<p:growl id="message" showDetail="true" sticky="true"/>
+		<h:outputLabel value="  Dar de baja a un equipo:" style="font-size:30px;"></h:outputLabel>
 		<br></br>
-		<h:outputLabel value="Id Equipo"></h:outputLabel>
-		<br></br>
-		<h:inputText value="#{equiBajaBean.equipo}"></h:inputText>
-		<br></br>
-		<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja()}" update="m_form">
-			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
-		</p:commandLink>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
         	<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
         	<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
@@ -71,6 +64,12 @@ xmlns:p="http://primefaces.org/ui">
 					<p:column>${mel.getId()}</p:column>
 					<p:column>${mel.getCategoria()}</p:column>
 				</p:dataTable>
+			</p:column>
+			<p:column headerText="Dar de baja:">
+				<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja(equ)}" update="@form" style="margin-right:20px;" styleClass="ui-priority-primary">
+					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+				</p:commandLink>
+				
 			</p:column>
 		</p:dataTable>
 	</h:form>

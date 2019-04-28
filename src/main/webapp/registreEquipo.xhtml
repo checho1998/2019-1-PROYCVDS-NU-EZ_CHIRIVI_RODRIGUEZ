@@ -102,7 +102,7 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${el.getId()}</p:column>
 			<p:column headerText="Fabricante">${el.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${el.getReferencia()}</p:column>
-			<p:column headerText="Fabricante">${el.getCategoria()}</p:column>
+			<p:column headerText="Categoria">${el.getCategoria()}</p:column>
 		</p:dataTable>
 		<br></br>
 		 <p:selectOneMenu id="categoria_equ" value="#{equiBean.categoria}" style="width:150px">
@@ -118,8 +118,8 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dataTable value="#{equiBean.getElementos(equiBean.getCategoria())}" var="elemento" paginator="true" rows="10">
 			<p:column headerText="Id">${elemento.getId()}</p:column>
 			<p:column headerText="Fabricante">${elemento.getFabricante()}</p:column>
-			<p:column headerText="Categoria">${elemento.getReferencia()}</p:column>
-			<p:column headerText="add"><h:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></h:commandLink></p:column>
+			<p:column headerText="Referencia">${elemento.getReferencia()}</p:column>
+			<p:column headerText="Add"><h:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></h:commandLink></p:column>
 		</p:dataTable>
 		</div>
 		<br></br>

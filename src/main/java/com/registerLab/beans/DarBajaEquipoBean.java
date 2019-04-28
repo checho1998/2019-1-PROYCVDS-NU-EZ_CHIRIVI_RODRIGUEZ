@@ -13,7 +13,7 @@ import org.apache.shiro.SecurityUtils;
 import com.google.inject.Injector;
 
 import com.registerLab.ECILabException;
-
+import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 @ManagedBean(name="equiBajaBean")
@@ -36,12 +36,13 @@ public class DarBajaEquipoBean extends BaseBeanRegisterLab{
 		return equipo;
 	}
 	
-	public void darBaja() {
+	public void darBaja(Equipo eq) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
-			servicios.darBajaEquipo(equipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			servicios.darBajaEquipo(eq.getId(),servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			context.addMessage(null, new FacesMessage("Succesfull","El equipo ha sido dado de baja."));
 		}catch(ECILabException e) {
+			System.out.println(e.getMessage());
 			context.addMessage(null, new FacesMessage("error",e.getMessage()));
 
 			

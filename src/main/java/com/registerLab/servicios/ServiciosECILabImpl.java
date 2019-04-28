@@ -171,7 +171,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(equi.getElementos().size() != 0) {
 			for(Elemento e:equi.getElementos()) {
 				int input = JOptionPane.showConfirmDialog(null, "Quiere dar de baja el elemento numero " + e.getId() + "?", 
-						"Seleccione una opcion ",JOptionPane.YES_NO_CANCEL_OPTION);
+						"Seleccione una opción ",JOptionPane.YES_NO_CANCEL_OPTION);
 				if (input == 1) {
 					this.darBajaElemento(e.getId(), usuario);
 				}

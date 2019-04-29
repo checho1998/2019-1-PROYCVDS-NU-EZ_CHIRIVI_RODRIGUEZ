@@ -30,5 +30,7 @@ public interface ElementoDAO {
 	boolean elementoAsociadoaEquipo(int elemento);
 
 	ArrayList<Elemento> getElemento(String categoria);
+
+	ArrayList<Elemento> getElementosActivos();
 }
 

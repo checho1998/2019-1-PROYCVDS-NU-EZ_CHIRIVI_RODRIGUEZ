@@ -27,6 +27,23 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:orange;
+ 			color:white;
+ 		} 
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-paginator-page{
+ 			background:green;
+ 		}
+ 		.ui-button span{
+ 			color:white;
+ 			background:red;
+ 		}
  	</style>
  </h:head>
  
@@ -36,7 +53,7 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#4169E1; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>

@@ -58,4 +58,5 @@ public interface ServiciosECILab {
 	
 	public void desvincularElemento(Elemento e, Equipo eq);
 	
+	public ArrayList<Elemento> getElementosActivos();
 }

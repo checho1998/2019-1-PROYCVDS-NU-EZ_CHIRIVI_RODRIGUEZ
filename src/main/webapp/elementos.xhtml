@@ -26,6 +26,25 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:blue;
+ 			color:white;
+ 		} 
+ 		.ui-commandlink{
+ 			padding:10px;
+ 			background:green;
+ 		}
+ 		.ui-dialog-titlebar{
+ 			background:green;
+ 			color:white;
+ 		}
+ 		.ui-button span{
+ 			background:green;
+ 			color:white;
+ 		}
  	</style>
  </h:head>
  
@@ -35,7 +54,7 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:orange; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
@@ -49,7 +68,7 @@ xmlns:p="http://primefaces.org/ui">
 	#{asBeanN.setEquipo(asoBean.getIdEquipo())}
 	#{asoBean.setEquipo(asoBean.getIdEquipo())}
 	<table border="1" style="border-collapse: collapse; width:100%">
-	<tr><td colspan="2" style="background:#5F9EA0;"><center>Equipo</center></td></tr>
+	<tr><td colspan="2" style="background:red;"><center>Equipo</center></td></tr>
 	<tr><td>Id</td><td>#{asoBean.getEquipo().getId()}</td></tr>
 	<tr><td>Fecha inicio de actividad</td><td>#{asoBean.getEquipo().getFechaInicioActividad()}</td></tr>
 	<tr><td>Fecha Fin de actividad</td><td>#{asoBean.getEquipo().getFechaFinActividad()}</td></tr>
@@ -63,12 +82,14 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="id">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
 		</p:dataTable>
 		<br></br>
-		Selecciona los elementos a asociar:
+		<b>Selecciona los elementos a asociar:</b>
+		<br></br>
 		<p:growl id="growl" showDetail="true" sticky="true" />
 		<br></br>
-    	<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elem" rows="10" paginator="true">
+    	<p:dataTable value="#{elmBean.getElementosActivos()}" var="elem" rows="10" paginator="true">
 		<p:column headerText="Codigo">
 			${elem.getId()}
 		</p:column>
@@ -82,7 +103,7 @@ xmlns:p="http://primefaces.org/ui">
 			${elem.getCategoria()}
 		</p:column>
 		<p:column headerText="asociar elemento">
-			<p:commandLink value="asociar" actionListener="#{asBeanN.asociarElemento(elem.getId())}" update="@form">
+			<p:commandLink value="Asociar" actionListener="#{asBeanN.asociarElemento(elem.getId())}" update="@form" style="color:white;">
 				<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandLink>
 		</p:column>

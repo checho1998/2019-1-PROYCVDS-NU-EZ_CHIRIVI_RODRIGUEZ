@@ -27,6 +27,16 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:blue;
+ 			color:white;
+ 		} 
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
  	</style>
  </h:head>
  
@@ -35,7 +45,7 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1E90FF; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
@@ -61,7 +71,7 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<h:inputText value="#{elmBean.referencia}"></h:inputText>
 		<br></br>
-		<h:outputLabel value="fecha adquisicion:"></h:outputLabel>
+		<h:outputLabel value="Fecha adquisicion:"></h:outputLabel>
 		<br></br>
 		<p:calendar value="#{elmBean.fechaAdquisicion}"></p:calendar>
 		<br></br>

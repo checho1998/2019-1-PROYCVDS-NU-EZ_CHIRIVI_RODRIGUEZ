@@ -202,4 +202,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
+
+	public ArrayList<Elemento> getElementosActivos() {
+		return elemento.getElementosActivos();
+	}
 }

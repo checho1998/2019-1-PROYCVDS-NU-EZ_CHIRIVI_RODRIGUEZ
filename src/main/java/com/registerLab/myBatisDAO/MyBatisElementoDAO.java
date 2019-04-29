@@ -66,5 +66,10 @@ public class MyBatisElementoDAO implements ElementoDAO{
 	public ArrayList<Elemento> getElemento(String categoria) {
 		return mapper.getElementoPorCategoria(categoria);
 	}
+
+	@Override
+	public ArrayList<Elemento> getElementosActivos() {
+		return mapper.getElementosActivos();
+	}
 	
 }

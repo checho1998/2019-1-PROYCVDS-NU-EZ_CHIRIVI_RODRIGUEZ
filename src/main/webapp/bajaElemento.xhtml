@@ -26,6 +26,24 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:blue;
+ 			color:white;
+ 		} 
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		.ui-dialog-titlebar{
+ 			background:green;
+ 			color:white;
+ 		}
+ 		.ui-button span{
+ 			background:green;
+ 			color:white;
+ 		}
  	</style>
  </h:head>
  
@@ -35,7 +53,7 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#4169E1; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
@@ -48,9 +66,9 @@ xmlns:p="http://primefaces.org/ui">
 	
 	<h:form id="m_form">
 		<p:growl id="message" showDetail="true" sticky="true"/>
-		<h:outputLabel value="  Dar de baja a un elemento:" style="font-size:30px;"></h:outputLabel>
+		<h:outputLabel value="  Dar de baja a un elemento:" style="font-size:30px; padding:10px;"></h:outputLabel>
 		<br></br>
-		<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elm" rows="10" paginator="true">
+		<p:dataTable value="#{elmBean.getElementosActivos()}" var="elm" rows="10" paginator="true">
 			<p:column headerText="Id Elemento">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>

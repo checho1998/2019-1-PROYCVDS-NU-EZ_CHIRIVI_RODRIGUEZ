@@ -27,22 +27,15 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
  		.ui-datatable-tablewrapper table thead tr th{
- 			background:orange;
+ 			background:#DDA0DD;
  			color:white;
  		} 
  		.ui-datatable-data tr td{
  			background:white;
- 		}
- 		.ui-paginator{
- 			background:white;
- 		}
- 		.ui-paginator-page{
- 			background:green;
- 		}
- 		.ui-button span{
- 			color:white;
- 			background:red;
  		}
  	</style>
  </h:head>
@@ -53,7 +46,7 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#4169E1; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#DB7093; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
@@ -65,12 +58,11 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:dataTable value="#{asoBean.getEquipos()}" var="equ" rows="20" paginator="true">
-			<p:column headerText="Id equipo">${equ.getId()}</p:column>
-			<p:column headerText="Activo">${equ.getFechaFinActividad() eq null}</p:column>
-			<p:column headerText="Revisar equipo">
-				<p:button outcome="elementos" value="Ver Equipo" >
-					<f:param name="idEquipo" value="${equ.getId()}" />
+		<p:dataTable value="#{asoBean.getLaboratorios()}" var="equ" rows="20" paginator="true">
+			<p:column headerText="Id laboraorio">${equ.getId()}</p:column>
+			<p:column headerText="Revisar laboratorio">
+				<p:button outcome="equipos" value="Ver Laboratorio" >
+					<f:param name="idLaboratorio" value="${equ.getId()}" />
 				</p:button>
 			</p:column>
 		</p:dataTable>

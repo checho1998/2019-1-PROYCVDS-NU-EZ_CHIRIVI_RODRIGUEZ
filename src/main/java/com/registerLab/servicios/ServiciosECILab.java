@@ -55,6 +55,15 @@ public interface ServiciosECILab {
 	
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
 
+<<<<<<< HEAD
 	public List<Laboratorio> getLaboratorios();
+=======
+	public void darBajaConEquipoAsociado(Elemento e, Equipo eq);
 	
+	public void desvincularElemento(Elemento e, Equipo eq);
+
+	List<Laboratorio> getLaboratorios();
+>>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
+	
+	public ArrayList<Elemento> getElementosActivos();
 }

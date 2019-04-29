@@ -57,7 +57,7 @@
  	
  	<update id="darBaja" parameterType="map">
 		update equipo set fechafinactividad=now() where id=#{equipo}
-	
+
 	</update>
 	
 	<resultMap type='Equipo' id='EquipoResult'>

@@ -27,6 +27,23 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-datatable thead th{
+			background:blue;
+			color:white;
+		}
+		.ui-datatable tbody tr{
+			background:white;
+		}
+		.ui-paginator{
+			background:white;
+		}
+		.ui-paginator-pages{
+			
+		}
+		.ui-button{
+			color:white;
+			background:#1E90FF;
+		}
  	</style>
  </h:head>
  
@@ -35,7 +52,7 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:orange; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
@@ -95,10 +112,12 @@ xmlns:p="http://primefaces.org/ui">
 		</center>
 		</h:panelGrid>	
 		<div style="text-align:left;">
+		<br></br>
+		Ahora vincula elementos a tu equipo.
 		<h1>Elementos Vinculados</h1>
 		<br></br>Nota:Para registrar el equipo es necesario que el equipo cuente con un elemento de cada categoria
 		<br></br>
-		<p:dataTable value="#{equiBean.getElementos()}" var="el">
+		<p:dataTable value="#{equiBean.getElementos()}" var="el" class="perso">
 			<p:column headerText="Id">${el.getId()}</p:column>
 			<p:column headerText="Fabricante">${el.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${el.getReferencia()}</p:column>
@@ -113,7 +132,8 @@ xmlns:p="http://primefaces.org/ui">
 				 </p:selectOneMenu>
 		<h:commandButton value="Buscar elementos de esta categoria" update="@form"></h:commandButton>
 		<br></br>
-		#{equiBean.getCategoria()}
+		<b>Categoria: #{equiBean.getCategoria()}</b>
+		<br></br>
 		<br></br>
 		<p:dataTable value="#{equiBean.getElementos(equiBean.getCategoria())}" var="elemento" paginator="true" rows="10">
 			<p:column headerText="Id">${elemento.getId()}</p:column>

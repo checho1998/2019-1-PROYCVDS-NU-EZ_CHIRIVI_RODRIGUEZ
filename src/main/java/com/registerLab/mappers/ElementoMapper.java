@@ -29,4 +29,6 @@ public interface ElementoMapper {
 	public boolean elementoAsociadoaEquipo(@Param("elemento")int elemento);
 
 	public ArrayList<Elemento> getElementoPorCategoria(@Param("categoria") String categoria);
+
+	public ArrayList<Elemento> getElementosActivos();
 }

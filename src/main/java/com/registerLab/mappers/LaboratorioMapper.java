@@ -15,9 +15,15 @@ public interface LaboratorioMapper {
 	public void agregarLaboratorio(@Param("Id") int id,@Param("Nom") String nombre,@Param("capacidad") int capacidad,@Param("fecha") Date fechacierre);
 	
 	public void asociarEquipo(@Param("equipo")int idEquipo,@Param("laboratorio") int idLaboratorioN);
+<<<<<<< HEAD
 	
 	public List<Laboratorio> getLaboratorios();
 	
 	
 	
+=======
+
+	public List<Laboratorio> getLaboratorios();
+
+>>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

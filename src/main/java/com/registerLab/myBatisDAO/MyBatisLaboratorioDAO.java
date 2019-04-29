@@ -22,9 +22,13 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 		return mapper.getLaboratorio(id);
 	}
 	
-	public void asociarEquipo(int idEquipo, int idLaboratorioN) {	
-		
+	@Override
+	public void asociarEquipo(int idEquipo, int idLaboratorioN) throws ECILabException{
+		Laboratorio e = getLaboratorio(idLaboratorioN);
+		if(e==null) throw new ECILabException("El equipo no se encuetra registrado");
+		mapper.asociarEquipo(idEquipo, idLaboratorioN);	
 	}
+	
 	@Override
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException {
 		if (getLaboratorio(id) != null) throw new ECILabException ("Este laboratorio ya esta registrado");
@@ -34,9 +38,13 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	
 	@Override
 	public List<Laboratorio> getLaboratorios(){
+<<<<<<< HEAD
 		return mapper.getLaboratorios();
 	}
 	
 	
 	
+=======
+		return mapper.getLaboratorios();	}
+>>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

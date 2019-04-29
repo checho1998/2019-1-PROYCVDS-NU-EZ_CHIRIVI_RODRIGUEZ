@@ -33,7 +33,7 @@ public class AsociarBeanNext extends BaseBeanRegisterLab{
 		try {
 			System.out.println("id                 "+elm+" "+equipo);
 			servicios.asociarElemento(elm, equipo ,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			context.addMessage(null, new FacesMessage("Succesfull","se a asociado correctamente"));
+			context.addMessage(null, new FacesMessage("Succesfull","se ha asociado correctamente"));
 		} catch (ECILabException e) {
 	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}

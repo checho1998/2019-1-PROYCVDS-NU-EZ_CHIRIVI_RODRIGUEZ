@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
+import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 
@@ -38,5 +39,16 @@ public class DarBajaElementoBean extends BaseBeanRegisterLab{
 		
 	}
 	
+	public void darBajaConEquipoAsociado(Elemento elm,Equipo equ) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		servicios.darBajaConEquipoAsociado(elm,equ);
+		context.addMessage(null, new FacesMessage("Succesfull","El elemento ha sido dado de baja."));
+		
+	}
+	
+	public void desvincularElemento(Elemento elm,Equipo eq){
+		FacesContext context = FacesContext.getCurrentInstance();
+		servicios.desvincularElemento(elm,eq);
+	}
 	
 }

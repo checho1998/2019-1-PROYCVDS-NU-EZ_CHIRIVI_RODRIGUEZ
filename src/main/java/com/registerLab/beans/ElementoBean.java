@@ -3,8 +3,10 @@ package com.registerLab.beans;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
+import com.registerLab.entities.Elemento;
 import com.registerLab.servicios.ServiciosECILabImpl;
 import java.sql.Date;
+import java.util.ArrayList;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -67,6 +69,10 @@ public class ElementoBean extends BaseBeanRegisterLab{
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}	
+	}
+	public ArrayList<Elemento> getElementosActivos(){
+		return servicios.getElementosActivos();
+		
 	}
 	
 }

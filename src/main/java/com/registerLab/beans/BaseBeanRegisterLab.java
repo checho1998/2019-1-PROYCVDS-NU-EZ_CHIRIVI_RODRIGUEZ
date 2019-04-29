@@ -1,4 +1,4 @@
-package com.registerLab.beans;
+  package com.registerLab.beans;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;

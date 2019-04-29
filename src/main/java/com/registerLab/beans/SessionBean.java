@@ -128,6 +128,15 @@ public class SessionBean extends BaseBeanRegisterLab{
 			}
 		}
 		
+		public void asociarEquipo() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("asociarEquipo.xhtml");
+			} catch (Exception e) {
+				e.printStackTrace();
+		
+			}
+		}
+		
 		public void registrarEquipo( int id, Date fechainicioactividad, Date fechafinactividad , Date fechaadquisicion) {
 			try{
 				

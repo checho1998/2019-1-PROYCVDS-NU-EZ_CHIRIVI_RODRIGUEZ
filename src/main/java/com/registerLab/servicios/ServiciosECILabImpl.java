@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
 import com.registerLab.DAO.ElementoDAO;
@@ -135,7 +137,12 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Equipo> getEquipos() {
 		return equipo.getEquipos();
 	}
-
+	
+	@Override
+	public List<Laboratorio> getLaboratorios() {
+		return laboratorio.getLaboratorios();
+	}
+	
 	@Override
 	public void registrarUsuario(int carnet, String nombre, String apellido, String correo, String rol, String contra) {
 		usuario.registrarUsuario(carnet,nombre,apellido,correo,rol,contra);
@@ -154,8 +161,15 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(elm.getFechaFinActividad()!=null)  throw new ECILabException("Este elemento ya fue dado de baja.");
 		
 		this.elemento.darBaja(elemento);
-		registrarNovedadSinEquipo("dar de baja","Tiempo o daño",elemento,usuario);
+		registrarNovedadSinEquipo("Dar de baja","Tiempo o daño",elemento,usuario);
 		
+	}
+	
+	@Override
+	public void darBajaConEquipoAsociado(Elemento elemento, Equipo eq) {
+		this.elemento.darBaja(elemento.getId());
+		this.elemento.desvincularElementos(elemento.getCategoria(), eq.getId());
+		registrarNovedadSinEquipo("Dar de baja","Tiempo o daño",elemento.getId(),getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 	}
 	
 	@Override
@@ -169,23 +183,16 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		Equipo equi = this.equipo.getEquipo(equipo);
 		if(equi==null) throw new ECILabException("El equipo debe existir para poder eliminarlo");
 		if(equi.getFechaFinActividad()!=null)  throw new ECILabException("Este equipo ya fue dado de baja.");
-		if(equi.getElementos().size() != 0) {
-			for(Elemento e:equi.getElementos()) {
-				
-				int input = JOptionPane.showConfirmDialog(null, "Quiere dar de baja el elemento numero " + e.getId() + "?", 
-						"Seleccione una opción ",JOptionPane.YES_NO_CANCEL_OPTION);
-				if (input == 1) {
-					this.darBajaElemento(e.getId(), usuario);
-				}
-				else {
-					elemento.desvincularElementos(e.getCategoria(),equi.getId());
-				}
-			}
-		}
-		
+		if(equi.getElementos().size() != 0) throw new ECILabException("Debe desasociar o dar de baja a todos los elementos.");
 		this.equipo.darBaja(equipo);
 		
-		//novedad.re("Dado de baja", "Debido a un daño irreparable", equipo, usuario);
+		//registrarNovedad("dar de baja","Tiempo o daño",elemento,usuario);
+		
+	}
+
+	@Override
+	public void desvincularElemento(Elemento e,Equipo eq){
+		elemento.desvincularElementos(e.getCategoria(),eq.getId());
 	}
 
 	@Override
@@ -201,6 +208,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public List<Laboratorio> getLaboratorios(){
@@ -210,4 +218,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		return this.equipo.equipoAsociadoaLaboratorio(equipo);
 	}
 	
+=======
+
+	public ArrayList<Elemento> getElementosActivos() {
+		return elemento.getElementosActivos();
+	}
+>>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

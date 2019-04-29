@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
 import com.registerLab.DAO.ElementoDAO;
@@ -159,8 +161,15 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(elm.getFechaFinActividad()!=null)  throw new ECILabException("Este elemento ya fue dado de baja.");
 		
 		this.elemento.darBaja(elemento);
-		registrarNovedadSinEquipo("dar de baja","Tiempo o daño",elemento,usuario);
+		registrarNovedadSinEquipo("Dar de baja","Tiempo o daño",elemento,usuario);
 		
+	}
+	
+	@Override
+	public void darBajaConEquipoAsociado(Elemento elemento, Equipo eq) {
+		this.elemento.darBaja(elemento.getId());
+		this.elemento.desvincularElementos(elemento.getCategoria(), eq.getId());
+		registrarNovedadSinEquipo("Dar de baja","Tiempo o daño",elemento.getId(),getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 	}
 	
 	@Override
@@ -174,10 +183,11 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		Equipo equi = this.equipo.getEquipo(equipo);
 		if(equi==null) throw new ECILabException("El equipo debe existir para poder eliminarlo");
 		if(equi.getFechaFinActividad()!=null)  throw new ECILabException("Este equipo ya fue dado de baja.");
-		if(equi.getElementos().size() != 0) throw new ECILabException("Debe desasociar o dar de baja todos los elementos.");	
+		if(equi.getElementos().size() != 0) throw new ECILabException("Debe desasociar o dar de baja a todos los elementos.");
 		this.equipo.darBaja(equipo);
 		
-		//novedad.re("Dado de baja", "Debido a un daño irreparable", equipo, usuario);
+		//registrarNovedad("dar de baja","Tiempo o daño",elemento,usuario);
+		
 	}
 
 	@Override

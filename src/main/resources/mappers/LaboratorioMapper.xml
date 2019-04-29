@@ -11,6 +11,12 @@
 	
 	 -->
 	 
+	 <select id="getLaboratorios" resultMap="LaboratorioResult">
+		SELECT laboratorio.id,laboratorio.nombre,laboratorio.capacidad,laboratorio.fechacierre,
+		equipo.id as id_equipo
+		from laboratorio left join equipo on equipo.laboratorio = laboratorio.id
+	</select>
+	
 	 <insert parameterType="map" id="agregarLaboratorio">
 	 	insert into laboratorio (id,nombre,capacidad,fechacierre) 
 	 	value (#{Id},#{Nom},#{capacidad},#{fecha}) 

@@ -78,10 +78,10 @@ xmlns:p="http://primefaces.org/ui">
 		<p:column headerText="Referencia">
 			${elem.getReferencia()}
 		</p:column>
-		<p:column headerText="Categoria">
+		<p:column headerText="categoria">
 			${elem.getCategoria()}
 		</p:column>
-		<p:column headerText="Asociar elemento">
+		<p:column headerText="asociar elemento">
 			<p:commandLink value="Asociar" actionListener="#{asBeanN.asociarElemento(elem.getId())}" update="@form">
 				<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandLink>

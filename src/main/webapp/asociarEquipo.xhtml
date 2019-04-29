@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+ <h:head><title>Asociar Elementos</title>
+  	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		.my_test li:hover{
+ 			background:#D3D3D3;
+ 		}
+ 		.pers{
+ 			color:white; 
+ 			background:#778899;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		.temp{
+ 			font-size:20px;
+ 		}
+ 	</style>
+ </h:head>
+ 
+ <h:body style="margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:20%;"></img>
+ <br></br>
+<br></br>
+ 
+ 	<h:form>
+ 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 			<div style="text-align:right;">
+				<ul class="my_test">
+					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+				</ul>
+			</div>
+ 		</div>
+	</h:form>
+	
+	<h:form id="m_form">
+		<p:dataTable value="#{asoBean.getLaboratorios()}" var="equ" rows="20" paginator="true">
+			<p:column headerText="Id laboraorio">${equ.getId()}</p:column>
+			<p:column headerText="Revisar laboratorio">
+				<p:button outcome="equipos" value="Ver Laboratorio" >
+					<f:param name="idLaboratorio" value="${equ.getId()}" />
+				</p:button>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

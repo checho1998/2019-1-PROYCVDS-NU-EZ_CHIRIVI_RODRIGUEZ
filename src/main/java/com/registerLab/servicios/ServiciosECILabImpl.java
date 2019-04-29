@@ -16,6 +16,7 @@ import com.registerLab.DAO.NovedadDAO;
 import com.registerLab.DAO.UsuarioDAO;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.entities.Novedad;
 import com.registerLab.entities.Usuario;
 
@@ -134,7 +135,12 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public List<Equipo> getEquipos() {
 		return equipo.getEquipos();
 	}
-
+	
+	@Override
+	public List<Laboratorio> getLaboratorios() {
+		return laboratorio.getLaboratorios();
+	}
+	
 	@Override
 	public void registrarUsuario(int carnet, String nombre, String apellido, String correo, String rol, String contra) {
 		usuario.registrarUsuario(carnet,nombre,apellido,correo,rol,contra);

@@ -38,5 +38,16 @@ public class DarBajaElementoBean extends BaseBeanRegisterLab{
 		
 	}
 	
+	public void desvincularElemento(Elemento elm){
+		FacesContext context = FacesContext.getCurrentInstance();
+		try {
+			servicios.desvincularElemento(elm);
+		}catch(ECILabException e) {
+			System.out.println(e.getMessage());
+			context.addMessage(null, new FacesMessage("error",e.getMessage()));
+
+			
+		}
+	}
 	
 }

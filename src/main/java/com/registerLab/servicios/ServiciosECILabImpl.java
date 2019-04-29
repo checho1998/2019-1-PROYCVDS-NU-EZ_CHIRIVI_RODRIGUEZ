@@ -168,23 +168,15 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		Equipo equi = this.equipo.getEquipo(equipo);
 		if(equi==null) throw new ECILabException("El equipo debe existir para poder eliminarlo");
 		if(equi.getFechaFinActividad()!=null)  throw new ECILabException("Este equipo ya fue dado de baja.");
-		if(equi.getElementos().size() != 0) {
-			for(Elemento e:equi.getElementos()) {
-				
-				int input = JOptionPane.showConfirmDialog(null, "Quiere dar de baja el elemento numero " + e.getId() + "?", 
-						"Seleccione una opción ",JOptionPane.YES_NO_CANCEL_OPTION);
-				if (input == 1) {
-					this.darBajaElemento(e.getId(), usuario);
-				}
-				else {
-					elemento.desvincularElementos(e.getCategoria(),equi.getId());
-				}
-			}
-		}
-		
+		if(equi.getElementos().size() != 0) throw new ECILabException("Debe desasociar o dar de baja todos los elementos.");	
 		this.equipo.darBaja(equipo);
 		
 		//novedad.re("Dado de baja", "Debido a un daño irreparable", equipo, usuario);
+	}
+
+	@Override
+	public void desvincularElemento(Elemento e){
+		elemento.desvincularElementos(e.getCategoria(),e.getEquipo());
 	}
 
 	@Override

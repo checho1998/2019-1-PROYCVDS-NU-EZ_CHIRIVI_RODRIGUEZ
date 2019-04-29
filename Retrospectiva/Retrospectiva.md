@@ -17,5 +17,5 @@
 	- Mejorar la reparticion de tareas para que no se acumule el trabajo a una sola persona y sea mas repartido.
 	- Apoyarnos con el foro y realizar preguntas para que nos quede mas facil lo que se nos complique.
 	
-	
-![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Restrospectiva/Sprint1.png)
+
+https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png

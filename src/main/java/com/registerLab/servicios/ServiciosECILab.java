@@ -7,6 +7,7 @@ import java.util.List;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.entities.Novedad;
 import com.registerLab.entities.Usuario;
 
@@ -57,6 +58,8 @@ public interface ServiciosECILab {
 	public void darBajaConEquipoAsociado(Elemento e, Equipo eq);
 	
 	public void desvincularElemento(Elemento e, Equipo eq);
+
+	List<Laboratorio> getLaboratorios();
 	
 	public ArrayList<Elemento> getElementosActivos();
 }

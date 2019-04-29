@@ -15,6 +15,7 @@ import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 @SuppressWarnings("deprecation")
@@ -68,10 +69,17 @@ public class AsociarBean extends BaseBeanRegisterLab{
 	public List<Equipo> getEquipos(){
 		return servicios.getEquipos();
 	}
+	
+	public List<Laboratorio> getLaboratorios(){
+		return servicios.getLaboratorios();
+	}
+	
 	public Equipo getEquipo() {
 		return servicios.getEquipo(equipo);
 	}
+	
 	public void setEquipo(int equipo) {
 		this.equipo = equipo;
 	}
+	
 }

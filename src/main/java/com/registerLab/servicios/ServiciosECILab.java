@@ -54,7 +54,8 @@ public interface ServiciosECILab {
 	
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
 
-
+	public void darBajaConEquipoAsociado(Elemento e, Equipo eq);
+	
 	public void desvincularElemento(Elemento e, Equipo eq);
 	
 }

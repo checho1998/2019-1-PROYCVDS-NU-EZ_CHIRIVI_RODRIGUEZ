@@ -49,7 +49,7 @@ public class AsociarBean extends BaseBeanRegisterLab{
 		try {
 			System.out.println("id                 "+elm.getId()+" "+idEquipo);
 			servicios.asociarElemento(elm.getId(), idEquipo,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			context.addMessage(null, new FacesMessage("Succesfull","se a asociado correctamente"));
+			context.addMessage(null, new FacesMessage("Succesfull","se ha asociado correctamente"));
 		} catch (ECILabException e) {
 	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}
@@ -59,7 +59,7 @@ public class AsociarBean extends BaseBeanRegisterLab{
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
 			servicios.asociarEquipo(idEquipo, idLaboratorio,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			context.addMessage(null, new FacesMessage("Succesfull","se a asociado correctamente"));
+			context.addMessage(null, new FacesMessage("Succesfull","se ha asociado correctamente"));
 		} catch (ECILabException e) {
 	        context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}

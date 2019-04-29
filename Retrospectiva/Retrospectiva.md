@@ -18,4 +18,4 @@
 	- Apoyarnos con el foro y realizar preguntas para que nos quede mas facil lo que se nos complique.
 	
 
-https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png
+![Imagen] (https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png)

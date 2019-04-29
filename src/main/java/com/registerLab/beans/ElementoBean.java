@@ -66,7 +66,7 @@ public class ElementoBean extends BaseBeanRegisterLab{
 	        context.addMessage(null, new FacesMessage("Succesfull","elemento insertado.") );
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));
-		}
+		}	
 	}
 	
 }

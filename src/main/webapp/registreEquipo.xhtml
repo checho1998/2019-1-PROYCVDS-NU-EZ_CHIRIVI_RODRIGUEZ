@@ -119,7 +119,7 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${elemento.getId()}</p:column>
 			<p:column headerText="Fabricante">${elemento.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elemento.getReferencia()}</p:column>
-			<p:column headerText="Add"><h:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></h:commandLink></p:column>
+			<p:column headerText="Asociar"><h:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></h:commandLink></p:column>
 		</p:dataTable>
 		</div>
 		<br></br>

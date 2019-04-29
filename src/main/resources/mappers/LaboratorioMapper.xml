@@ -13,13 +13,24 @@
 	 
 	 <insert parameterType="map" id="agregarLaboratorio">
 	 	insert into laboratorio (id,nombre,capacidad,fechacierre) 
-	 	value (#{Id},#{Nom},#{capacidad},#{fecha}) 
+	 	values (#{Id},#{Nom},#{capacidad},#{fecha}) 
 	 </insert>
 	 
 	 <update parameterType="map" id="asociarEquipo">
     	UPDATE equipo set laboratorio = #{laboratorio}
     	where id = #{equipo}
     </update>
+    
+    <select parameterType="map" id="getLaboratorios" resultMap="LaboratorioResult">
+    	select id, nombre, capacidad,fechacierre from laboratorio 
+    </select>
+    
+    <select parameterType="map" id="getLaboratorio" resultMap="LaboratorioResult">
+    	select laboratorio.id, laboratorio.nombre, laboratorio.capacidad,laboratorio.fechacierre
+    	,equipo.id,equipo.fechainicioactividad,equipo.fechafinactividad,equipo.fechaadquisicion    	
+    	from laboratorio left join equipo on laboratorio.id = equipo.laboratorio
+    	where laboratorio.id = #{Id} 
+    </select>
     
 	<resultMap type='Laboratorio' id='LaboratorioResult'>
 	    <id property='id' column='id_laboratorio'/>

@@ -16,6 +16,7 @@ import org.apache.shiro.subject.Subject;
 
 import com.google.inject.Injector;
 import com.registerLab.entities.Elemento;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.entities.Usuario;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
@@ -99,6 +100,15 @@ public class SessionBean extends BaseBeanRegisterLab{
 				return null;
 			}
 		}
+		public List<Laboratorio> getHistorialLaboratorios(){
+			try {
+				List<Laboratorio> labo = servicios.getLaboratorios();
+				return labo;
+			}
+			catch(Exception e){
+				return null;
+			}
+		}
 		
 		public void registrarEquipo() {
 			try {
@@ -131,6 +141,14 @@ public class SessionBean extends BaseBeanRegisterLab{
 		public void registrarElemento() {
 			try {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("registreElemento.xhtml");
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		public void registrarLaboratorio() {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("registrarLaboratorio.xhtml");
 			} catch (Exception e) {
 				
 			}

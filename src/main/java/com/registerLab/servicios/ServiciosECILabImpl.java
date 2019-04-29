@@ -16,6 +16,7 @@ import com.registerLab.DAO.NovedadDAO;
 import com.registerLab.DAO.UsuarioDAO;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.entities.Novedad;
 import com.registerLab.entities.Usuario;
 
@@ -131,7 +132,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	
 
 	@Override
-	public List<Equipo> getEquipos() {
+	public ArrayList<Equipo> getEquipos() {
 		return equipo.getEquipos();
 	}
 
@@ -200,4 +201,13 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
+	
+	@Override
+	public List<Laboratorio> getLaboratorios(){
+		return laboratorio.getLaboratorios();
+	}
+	public boolean equipoAsociadoaLaboratorio(int equipo) {
+		return this.equipo.equipoAsociadoaLaboratorio(equipo);
+	}
+	
 }

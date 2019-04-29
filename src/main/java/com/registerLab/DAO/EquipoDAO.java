@@ -25,7 +25,7 @@ public interface EquipoDAO{
 	
 	void asociarElemento(int idElemento, int IdEquipoN)throws ECILabException;
 	
-	List<Equipo> getEquipos();
+	ArrayList<Equipo> getEquipos();
 	
 	boolean equipoPoseElemento(int elemento);
 	
@@ -33,5 +33,7 @@ public interface EquipoDAO{
 	void darBaja(int equipo);
 
 	void desvincularEquipo(int idEquipo);
+	
+	boolean equipoAsociadoaLaboratorio(int equipo);
 	
 }

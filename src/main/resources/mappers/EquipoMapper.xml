@@ -4,7 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.registerLab.mappers.EquipoMapper">
-
+	
+	<select id="equipoAsociadoaLaboratorio" parameterType="map" resultType="java.lang.Boolean">
+		SELECT COUNT(*)
+		FROM equipo
+		WHERE id=#{equipos} and laboratorio is not null
+	</select>
+	
 	<select id="getEquipo" parameterType="map" resultMap="EquipoResult">
 		SELECT equipo.id,equipo.fechainicioactividad,equipo.fechafinactividad,equipo.fechaadquisicion,
 		elemento.id as id_elemento,

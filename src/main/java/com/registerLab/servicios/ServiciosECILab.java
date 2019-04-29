@@ -7,6 +7,7 @@ import java.util.List;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.entities.Novedad;
 import com.registerLab.entities.Usuario;
 
@@ -32,7 +33,7 @@ public interface ServiciosECILab {
 	
 	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException;
 	
-	public List<Equipo> getEquipos();
+	public ArrayList<Equipo> getEquipos();
 	
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException;
 	
@@ -53,5 +54,7 @@ public interface ServiciosECILab {
 	public ArrayList<Novedad> getNovedades();
 	
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
+
+	public List<Laboratorio> getLaboratorios();
 	
 }

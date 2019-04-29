@@ -1,6 +1,7 @@
 package com.registerLab.myBatisDAO;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
@@ -30,4 +31,12 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 		if (nombre == null || nombre == "") throw new ECILabException ("El nombre del laboratorio no debe estar vacio");
 		mapper.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
+	
+	@Override
+	public List<Laboratorio> getLaboratorios(){
+		return mapper.getLaboratorios();
+	}
+	
+	
+	
 }

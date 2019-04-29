@@ -1,6 +1,7 @@
 package com.registerLab.DAO ;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Equipo;
@@ -13,5 +14,6 @@ public interface LaboratorioDAO{
 	void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
 
 	void asociarEquipo(int idEquipo, int idLaboratorioN);
-
+	
+	List<Laboratorio> getLaboratorios();
 }

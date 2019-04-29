@@ -28,9 +28,11 @@ public interface EquipoMapper {
 
 	public void asociarElemento(@Param("elemento")int idElemento,@Param("equipo") int idEquipoN);
 	
-	public List<Equipo> getEquipos();
+	public ArrayList<Equipo> getEquipos();
 	
 	public boolean equipoPoseElemento(int elemento);
 	
 	public void darBaja(@Param("equipo")int equipo);
+	
+	public boolean equipoAsociadoaLaboratorio(@Param("equipos") int equipo);
 }

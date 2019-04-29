@@ -63,7 +63,7 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	}
 
 	@Override
-	public List<Equipo> getEquipos() {
+	public ArrayList<Equipo> getEquipos() {
 		return mapper.getEquipos();
 	}
 
@@ -79,6 +79,10 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	
 	public void desvincularEquipo(int idEquipo) {
 		
+	}
+	
+	public boolean equipoAsociadoaLaboratorio(int equipo) {
+		return mapper.equipoAsociadoaLaboratorio(equipo);
 	}
 
 }

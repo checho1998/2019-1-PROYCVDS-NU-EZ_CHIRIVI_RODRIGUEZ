@@ -195,4 +195,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Elemento> getElementos(String categoria) {
 		return elemento.getElemento(categoria);
 	}
+	
+	@Override
+	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
+		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
+	}
 }

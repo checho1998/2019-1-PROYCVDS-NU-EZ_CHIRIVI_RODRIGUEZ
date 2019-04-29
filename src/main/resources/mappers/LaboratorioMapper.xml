@@ -11,6 +11,11 @@
 	
 	 -->
 	 
+	 <insert parameterType="map" id="agregarLaboratorio">
+	 	insert into laboratorio (id,nombre,capacidad,fechacierre) 
+	 	value (#{Id},#{Nom},#{capacidad},#{fecha}) 
+	 </insert>
+	 
 	 <update parameterType="map" id="asociarEquipo">
     	UPDATE equipo set laboratorio = #{laboratorio}
     	where id = #{equipo}

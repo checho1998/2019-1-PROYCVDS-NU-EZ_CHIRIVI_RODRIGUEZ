@@ -27,16 +27,6 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
- 		.ui-paginator{
- 			background:white;
- 		}
- 		.ui-datatable-tablewrapper table thead tr th{
- 			background:#DDA0DD;
- 			color:white;
- 		} 
- 		.ui-datatable-data tr td{
- 			background:white;
- 		}
  	</style>
  </h:head>
  
@@ -58,14 +48,7 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
-		<p:dataTable value="#{asoBean.getLaboratorios()}" var="equ" rows="20" paginator="true">
-			<p:column headerText="Id laboraorio">${equ.getId()}</p:column>
-			<p:column headerText="Revisar laboratorio">
-				<p:button outcome="equipos" value="Ver Laboratorio" >
-					<f:param name="idLaboratorio" value="${equ.getId()}" />
-				</p:button>
-			</p:column>
-		</p:dataTable>
+		En construccion
 	</h:form>
 
 </h:body>

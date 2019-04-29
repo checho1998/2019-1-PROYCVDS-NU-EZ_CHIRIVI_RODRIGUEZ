@@ -12,9 +12,8 @@
 	 -->
 	 
 	 <select id="getLaboratorios" resultMap="LaboratorioResult">
-		SELECT laboratorio.id,laboratorio.nombre,laboratorio.capacidad,laboratorio.fechacierre,
-		equipo.id as id_equipo
-		from laboratorio left join equipo on equipo.laboratorio = laboratorio.id
+		SELECT laboratorio.id as id_laboratorio,laboratorio.nombre,laboratorio.capacidad,laboratorio.fechacierre,equipo.id
+		FROM laboratorio left join equipo on laboratorio.id=equipo.laboratorio
 	</select>
 	
 	 <insert parameterType="map" id="agregarLaboratorio">
@@ -32,7 +31,7 @@
 	    <result property="nombre" column="nombre"></result>
 	    <result property="capacidad" column="capacidad"></result>
 	    <result property="fechaCierre" column="fechacierre"></result>
-	    <collection property="equipos" resultMap="com.registerLab.mappers.EquipoMapper"/>       
+	    <collection property="equipos" resultMap="com.registerLab.mappers.EquipoMapper.EquipoResult"/>       
 	</resultMap>
 	
 </mapper>

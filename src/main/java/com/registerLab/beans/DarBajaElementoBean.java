@@ -10,6 +10,7 @@ import org.apache.shiro.SecurityUtils;
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
+import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 
@@ -38,16 +39,9 @@ public class DarBajaElementoBean extends BaseBeanRegisterLab{
 		
 	}
 	
-	public void desvincularElemento(Elemento elm){
+	public void desvincularElemento(Elemento elm,Equipo eq){
 		FacesContext context = FacesContext.getCurrentInstance();
-		try {
-			servicios.desvincularElemento(elm);
-		}catch(ECILabException e) {
-			System.out.println(e.getMessage());
-			context.addMessage(null, new FacesMessage("error",e.getMessage()));
-
-			
-		}
+		servicios.desvincularElemento(elm,eq);
 	}
 	
 }

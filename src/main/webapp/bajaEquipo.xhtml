@@ -63,8 +63,8 @@ xmlns:p="http://primefaces.org/ui">
 				<p:dataTable value="${equ.getElementos()}" var="mel" >
 					<p:column >${mel.getId()} </p:column>
 					<p:column>${mel.getCategoria()}</p:column>
-                    <p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{elemBajaBean.darBaja(mel)}" update="@form"></h:commandLink></p:column>
-                    <p:column headerText="Dar de baja"><h:commandLink value="Dar de baja" actionListener="#{elemBajaBean.desvincularElemento(mel)}" update="@form"></h:commandLink></p:column>
+                    <p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{elemBajaBean.desvincularElemento(mel,equ)}" update="@form"></h:commandLink></p:column>
+                    <p:column headerText="Dar de baja"><h:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja(mel)}" update="@form"></h:commandLink></p:column>
 				</p:dataTable>
 			</p:column>
 			<p:column headerText="Dar de baja:" style="width:150px">

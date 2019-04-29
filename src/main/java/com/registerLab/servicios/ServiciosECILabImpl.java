@@ -175,8 +175,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 
 	@Override
-	public void desvincularElemento(Elemento e){
-		elemento.desvincularElementos(e.getCategoria(),e.getEquipo());
+	public void desvincularElemento(Elemento e,Equipo eq){
+		elemento.desvincularElementos(e.getCategoria(),eq.getId());
 	}
 
 	@Override

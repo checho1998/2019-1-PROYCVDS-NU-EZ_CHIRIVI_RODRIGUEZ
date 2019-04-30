@@ -16,5 +16,4 @@ public interface LaboratorioMapper {
 	
 	public void asociarEquipo(@Param("equipo")int idEquipo,@Param("laboratorio") int idLaboratorioN);
 	public List<Laboratorio> getLaboratorios();
-	public List<Laboratorio> getLaboratorios();
 }

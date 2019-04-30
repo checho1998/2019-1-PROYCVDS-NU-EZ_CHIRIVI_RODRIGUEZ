@@ -12,6 +12,7 @@ import com.registerLab.ECILabException;
 import com.registerLab.entities.Equipo;
 import com.registerLab.entities.Laboratorio;
 import com.registerLab.servicios.ServiciosECILabImpl;
+@SuppressWarnings("deprecation")
 @ManagedBean(name="vinBean")
 @SessionScoped
 public class AsociarEquipoBean extends BaseBeanRegisterLab{
@@ -23,6 +24,7 @@ public class AsociarEquipoBean extends BaseBeanRegisterLab{
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
 	}
 	public Laboratorio getLaboratorio() {
+		System.out.println(laboratorio);
 		return servicios.getLaboratorio(laboratorio);
 	}
 	public void setLaboratorio(int lab) {
@@ -34,6 +36,7 @@ public class AsociarEquipoBean extends BaseBeanRegisterLab{
 	public void asociarEquipo(Equipo e) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
+			System.out.println(laboratorio);
 			servicios.asociarEquipo(e.getId(), laboratorio);
 	        context.addMessage(null, new FacesMessage("Succesfull","Equipo asociado"));
 

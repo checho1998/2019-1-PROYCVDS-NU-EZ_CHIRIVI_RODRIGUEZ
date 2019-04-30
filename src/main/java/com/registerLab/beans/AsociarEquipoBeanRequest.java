@@ -16,7 +16,7 @@ public class AsociarEquipoBeanRequest {
 		
 	}
 	public void setLaboratorio(int lab) {
-
+		System.out.println("entra lab bean");
 		this.laboratorio = lab;
 	}
 	public int getLaboratorio() {

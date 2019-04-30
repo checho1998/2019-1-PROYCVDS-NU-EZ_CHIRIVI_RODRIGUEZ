@@ -12,6 +12,7 @@ import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
+@SuppressWarnings("deprecation")
 @ManagedBean(name="asBeanN")
 @SessionScoped
 public class AsociarBeanNext extends BaseBeanRegisterLab{

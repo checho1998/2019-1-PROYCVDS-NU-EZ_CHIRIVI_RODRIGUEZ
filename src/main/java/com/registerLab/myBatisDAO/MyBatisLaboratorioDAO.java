@@ -38,13 +38,6 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	
 	@Override
 	public List<Laboratorio> getLaboratorios(){
-<<<<<<< HEAD
 		return mapper.getLaboratorios();
 	}
-	
-	
-	
-=======
-		return mapper.getLaboratorios();	}
->>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

@@ -13,14 +13,9 @@ public interface LaboratorioDAO{
 	
 	void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
 
-<<<<<<< HEAD
 	void asociarEquipo(int idEquipo, int idLaboratorioN);
 	
 	List<Laboratorio> getLaboratorios();
-=======
 	void asociarEquipo(int idEquipo, int idLaboratorioN) throws ECILabException;
 
-	public List<Laboratorio> getLaboratorios();
-
->>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

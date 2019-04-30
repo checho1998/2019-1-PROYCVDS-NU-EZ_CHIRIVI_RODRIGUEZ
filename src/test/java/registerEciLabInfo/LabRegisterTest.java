@@ -36,7 +36,7 @@ public class LabRegisterTest extends TestBase{
 		qt().forAll(integers().between(0, 1000)).check(id->{
 			try {
 				lab.insertarEquipoSinLaboratorio(id, null,null, new Date(01,02,2017));
-				System.out.println("Salio");
+				//System.out.println("Salio");
 				Equipo eq = lab.getEquipo(id);
 				return eq.getId()==id;
 			}catch(ECILabException e) {
@@ -52,7 +52,7 @@ public class LabRegisterTest extends TestBase{
 			}catch(ECILabException e) {
 				
 			}
-			System.out.println(lab.getElemento(id).getId()==id);
+			//System.out.println(lab.getElemento(id).getId()==id);
 			return lab.getElemento(id).getId()==id;
 		});
 		}

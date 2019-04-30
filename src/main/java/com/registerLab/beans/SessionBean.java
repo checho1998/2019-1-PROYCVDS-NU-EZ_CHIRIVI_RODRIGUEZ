@@ -41,7 +41,7 @@ public class SessionBean extends BaseBeanRegisterLab{
 	}
 	public String getEmail() {
 		try {
-			if(SecurityUtils.getSubject().getPrincipal()!=null) FacesContext.getCurrentInstance().getExternalContext().redirect("faces/useradmin.xhtml");
+			if(SecurityUtils.getSubject().getPrincipal()!=null) FacesContext.getCurrentInstance().getExternalContext().redirect("useradmin.xhtml");
 		} catch (IOException e) {
 		}
 		return email;

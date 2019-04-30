@@ -35,10 +35,10 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#DB7093; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
-					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li><a href="userAdmin.xhtml"></a></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
 					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
 				</ul>

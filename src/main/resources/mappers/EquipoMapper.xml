@@ -33,7 +33,8 @@
 		elemento.fechaadquisicion as fechaadquisicion_elemento,
 		elemento.fechainicioactividad as fechainicioactividad_elemento,
 		elemento.fechafinactividad as fechafinactividad_elemento 
-		From equipo left join elemento on elemento.equipo = equipo.id
+		From equipo left join elemento on elemento.equipo = equipo.id 
+		where equipo.fechafinactividad is null
 	</select>
 	
 	<select id="equipoPoseElemento" resultType="java.lang.Boolean">

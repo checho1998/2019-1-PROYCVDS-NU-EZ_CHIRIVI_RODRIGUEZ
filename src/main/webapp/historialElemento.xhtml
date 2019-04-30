@@ -26,6 +26,16 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:	blue;
+ 			color:white;
+ 		}
  	</style>
  </h:head>
  
@@ -34,10 +44,10 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#778899; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1E90FF; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
-					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li><a href="useradmin.xhtml" style="color:white">Regresar</a></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
 					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
 				</ul>
@@ -46,7 +56,7 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	<h1>Elementos</h1>
 	<h:form>
-	<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elem">
+	<p:dataTable value="#{sesBean.getHistorialElementos()}" var="elem" paginator="true" rows="10">
 		<p:column headerText="Codigo">
 			${elem.getId()}
 		</p:column>
@@ -55,6 +65,9 @@ xmlns:p="http://primefaces.org/ui">
 		</p:column>
 		<p:column headerText="Referencia">
 			${elem.getReferencia()}
+		</p:column>
+		<p:column headerText="Activo">
+			${elem.getFechaFinActividad() eq null}
 		</p:column>
 	</p:dataTable>
 	</h:form>			

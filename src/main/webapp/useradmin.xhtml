@@ -9,12 +9,10 @@ xmlns:p="http://primefaces.org/ui">
  			padding:10px;
  			margin:10px;
  		}
- 		.my_test li:hover{
- 			background:#D3D3D3;
- 		}
  		.pers{
  			color:white; 
- 			background:#778899;
+ 			background:black;
+ 			font-weight: bolder;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -29,15 +27,31 @@ xmlns:p="http://primefaces.org/ui">
  		.menu{
  			margin:0px; 
  			padding:5px; 
- 			background:#778899; 
+ 			background:black; 
  			width:100%;
  		}
  		.opt ul li{
  			display:inline;
  			padding:10px;
  			}
- 		.opt ul li:hover{
- 			background:#D3D3D3;
+ 		.ui-overlaypanel ul li{
+ 			display:block;
+ 		}
+ 		.menunovedad ul li:hover{
+ 			background:#008080;
+ 			padding:10px;
+ 		}
+ 		.menulaboratorio ul li:hover{
+ 			background:#C71585;
+ 			padding:10px;
+ 		}
+ 		.elementomenu ul li:hover{
+ 			background:	#000080;
+ 			padding:10px;
+ 		}
+ 		.equipomenu ul li:hover{
+ 			padding:10px;
+ 			background:#FF4500;
  		}
  	</style>
  </h:head>
@@ -47,24 +61,47 @@ xmlns:p="http://primefaces.org/ui">
  	<h:form>
 	<div class="menu">
 		<div class="opt">
-		<ul>
-			<li><h:commandLink value="Registrar Equipo" style="color:white;" actionListener="#{sesBean.registrarEquipo()}"></h:commandLink></li>
-			<li><h:commandLink value="Registrar Elemento" style="color:white;" actionListener="#{sesBean.registrarElemento()}"></h:commandLink></li>
-			<li><h:commandLink value="Historial Elemento" actionListener="#{sesBean.historialElemento()}" style="color:white;"></h:commandLink></li>
-			<li><h:commandLink value="Asociar Elemento" actionListener="#{sesBean.asociarElemento()}" style="color:white;"></h:commandLink></li>
-			<li><a href="asociarEquipo.xhtml" style="color:white;">Asociar Equipo</a></li>
-			<li><a href="novedad.xhtml" style="color:white;">Registrar novedad</a></li>
-			<li><a href="bajaElemento.xhtml" style="color:white;">Dar de baja un elemento</a></li>
-			<li><a href="bajaEquipo.xhtml" style="color:white;">Dar de baja un equipo</a></li>
-			<li><a href="registrarLaboratorio.xhtml" style="color:white;">Registrar Laboratorio</a></li>
-		</ul>
+		<div>
+			<ul>
+				<li><p:commandLink id="Equipo" value="Equipo" style="color:white; background:orange; padding:10px;"></p:commandLink></li>
+				<li><p:commandLink id="Elemento" value="Elemento" style="color:white; background:#4169E1; padding:10px;"></p:commandLink></li>
+				<li><p:commandLink id="Laboratorio" value="Laboratorio" style="color:white; padding:10px; background:#DB7093;"></p:commandLink></li>
+				<li><p:commandLink id="Novedad" value="Novedad" style="color:white; padding:10px; background:#20B2AA;"></p:commandLink></li>
+			</ul>
+			<p:overlayPanel for="Equipo" hideEffect="fade" style="background:orange;" class="equipomenu">
+				<ul>
+					<li><a href="registreEquipo.xhtml" style="color:white;">Registrar Equipo</a></li>
+					<li><a href="asociarElemento.xhtml" style="color:white;">Asociar un elemento</a></li>
+					<li><a href="bajaEquipo.xhtml" style="color:white;">Dar de baja un equipo</a></li>
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Elemento" hideEffect="fade" style="background:#4169E1;" class="elementomenu">
+				<ul>
+					<li><a href="registreElemento.xhtml" style="color:white;">Registrar Elemento</a></li>
+					<li><a href="bajaElemento.xhtml" style="color:white;">Dar de baja</a></li>
+					<li><a href="historialElemento.xhtml" style="color:white;">Historial de elementos</a></li>
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Laboratorio" hideEffect="fade" style="background:#DB7093;" class="menulaboratorio">
+				<ul>
+					<li><a href="registrarLaboratorio.xhtml" style="color:white;">Registrar Laboratorio</a></li>
+					<li><a href="asociarEquipo.xhtml" style="color:white;">Asociar equipo</a></li>
+					
+				</ul>
+			</p:overlayPanel>
+			<p:overlayPanel for="Novedad" hideEffect="fade" style="background:#20B2AA;" class="menunovedad">
+				<ul>
+					<li><a href="novedad.xhtml" style="color:white;">Registrar Novedad</a></li>
+				</ul>
+			</p:overlayPanel>
 		</div>
 			<div style="text-align:right;">
 				<ul class="my_test">
-					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+					<li style="color:white;"><b>#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</b></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:red;"></h:commandLink></li>
 				</ul>
 		</div>
+	</div>
 	</div>
 	</h:form>
 	<br></br>
@@ -78,6 +115,7 @@ xmlns:p="http://primefaces.org/ui">
 			<li>Registrar Elementos.</li>
 			<li>Registrar Laboratorios.</li>
 		</ul>
+		<br></br>
 	</div>
 	<br></br>
 	<br></br>

@@ -27,6 +27,16 @@ xmlns:p="http://primefaces.org/ui">
  		.temp{
  			font-size:20px;
  		}
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:orange;
+ 			color:white;
+ 		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
  	</style>
  </h:head>
  
@@ -36,26 +46,28 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
 	#{vinBean.setLaboratorio(labBean.getLaboratorio())}
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#DB7093; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#DB7093;; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
-					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
+					<li><a href="asociarEquipo.xhtml" style="color:white;">Regresar</a></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
 					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
  	</h:form>
- 	<b>Bienvenido al laboratorio de #{vinBean.getLaboratorio().getNombre()}</b>
+ 	<b style="font-size:30px;">Bienvenido al laboratorio de #{vinBean.getLaboratorio().getNombre()}</b>
 	<h:form id="z_form">
 		#{labBean.setLaboratorio(vinBean.getLaboratorio().getId())}
+		<br></br>
+		<b style="font-size:15px;">Equipos que posee el laboratorio</b>
 		<p:growl id="growl" showDetail="true" sticky="true" />
-		<p:dataTable value="#{vinBean.getLaboratorio().getEquipos()}" var="elm" paginator="true" rows="10">
+		<p:dataTable value="#{vinBean.getLaboratorio().getEquipos()}" var="elm" paginator="true" rows="7">
 			<p:column headerText="id">${elm.getId()}</p:column>
 		</p:dataTable>
 		<br></br>
-		<b>Equipos</b>
-		<p:dataTable value="#{vinBean.getEquipos()}" var="equ" paginator="true" rows="10">
+		<b>Equipos disponibles para asociar:</b>
+		<p:dataTable value="#{vinBean.getEquipos()}" var="equ" paginator="true" rows="7">
 			<p:column headerText="id">${equ.getId()}</p:column>
 			<p:column headerText="Fecha inicio Actividad">${equ.getFechaInicioActividad()}</p:column>
 			<p:column headerText="fecha fin actividad">${equ.getFechaFinActividad()}</p:column>

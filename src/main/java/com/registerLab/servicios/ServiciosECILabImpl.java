@@ -208,7 +208,6 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
-<<<<<<< HEAD
 	
 	@Override
 	public List<Laboratorio> getLaboratorios(){
@@ -217,11 +216,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public boolean equipoAsociadoaLaboratorio(int equipo) {
 		return this.equipo.equipoAsociadoaLaboratorio(equipo);
 	}
-	
-=======
 
 	public ArrayList<Elemento> getElementosActivos() {
 		return elemento.getElementosActivos();
 	}
->>>>>>> b792b526ce3b7553934d5447b007da8d27932e5a
 }

@@ -35,5 +35,9 @@ public class Laboratorio {
 	public void setEquipos(ArrayList<Equipo> equipos){
 		this.equipos = equipos;
 	}
+	public ArrayList<Equipo> getEquipos(){
+		return equipos;
+	}
+	
 	
 }

@@ -28,7 +28,7 @@
     
     
     <select parameterType="map" id="getLaboratorio" resultMap="LaboratorioResult">
-    	SELECT laboratorio.id as id_laboratorio,laboratorio.nombre,laboratorio.capacidad,laboratorio.fechacierre,equipo.id
+    	SELECT laboratorio.id as id_laboratorio,laboratorio.nombre,laboratorio.capacidad,laboratorio.fechacierre,equipo.id,equipo.fechafinactividad,equipo.fechainicioactividad,equipo.fechaadquisicion
 		FROM laboratorio left join equipo on laboratorio.id=equipo.laboratorio
     	WHERE laboratorio.id = #{Id} 
     </select>

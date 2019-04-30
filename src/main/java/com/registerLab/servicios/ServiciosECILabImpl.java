@@ -216,4 +216,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Elemento> getElementosActivos() {
 		return elemento.getElementosActivos();
 	}
+
+	public Laboratorio getLaboratorio(int laboratorio) {
+		return this.laboratorio.getLaboratorio(laboratorio);
+	}
 }

@@ -24,7 +24,6 @@ xmlns:p="http://primefaces.org/ui">
  			font-size:20px;
  		}
  		.conf div{
- 			float:left;
  			margin:8px;
  		}
  		.ui-datatable-data tr td{
@@ -37,6 +36,10 @@ xmlns:p="http://primefaces.org/ui">
  			background:#008080;
  			color:white;
  		} 
+ 		.pers{
+			width:100%;
+			background:#20B2AA;
+		}
  	</style>
  </h:head>
  
@@ -80,6 +83,7 @@ xmlns:p="http://primefaces.org/ui">
 				<br></br>
 				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			</div>
+			<br></br>
 			<div>
 				<p:dataTable value="#{novBean.getNovedades()}" var="nov" paginator="true" rows="10">
 					<p:column headerText="Id">${nov.getId()}</p:column>
@@ -89,6 +93,15 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
 			</div>
 	</h:form>
+	</div>
+		<br></br>
+		<br></br>
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
 	</div>
 				
  </h:body>

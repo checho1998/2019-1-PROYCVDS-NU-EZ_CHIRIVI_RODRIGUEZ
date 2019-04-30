@@ -9,7 +9,6 @@ public class Equipo {
 	private Date fechaAdquisicion;
 	private int laboratorio;
 	private ArrayList<Elemento> elementos;
-	private int laboratorio;
 	
 	public void setId(int id) {
 		this.id = id;

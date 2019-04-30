@@ -209,10 +209,6 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
 	
-	@Override
-	public List<Laboratorio> getLaboratorios(){
-		return laboratorio.getLaboratorios();
-	}
 	public boolean equipoAsociadoaLaboratorio(int equipo) {
 		return this.equipo.equipoAsociadoaLaboratorio(equipo);
 	}

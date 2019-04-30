@@ -38,11 +38,19 @@ xmlns:p="http://primefaces.org/ui">
 			width:100%;
 			background:#DB7093;
 		}
+		.ui-button span{
+			background:#FF1493;
+			color:white;
+		}
+		.pers{
+			width:100%;
+			background:#DB7093;
+		}
  	</style>
  </h:head>
  
  <h:body style="margin:0px; padding:0px;">
- <img src="labinfo.jpg" style="width:20%;"></img>
+ <img src="labinfo.jpg" style="width:250px;"></img>
  <br></br>
 <br></br>
  
@@ -61,6 +69,7 @@ xmlns:p="http://primefaces.org/ui">
 	<h:form id="m_form">
 		<p:dataTable value="#{asoBean.getLaboratorios()}" var="lab" rows="20" paginator="true">
 			<p:column headerText="Id laboraorio">${lab.getId()}</p:column>
+			<p:column headerText="Nombre laboraorio">${lab.getNombre()}</p:column>
 			<p:column headerText="Revisar laboratorio">
 				<p:button outcome="equipos" value="Ver Laboratorio" >
 					<f:param name="laboratorio" value="${lab.getId()}" />

@@ -54,7 +54,7 @@ xmlns:p="http://primefaces.org/ui">
  </h:head>
  
  <h:body style="margin:0px; padding:0px;">
- <img src="labinfo.jpg" style="width:20%;"></img>
+ <img src="labinfo.jpg" style="width:250px;"></img>
  <br></br>
 <br></br>
  
@@ -86,16 +86,16 @@ xmlns:p="http://primefaces.org/ui">
 				<p:dataTable value="${equ.getElementos()}" var="mel" >
 					<p:column headerText="id">${mel.getId()} </p:column>
 					<p:column headerText="Categoria">${mel.getCategoria()}</p:column>
-                    <p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{elemBajaBean.desvincularElemento(mel,equ)}" update="@form"></h:commandLink></p:column>
-                    <p:column headerText="Dar de baja"><h:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBajaConEquipoAsociado(mel,equ)}" update="@form"></h:commandLink></p:column>
+                    <p:column headerText="Operacion"><h:commandLink value="Desasociar" actionListener="#{elemBajaBean.desvincularElemento(mel,equ)}" update="@form" style="color:white; background:#191970; padding:10px;"></h:commandLink></p:column>
+                    <p:column headerText="Dar de baja"><h:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBajaConEquipoAsociado(mel,equ)}" update="@form" style="color:white; background:#F08080; padding:10px;"></h:commandLink></p:column>
 				</p:dataTable>
 			</p:column>
 			<p:column headerText="Dar de baja:" style="width:150px">
 				<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja(equ)}" update="@form" style="background:#FFFF00; color:black; padding:10px;">
 					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 				</p:commandLink>
-				
 			</p:column>
+
 		</p:dataTable>
 	</h:form>
 	<br></br>

@@ -9,9 +9,6 @@ xmlns:p="http://primefaces.org/ui">
  			padding:10px;
  			margin:10px;
  		}
- 		.my_test li:hover{
- 			background:#D3D3D3;
- 		}
  		.pers{
  			color:white; 
  			background:#778899;
@@ -30,6 +27,16 @@ xmlns:p="http://primefaces.org/ui">
  			float:left;
  			margin:8px;
  		}
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:#008080;
+ 			color:white;
+ 		} 
  	</style>
  </h:head>
  
@@ -43,11 +50,12 @@ xmlns:p="http://primefaces.org/ui">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:red;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
 	</h:form>
+	<div>
 	<h:form id="m_form">
 		<p:growl id="growl" showDetail="true" sticky="true" />
 			<h3 style="margin:10px;">Registrar Novedad</h3>
@@ -73,14 +81,15 @@ xmlns:p="http://primefaces.org/ui">
 				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
 			</div>
 			<div>
-				<p:dataTable value="#{novBean.getNovedades()}" var="nov"  rows="10" paginator="true">
-					<p:column headerText="id">${nov.getId()}</p:column>
-					<p:column headerText="descripcion">${nov.getDescripcion()}</p:column>
-					<p:column headerText="justificacion">${nov.getJustificacion()}</p:column>
+				<p:dataTable value="#{novBean.getNovedades()}" var="nov" paginator="true" rows="10">
+					<p:column headerText="Id">${nov.getId()}</p:column>
+					<p:column headerText="Descripcion">${nov.getDescripcion()}</p:column>
+					<p:column headerText="Justificacion">${nov.getJustificacion()}</p:column>
 				</p:dataTable>
 			</div>
 			</div>
 	</h:form>
+	</div>
 				
  </h:body>
 </html>

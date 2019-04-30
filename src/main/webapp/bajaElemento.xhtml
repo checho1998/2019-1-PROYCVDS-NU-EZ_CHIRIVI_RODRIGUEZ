@@ -9,9 +9,6 @@ xmlns:p="http://primefaces.org/ui">
  			padding:10px;
  			margin:10px;
  		}
- 		.my_test li:hover{
- 			background:#D3D3D3;
- 		}
  		.pers{
  			color:white; 
  			background:#778899;
@@ -37,13 +34,17 @@ xmlns:p="http://primefaces.org/ui">
  			background:white;
  		}
  		.ui-dialog-titlebar{
- 			background:green;
+ 			background:blue;
  			color:white;
  		}
  		.ui-button span{
- 			background:green;
+ 			background:blue;
  			color:white;
  		}
+ 		.pers{
+			width:100%;
+			background:#1E90FF;
+		}
  	</style>
  </h:head>
  
@@ -58,7 +59,7 @@ xmlns:p="http://primefaces.org/ui">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:red; padding:10px;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
@@ -85,6 +86,15 @@ xmlns:p="http://primefaces.org/ui">
         		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
     	</p:confirmDialog>   
 	</h:form>
+	<br></br>
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
+	</div>
+				
 
 </h:body>
 </html>

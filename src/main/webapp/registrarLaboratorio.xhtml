@@ -10,9 +10,6 @@ xmlns:p="http://primefaces.org/ui">
  			padding:10px;
  			margin:10px;
  		}
- 		.my_test li:hover{
- 			background:#D3D3D3;
- 		}
  		.pers{	
  			color:white; 
  			background:#778899;
@@ -37,6 +34,10 @@ xmlns:p="http://primefaces.org/ui">
  			background:	#9932CC;
  			color:white;
  		}
+ 		.pers{
+			width:100%;
+			background:#DB7093;
+		}
  		
  		
  	</style>
@@ -52,7 +53,7 @@ xmlns:p="http://primefaces.org/ui">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:red;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
@@ -92,5 +93,13 @@ xmlns:p="http://primefaces.org/ui">
 		<center><h:commandLink value="Registrar Laboratorio" actionListener="#{laboBean.agregarLaboratorio()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink></center>
 		<br></br>
 	</h:form>
+	<br></br>
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
+	</div>
 </h:body>
 </html>

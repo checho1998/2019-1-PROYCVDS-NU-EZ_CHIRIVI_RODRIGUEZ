@@ -119,7 +119,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(laboratorio.getLaboratorio(IdLaboratorioN)==null) throw new ECILabException("No existe este laboratorio.");
 		equipo.desvincularEquipo(idEquipo);
 		laboratorio.asociarEquipo(idEquipo,IdLaboratorioN);
-		novedad.agregarNovedad("Asociacion elemento","completar equipo", IdLaboratorioN, idEquipo,usuario);
+		//novedad.agregarNovedad("Asociacion elemento","completar equipo", IdLaboratorioN, idEquipo,usuario);
 	}
 	
 	public void asociarEquipo(int idEquipo, int IdLaboratorioN) throws ECILabException {

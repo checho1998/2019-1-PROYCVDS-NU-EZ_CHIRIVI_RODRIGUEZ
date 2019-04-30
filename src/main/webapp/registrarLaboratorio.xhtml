@@ -73,7 +73,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dataTable value="#{laboBean.getEquipos1()}" var="equipo" paginator="true" rows="10">
 			<p:column headerText="Id">${equipo.getId()}</p:column>
 			<p:column headerText="Fabricante">${equipo.getFechaInicioActividad()}</p:column>
-			<p:column headerText="Referencia">${equipo.getFechaAdquisicion()}</p:column>
+			<p:column headerText="Fecha fin actividad">${equipo.getFechaFinActividad()}</p:column>
 			<p:column headerText="Asociar"><h:commandLink value="Asociar" actionListener="#{laboBean.add(equipo)}" update="@form"></h:commandLink></p:column>
 		</p:dataTable>
 		<br></br>

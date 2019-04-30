@@ -48,4 +48,4 @@ Password:pw
 
 
 ![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)
-![Retrospectiva](Retrospectiva/retrospectiva.md)
+![Retrospectiva](Retrospectiva/Retrospectiva.md)

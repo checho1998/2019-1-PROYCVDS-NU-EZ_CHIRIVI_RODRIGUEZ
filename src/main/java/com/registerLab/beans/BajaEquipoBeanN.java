@@ -45,7 +45,7 @@ public class BajaEquipoBeanN extends BaseBeanRegisterLab{
 		for(Elemento el:desasociar) {
 			if(el.getId()==e.getId()) t= el;
 		}
-		if(t!=null) darBaja.remove(t);
+		if(t!=null) desasociar.remove(t);
 		darBaja.remove(e);
 		darBaja.add(e);
 	}

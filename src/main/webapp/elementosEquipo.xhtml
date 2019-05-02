@@ -100,9 +100,9 @@ xmlns:p="http://primefaces.org/ui">
 			</h:commandLink></p:column>
 		</p:dataTable>  
 		<br></br>
-		<p:commandLink value="Dar de baja a este equipo" actionListener="#{bajaeqBean.darDeBajaEquipo()}" update="@form">
+		<center><p:commandLink value="Dar de baja a este equipo" actionListener="#{bajaeqBean.darDeBajaEquipo()}" update="@form" style="padding:10px; background:red; color:white;">
 			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
-		</p:commandLink>
+		</p:commandLink></center>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
         		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
         		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>

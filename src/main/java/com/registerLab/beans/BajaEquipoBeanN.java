@@ -92,11 +92,10 @@ public class BajaEquipoBeanN extends BaseBeanRegisterLab{
 					FacesContext.getCurrentInstance().getExternalContext().redirect("useradmin.xhtml");
 				} catch (IOException e1) {
 				}
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Successfull","Se a añadido para desasociar"));
 			} catch (ECILabException e2) {
 				
-			}
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Successfull","Se a añadido para desasociar"));
-			}else {
+			}			}else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error","No es posible dar de baja a este equipo"));
 
 			}

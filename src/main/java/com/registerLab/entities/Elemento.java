@@ -73,4 +73,9 @@ public class Elemento {
 		this.fechaFinActividad = fechaFinActividad;
 	}
 	
+	public boolean equals(Object o) {
+		if(!(o instanceof Elemento)) return false;
+		return ((Elemento) o).getId()==id;
+	}
+	
 }

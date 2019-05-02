@@ -1,12 +1,14 @@
   package com.registerLab.beans;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
 import com.google.inject.Injector;
 
-public abstract class BaseBeanRegisterLab {
+public abstract class BaseBeanRegisterLab implements Serializable{
 	private Injector injector;
 
     public Injector getInjector() {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.org/ui">
 
  <h:head><title>Dar de baja Equipo</title>
@@ -69,7 +70,6 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
-	
 	<h:form id="m_form">
 		<p:growl id="message" showDetail="true" sticky="true"/>
 		<h:outputLabel value="  Dar de baja a un equipo:" style="font-size:30px;"></h:outputLabel>
@@ -82,18 +82,10 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dataTable value="#{asoBean.getEquipos()}" var="equ" rows="3" paginator="true">
 			<p:column headerText="Id equipo" style="width:250px">${equ.getId()}</p:column>
 			<p:column headerText="Fecha de inicio de actividad" style="width:310px">${equ.getFechaInicioActividad()}</p:column>
-			<p:column headerText="Elementos asociados">
-				<p:dataTable value="${equ.getElementos()}" var="mel" >
-					<p:column headerText="id">${mel.getId()} </p:column>
-					<p:column headerText="Categoria">${mel.getCategoria()}</p:column>
-                    <p:column headerText="Operacion"><h:commandLink value="Desasociar" actionListener="#{elemBajaBean.desvincularElemento(mel,equ)}" update="@form" style="color:white; background:#191970; padding:10px;"></h:commandLink></p:column>
-                    <p:column headerText="Dar de baja"><h:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBajaConEquipoAsociado(mel,equ)}" update="@form" style="color:white; background:#F08080; padding:10px;"></h:commandLink></p:column>
-				</p:dataTable>
-			</p:column>
 			<p:column headerText="Dar de baja:" style="width:150px">
-				<p:commandLink value="Dar de baja" actionListener="#{equiBajaBean.darBaja(equ)}" update="@form" style="background:#FFFF00; color:black; padding:10px;">
-					<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
-				</p:commandLink>
+				<h:link outcome="elementosEquipo" value="Dar de baja">
+					<f:param value="${equ.getId()}" name="equipoBaja"/>
+				</h:link>
 			</p:column>
 
 		</p:dataTable>

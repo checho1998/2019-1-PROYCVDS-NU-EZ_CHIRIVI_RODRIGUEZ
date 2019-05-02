@@ -3,7 +3,8 @@ package com.registerLab.beans;
 import javax.faces.application.FacesMessage;
 
 import javax.faces.bean.ManagedBean;
-
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import javax.faces.context.FacesContext;
@@ -16,24 +17,26 @@ import com.registerLab.ECILabException;
 import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
+@SuppressWarnings("deprecation")
 @ManagedBean(name="equiBajaBean")
-@SessionScoped
+@RequestScoped
 public class DarBajaEquipoBean extends BaseBeanRegisterLab{
 	private Injector injector;
 	private ServiciosECILabImpl servicios;
-	private int equipo;
+	@ManagedProperty(value="#{param.equipoBaja}")
+	private int equipoBaja;
 	
 	public DarBajaEquipoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
 	}
 	
-	public void setEquipo(int equipo) {
-		this.equipo = equipo;
+	public void setEquipoBaja(int equipo) {
+		this.equipoBaja = equipo;
 	}
 	
-	public int getEquipo() {
-		return equipo;
+	public int getEquipoBaja() {
+		return equipoBaja;
 	}
 	
 	public void darBaja(Equipo eq) {
@@ -47,6 +50,9 @@ public class DarBajaEquipoBean extends BaseBeanRegisterLab{
 
 			
 		}
+	}
+	public Equipo getEquipo(int eq) {
+		return servicios.getEquipo(eq);
 	}
 	
 	

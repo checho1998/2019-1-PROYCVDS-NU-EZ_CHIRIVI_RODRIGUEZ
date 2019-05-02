@@ -1,5 +1,6 @@
 package com.registerLab.beans;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.faces.application.FacesMessage;
@@ -7,7 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Injector;
+import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
@@ -72,5 +76,29 @@ public class BajaEquipoBeanN extends BaseBeanRegisterLab{
 			darBaja = new ArrayList<>();
 			desasociar = new ArrayList<>();
 		}
+	}
+	public void darDeBajaEquipo() {
+			Equipo eq = servicios.getEquipo(equipo);
+			if(eq.getElementos().size()==darBaja.size()+desasociar.size()) {
+			for(Elemento e: desasociar) {
+				servicios.desvincularElemento(e, eq);
+			}
+			for(Elemento e:darBaja) {
+				servicios.darBajaConEquipoAsociado(e, eq);
+			}
+			try {
+				servicios.darBajaEquipo(eq.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("useradmin.xhtml");
+				} catch (IOException e1) {
+				}
+			} catch (ECILabException e2) {
+				
+			}
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Successfull","Se a añadido para desasociar"));
+			}else {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error","No es posible dar de baja a este equipo"));
+
+			}
 	}
 }

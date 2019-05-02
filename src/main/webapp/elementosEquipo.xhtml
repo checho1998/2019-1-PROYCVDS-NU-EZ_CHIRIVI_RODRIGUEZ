@@ -82,14 +82,16 @@ xmlns:p="http://primefaces.org/ui">
 		<b>Desasociar</b>
 		<p:dataTable value="#{bajaeqBean.getDesasociar()}" var="baj" paginator="true" rows="10">
 			<p:column headerText="id">${baj.getId()}</p:column>
-			<p:column headerText="id">${baj.getFabricante()}</p:column>
+			<p:column headerText="Fabricante">${baj.getFabricante()}</p:column>
+			<p:column headerText="Referencia">${baj.getReferencia()}</p:column>
+			<p:column headerText="Categoria">${baj.getCategoria()}</p:column>
 		</p:dataTable>
 		<br></br>
 		<p:dataTable value="#{(equiBajaBean.getEquipo(equiBajaBean.getEquipoBaja())).getElementos()}" var="elm" paginator="true" rows="10" border="1">
 			<p:column headerText="id">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
-			<p:column>${elm.getReferencia()}</p:column>
-			<p:column>${elm.getCategoria()}</p:column>
+			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
+			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
 			<p:column><h:commandLink value="Baja" actionListener="#{bajaeqBean.add(elm)}" outcome="elementosEquipo" update="@form">
 				<f:param name="equipoBaja" value="#{equiBajaBean.getEquipoBaja()}"></f:param>
 			</h:commandLink></p:column>
@@ -97,6 +99,14 @@ xmlns:p="http://primefaces.org/ui">
 				<f:param name="equipoBaja" value="#{equiBajaBean.getEquipoBaja()}"></f:param>
 			</h:commandLink></p:column>
 		</p:dataTable>  
+		<br></br>
+		<p:commandLink value="Dar de baja a este equipo" actionListener="#{bajaeqBean.darDeBajaEquipo()}" update="@form">
+			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
+		</p:commandLink>
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        		<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+        		<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+    	</p:confirmDialog>  
 	</h:form>
 	<br></br>
 	<div class="pers">

@@ -21,7 +21,7 @@
 	- Nos falto usar botones.
 	
 
-![Imagen] (https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png)
+![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png)
 
 
 * Sprint 2

@@ -12,7 +12,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
  			color:white; 
- 			background:#778899;
+ 			background:#1B8344;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -28,7 +28,7 @@ xmlns:p="http://primefaces.org/ui">
  			background:white;
  		}
  		.ui-datatable-tablewrapper table thead tr th{
- 			background:orange;
+ 			background:#1B8344;
  			color:white;
  		}
  		.ui-paginator{
@@ -36,7 +36,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
 			width:100%;
-			background:#DB7093;
+			background:#1B8344;
 		}
  	</style>
  </h:head>
@@ -47,12 +47,12 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
 	#{vinBean.setLaboratorio(labBean.getLaboratorio())}
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#DB7093;; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><a href="asociarEquipo.xhtml" style="color:white;">Regresar</a></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:red; padding:10px;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:gray; padding:10px;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>

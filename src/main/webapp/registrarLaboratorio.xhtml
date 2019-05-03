@@ -12,7 +12,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{	
  			color:white; 
- 			background:#778899;
+ 			background:#1B8344;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -31,12 +31,12 @@ xmlns:p="http://primefaces.org/ui">
  			background:white;
  		}
  		.ui-datatable-tablewrapper table thead tr th{
- 			background:	#9932CC;
+ 			background:	#1B8344;
  			color:white;
  		}
  		.pers{
 			width:100%;
-			background:#DB7093;
+			background:#1B8344;
 		}
  		
  		
@@ -48,12 +48,12 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:#DB7093; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:red;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:gray;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>

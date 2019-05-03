@@ -12,7 +12,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
  			color:white; 
- 			background:#778899;
+ 			background:#1B8344;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -25,7 +25,7 @@ xmlns:p="http://primefaces.org/ui">
  			font-size:20px;
  		}
  		.ui-datatable thead th{
-			background:blue;
+			background:#1B8344;
 			color:white;
 		}
 		.ui-datatable tbody tr{
@@ -43,7 +43,7 @@ xmlns:p="http://primefaces.org/ui">
 		}
 		.pers{
 			width:100%;
-			background:orange;
+			background:#1B8344;
 		}
  	</style>
  </h:head>
@@ -53,12 +53,12 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:orange; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:red;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; padding:10px; background:gray;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
@@ -77,7 +77,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:calendar value="#{equiBean.fechaAdquisicion}"></p:calendar>
 		<br></br>
 		<p:commandButton id="imageBtn" value="Registrar un nuevo elemento" type="button" />
-	    <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+	    <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade" >
 			        <h1>Registrar elemento</h1>
 				<br></br>
 				<h:outputLabel value="Numero de elemento:"></h:outputLabel>
@@ -106,7 +106,7 @@ xmlns:p="http://primefaces.org/ui">
 				 </p:selectOneMenu>
 				<br></br>
 				<br></br>
-				<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="@form" style="background:green; color:white; padding:10px;"></h:commandLink>
+				<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="@form" style="background:#1B8344; color:white; padding:10px;"></h:commandLink>
 	    </p:overlayPanel>
 		<br></br>
 		<center>

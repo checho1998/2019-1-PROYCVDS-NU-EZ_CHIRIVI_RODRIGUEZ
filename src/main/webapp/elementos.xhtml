@@ -11,7 +11,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
  			color:white; 
- 			background:#778899;
+ 			background:#1B8344;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -21,17 +21,17 @@ xmlns:p="http://primefaces.org/ui">
  			margin:5px;
  		}
  		.temp{
- 			font-size:20px;
+ 			font-size:50px;
  		}
  		.ui-paginator{
  			background:white;
  		}
  		.ui-datatable-tablewrapper table thead tr th{
- 			background:blue;
+ 			background:#1B8344;
  			color:white;
  		} 
  		.ui-commandlink{
- 			padding:10px;
+ 			padding:50px;
  			background:green;
  		}
  		.ui-dialog-titlebar{
@@ -39,12 +39,12 @@ xmlns:p="http://primefaces.org/ui">
  			color:white;
  		}
  		.ui-button span{
- 			background:green;
+ 			background:#1B8344;
  			color:white;
  		}
  		.pers{
 			width:100%;
-			background:orange;
+			background:#1B8344;
 		}
  	</style>
  </h:head>
@@ -55,12 +55,12 @@ xmlns:p="http://primefaces.org/ui">
 <br></br>
  
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:orange; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><a href="asociarElemento.xhtml" style="color:white;">Regresar</a></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:red; padding:10px;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:gray; padding:10px;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
@@ -69,7 +69,7 @@ xmlns:p="http://primefaces.org/ui">
 	#{asBeanN.setEquipo(asoBean.getIdEquipo())}
 	#{asoBean.setEquipo(asoBean.getIdEquipo())}
 	<table border="1" style="border-collapse: collapse; width:100%">
-	<tr><td colspan="2" style="background:red;"><center>Equipo</center></td></tr>
+	<tr><td colspan="2" style="background:#1B8344; color:white" ><center> Equipo </center></td></tr>
 	<tr><td>Id</td><td>#{asoBean.getEquipo().getId()}</td></tr>
 	<tr><td>Fecha inicio de actividad</td><td>#{asoBean.getEquipo().getFechaInicioActividad()}</td></tr>
 	<tr><td>Fecha Fin de actividad</td><td>#{asoBean.getEquipo().getFechaFinActividad()}</td></tr>
@@ -104,7 +104,7 @@ xmlns:p="http://primefaces.org/ui">
 			${elem.getCategoria()}
 		</p:column>
 		<p:column headerText="Asociar elemento">
-			<p:commandLink value="Asociar" actionListener="#{asBeanN.asociarElemento(elem.getId())}" style="color:white;" update="@form">
+			<p:commandLink value="Asociar" actionListener="#{asBeanN.asociarElemento(elem.getId())}" style="background:white;" update="@form">
 				<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 			</p:commandLink>
 		</p:column>
@@ -118,7 +118,7 @@ xmlns:p="http://primefaces.org/ui">
 		<div class="pers">
 		Algunos enlaces de interes:<br></br>
 		<ul>
-			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito</a></li>
 			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
 		</ul>
 	</div>

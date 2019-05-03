@@ -12,7 +12,7 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
  			color:white; 
- 			background:#778899;
+ 			background:#1B8344;
  			padding:5px;
  			margin:5px;	
  			width:100%;
@@ -29,12 +29,12 @@ xmlns:p="http://primefaces.org/ui">
  			text-align:center;
  		}
  		.ui-datatable-tablewrapper table thead tr th{
- 			background:	red;
+ 			background:	#1B8344;
  			color:white;
  			text-align:center;
  		}
  		.ui-datatable-data .ui-datatable-tablewrapper table thead tr th{
- 			background:blue;
+ 			background:#1B8344;
  			color:white;
  		}
  		.ui-paginator{
@@ -42,13 +42,13 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.pers{
 			width:100%;
-			background:orange;
+			background:#1B8344;
 		}
 		.ui-dialog-titlebar{
-			background:orange;
+			background:#1B8344;
 		}
 		.ui-button span{
-			background:orange;
+			background:#1B8344;
 		}
  	</style>
  </h:head>
@@ -58,12 +58,12 @@ xmlns:p="http://primefaces.org/ui">
  <br></br>
 <br></br>
  	<h:form>
- 		<div style="margin:0px; padding:5px; background:orange; width:100%">
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
 				<ul class="my_test">
 					<li><h:commandLink value="Regresar" actionListener="#{sesBean.regrese()}" style="color:white;"></h:commandLink></li>
 					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
-					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:red; padding:10px;"></h:commandLink></li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:gray; padding:10px;"></h:commandLink></li>
 				</ul>
 			</div>
  		</div>
@@ -100,7 +100,7 @@ xmlns:p="http://primefaces.org/ui">
 			</h:commandLink></p:column>
 		</p:dataTable>  
 		<br></br>
-		<center><p:commandLink value="Dar de baja a este equipo" actionListener="#{bajaeqBean.darDeBajaEquipo()}" update="@form" style="padding:10px; background:red; color:white;">
+		<center><p:commandLink value="Dar de baja a este equipo" actionListener="#{bajaeqBean.darDeBajaEquipo()}" update="@form" style="padding:10px; background:#1B8344; color:white;">
 			<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />
 		</p:commandLink></center>
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">

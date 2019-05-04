@@ -61,4 +61,6 @@ public interface ServiciosECILab {
 	public void desvincularElemento(Elemento e, Equipo eq);
 	
 	public ArrayList<Elemento> getElementosActivos();
+	
+	public void cerrarLaboratorio(int laboratorio) throws ECILabException;
 }

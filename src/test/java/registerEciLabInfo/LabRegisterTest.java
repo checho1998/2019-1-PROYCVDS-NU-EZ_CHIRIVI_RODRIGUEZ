@@ -129,4 +129,33 @@ public class LabRegisterTest extends TestBase{
 			}
 		});
 	}
+	@Test
+	public void deberiaRegistrarUnLaboratorio() {
+		qt().forAll(integers().allPositive()).check(id->{
+			try {
+				lab.agregarLaboratorio(id, "Redes", 20, null);
+			}catch(ECILabException e) {
+				
+			}finally {
+				return lab.getLaboratorio(id)!=null;
+			}
+		});
+	}
+	@Test
+	public void deberiaDarDeBajaALaboratorio() {
+		qt().forAll(integers().allPositive()).check(id->{
+			try {
+				lab.agregarLaboratorio(id,"Redes",20,null);
+			}catch(ECILabException e) {
+				return true;
+			}
+			try {
+				lab.cerrarLaboratorio(id);
+				return lab.getLaboratorio(id).getFechaCierre()!=null;
+			}catch(ECILabException e) {
+				return false;
+			}
+			
+		});
+	}
 }

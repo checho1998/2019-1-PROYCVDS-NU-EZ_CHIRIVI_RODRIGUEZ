@@ -40,4 +40,16 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	public List<Laboratorio> getLaboratorios(){
 		return mapper.getLaboratorios();
 	}
+
+	@Override
+	public void desasociarEquipo(int equipo) {
+		mapper.desasociarEquipo(equipo);
+		
+	}
+
+	@Override
+	public void cerrarLaboratorio(int laboratorio) {
+		mapper.cerrarLaboratorio(laboratorio);
+		
+	}
 }

@@ -15,4 +15,8 @@ public interface LaboratorioDAO{
 	List<Laboratorio> getLaboratorios();
 	void asociarEquipo(int idEquipo, int idLaboratorioN) throws ECILabException;
 
+	void desasociarEquipo(int equipo);
+
+	void cerrarLaboratorio(int laboratorio);
+
 }

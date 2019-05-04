@@ -116,7 +116,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		Equipo e = getEquipo(idEquipo);
 		if(e==null) throw new ECILabException("No existe el equipo a vincular.");
 		if(e.getFechaFinActividad()!=null) throw new ECILabException("El equipo a sido dado de baja, este no puede ser vinculado a ningun laboratorio.");
-		if(laboratorio.getLaboratorio(IdLaboratorioN)==null) throw new ECILabException("No existe este laboratorio.");
+		Laboratorio l = laboratorio.getLaboratorio(IdLaboratorioN); 
+		if(l==null) throw new ECILabException("No existe este laboratorio.");
+		if(l.getCapacidad()<=l.getEquipos().size()) throw new ECILabException("Se ha llenado la capacidad de esta laboratorio");
+		if(l.getFechaCierre()!=null) throw new ECILabException("No se pueden asociar equipos a un laboratorio cerrado");
 		equipo.desvincularEquipo(idEquipo);
 		laboratorio.asociarEquipo(idEquipo,IdLaboratorioN);
 		//novedad.agregarNovedad("Asociacion elemento","completar equipo", IdLaboratorioN, idEquipo,usuario);
@@ -184,9 +187,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(equi==null) throw new ECILabException("El equipo debe existir para poder eliminarlo");
 		if(equi.getFechaFinActividad()!=null)  throw new ECILabException("Este equipo ya fue dado de baja.");
 		if(equi.getElementos().size() != 0) throw new ECILabException("Debe desasociar o dar de baja a todos los elementos.");
+		laboratorio.desasociarEquipo(equipo);
 		this.equipo.darBaja(equipo);
 		
-		//registrarNovedad("dar de baja","Tiempo o daño",elemento,usuario);
 		
 	}
 
@@ -219,5 +222,18 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 
 	public Laboratorio getLaboratorio(int laboratorio) {
 		return this.laboratorio.getLaboratorio(laboratorio);
+	}
+
+	@Override
+	public void cerrarLaboratorio(int laboratorio) throws ECILabException {
+		Laboratorio l = this.laboratorio.getLaboratorio(laboratorio);
+		if(l==null) throw new ECILabException("No existe este laboratorio.");
+		if(l.getFechaCierre()!=null) throw new ECILabException("El laboratorio ya se encuentra cerrado.");
+		for(Equipo e:l.getEquipos()) {
+			this.laboratorio.desasociarEquipo(e.getId());
+		}
+		this.laboratorio.cerrarLaboratorio(laboratorio);
+		
+		
 	}
 }

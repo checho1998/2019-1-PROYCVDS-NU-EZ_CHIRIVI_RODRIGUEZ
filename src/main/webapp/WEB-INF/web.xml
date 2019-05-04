@@ -17,10 +17,10 @@
 </servlet>
 <servlet-mapping>
    <servlet-name>Faces Servlet</servlet-name>
-   <url-pattern>/faces/*</url-pattern>
+   <url-pattern>*.xhtml</url-pattern>
 </servlet-mapping>
 <welcome-file-list>
-   <welcome-file>index.jsp</welcome-file>
+   <welcome-file>login.xhtml</welcome-file>
 </welcome-file-list>
   <filter>
     <filter-name>ShiroFilter</filter-name>

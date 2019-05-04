@@ -2,7 +2,7 @@
   <title>Login</title>
 <body>
 <%
-    String redirectURL = "/faces/login.xhtml";
+    String redirectURL = "login.xhtml";
     response.sendRedirect(redirectURL);
 %>
 </body>

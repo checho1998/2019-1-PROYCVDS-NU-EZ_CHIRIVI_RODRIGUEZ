@@ -45,5 +45,11 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 		// TODO Auto-generated method stub
 		return mapper.novedadesEquipo(equipo);
 	}
+
+	@Override
+	public ArrayList<Novedad> getNovedadesElemento(int elemento) {
+		// TODO Auto-generated method stub
+		return mapper.getNovedadesElemento(elemento);
+	}
 	
 }

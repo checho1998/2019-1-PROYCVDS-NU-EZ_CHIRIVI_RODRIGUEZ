@@ -245,4 +245,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Novedad> novedadesEquipo(int equipo) {
 		return novedad.novedadesEquipo(equipo);
 	}
+
+	public ArrayList<Novedad> getNovedadesElemento(int elemento) {
+		// TODO Auto-generated method stub
+		return novedad.getNovedadesElemento(elemento);
+	}
 }

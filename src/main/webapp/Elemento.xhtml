@@ -58,30 +58,28 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
-	#{eqnovsBean.setEquipo(eqnovBean.getEquipo())}
+	#{ENovBean.setElemento(ElmBeanReq.getElemento())}
 	<h:form id="m_from">
-		<p:outputLabel value="Elementos de el equipo #{eqnovsBean.getEquipo()}"/>
+		<center><p:outputLabel value="Elemento"/></center>
+		<p:outputLabel value="Id: #{ENovBean.getElemento()}"/>
 		<br></br>
-		<p:dataTable value="#{eqnovsBean.get().getElementos()}" var="elm">
-			<p:column headerText="Id">${elm.getId()}</p:column>
-			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
-			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
-			<p:column headerText="Novedades"><p:button value="Ver novedades" style="background:green; color:white;" outcome="Elemento">
-				<f:param value="${elm.getId()}" name="elemento"></f:param>
-			</p:button></p:column>
-		</p:dataTable>
+		<p:outputLabel value="Fabricante: #{ENovBean.get().getFabricante()}"/>
 		<br></br>
-		<p:outputLabel value="novedades"></p:outputLabel>
-		<p:dataTable id="novedades" value="#{eqnovsBean.getNovedades()}" var="novedad" paginator="true" rows="10"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
-			<f:facet name="{Exporters}">
+		<p:outputLabel value="Referencia: #{ENovBean.get().getReferencia()}"/>
+		<br></br>
+		<p:outputLabel value="Fecha Inicio Actividad: #{ENovBean.get().getFechaInicioActividad()}"/>
+		<br></br>
+		<p:dataTable id="novedades" value="#{ENovBean.getNovedad()}" var="novedad" paginator="true" rows="10"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
+		<f:facet name="{Exporters}">
 				<h:commandLink>
                     <p:outputLabel value="Exportar"></p:outputLabel>
-                    <p:dataExporter type="xls" target="novedades" fileName="novedades equipo #{eqnovsBean.getEquipo()}" />
+                    <p:dataExporter type="xls" target="novedades" fileName="novedades elemento #{ENovBean.getElemento()}" />
                 </h:commandLink>
 			</f:facet>
-			<p:column headerText="Descricion"><p:outputLabel value="${novedad.getDescripcion()}"/></p:column>
+			<p:column headerText="Id"><p:outputLabel value="${novedad.getId()}"/></p:column>
+			<p:column headerText="Descripcion"><p:outputLabel value="${novedad.getDescripcion()}"/></p:column>
 			<p:column headerText="Justificacion"><p:outputLabel value="${novedad.getJustificacion()}"/></p:column>
-			<p:column headerText="Fecha"><p:outputLabel value="${novedad.getFechaNovedad()}"/></p:column>
+			<p:column headerText="Id"><p:outputLabel value="${novedad.getFechaNovedad()}"/></p:column>
 		</p:dataTable>
 	</h:form>
 	<br></br>

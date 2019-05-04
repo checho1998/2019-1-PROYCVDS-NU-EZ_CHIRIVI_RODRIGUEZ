@@ -24,4 +24,6 @@ public interface NovedadDAO {
 		public ArrayList<Novedad> getNovedades();
 
 		public ArrayList<Novedad> novedadesEquipo(int equipo);
+
+		public ArrayList<Novedad> getNovedadesElemento(int elemento);
 }

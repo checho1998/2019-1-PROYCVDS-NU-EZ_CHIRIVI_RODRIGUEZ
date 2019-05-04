@@ -32,6 +32,11 @@
 		FROM NOVEDAD
 		WHERE equipo=#{Equipo}
  	</select>
+ 	<select id="getNovedadesElemento" parameterType="map" resultMap="NovedadResult">
+ 		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
+		FROM NOVEDAD
+		WHERE elemento=#{elemento}
+ 	</select>
 
 	<resultMap type='Novedad' id='NovedadResult'>
 	    <id property='id' column='id_novedad'/>

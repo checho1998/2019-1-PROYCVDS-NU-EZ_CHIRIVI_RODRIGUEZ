@@ -25,4 +25,6 @@ public interface NovedadMapper {
 	public void registrarNovedadSinEquipo(@Param("descripcion") String descripcion,@Param("justificacion") String justificacion,@Param("elemento") int elemento,@Param("usuario") int usuario);
 
 	public ArrayList<Novedad> novedadesEquipo(@Param("Equipo")int equipo);
+
+	public ArrayList<Novedad> getNovedadesElemento(@Param("elemento")int elemento);
 }

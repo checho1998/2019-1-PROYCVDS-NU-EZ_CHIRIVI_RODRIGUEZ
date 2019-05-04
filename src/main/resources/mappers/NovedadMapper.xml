@@ -27,6 +27,11 @@
  		insert into novedad(id,descripcion,justificacion,ELEMENTO,usuario,fechanovedad) select count(*)+1,#{descripcion},#{justificacion},#{elemento},#{usuario},now() from novedad
  
  	</insert>
+ 	<select id="novedadesEquipo" parameterType="map" resultMap="NovedadResult">
+ 		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
+		FROM NOVEDAD
+		WHERE equipo=#{Equipo}
+ 	</select>
 
 	<resultMap type='Novedad' id='NovedadResult'>
 	    <id property='id' column='id_novedad'/>

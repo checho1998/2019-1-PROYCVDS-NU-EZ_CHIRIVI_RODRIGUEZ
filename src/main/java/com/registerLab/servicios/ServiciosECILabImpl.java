@@ -237,4 +237,12 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		
 		
 	}
+
+	public ArrayList<Equipo> getAllEquipos() {
+		return equipo.getAllEquipos();
+	}
+
+	public ArrayList<Novedad> novedadesEquipo(int equipo) {
+		return novedad.novedadesEquipo(equipo);
+	}
 }

@@ -22,4 +22,6 @@ public interface NovedadDAO {
 		public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario);
 		
 		public ArrayList<Novedad> getNovedades();
+
+		public ArrayList<Novedad> novedadesEquipo(int equipo);
 }

@@ -35,4 +35,6 @@ public interface EquipoMapper {
 	public void darBaja(@Param("equipo")int equipo);
 	
 	public boolean equipoAsociadoaLaboratorio(@Param("equipos") int equipo);
+
+	public ArrayList<Equipo> getAllEquipos();
 }

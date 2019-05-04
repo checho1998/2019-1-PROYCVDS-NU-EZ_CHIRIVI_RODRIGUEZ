@@ -45,5 +45,8 @@ public class AsociarEquipoBean extends BaseBeanRegisterLab{
 
 		}
 	}
+	public ArrayList<Equipo> getAllEquipos(){
+		return servicios.getAllEquipos();
+	}
 
 }

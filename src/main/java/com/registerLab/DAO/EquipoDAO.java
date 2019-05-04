@@ -35,5 +35,7 @@ public interface EquipoDAO{
 	void desvincularEquipo(int idEquipo);
 	
 	boolean equipoAsociadoaLaboratorio(int equipo);
+
+	ArrayList<Equipo> getAllEquipos();
 	
 }

@@ -60,6 +60,17 @@
 		update equipo set fechafinactividad=now() where id=#{equipo}
 
 	</update>
+	<select id="getAllEquipos" resultMap="EquipoResult">
+		SELECT equipo.id,equipo.fechainicioactividad,equipo.fechafinactividad,equipo.fechaadquisicion,
+		elemento.id as id_elemento,
+		elemento.categoria,
+		elemento.fabricante,
+		elemento.referecia as referencia,
+		elemento.fechaadquisicion as fechaadquisicion_elemento,
+		elemento.fechainicioactividad as fechainicioactividad_elemento,
+		elemento.fechafinactividad as fechafinactividad_elemento 
+		From equipo left join elemento on elemento.equipo = equipo.id 
+	</select>
 	
 	<resultMap type='Equipo' id='EquipoResult'>
 	    <id property='id' column='id'/>

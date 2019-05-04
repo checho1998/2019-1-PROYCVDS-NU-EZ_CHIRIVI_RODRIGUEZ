@@ -209,6 +209,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	
 	@Override
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
+		if(capacidad<=0) throw new ECILabException("La capacidad del laboratorio no puede ser negativa o cero");
 		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
 	}
 	

@@ -51,7 +51,6 @@ xmlns:p="http://primefaces.org/ui">
  <h:body style="margin:0px; padding:0px;">
  <img src="labinfo.jpg" style="width:250px;"></img>
  <br></br>
- 
  	<h:form>
  		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
  			<div style="text-align:right;">
@@ -70,7 +69,10 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<br></br>		
 		<p:outputLabel value="Numero de Equipo:"></p:outputLabel>
-		<p:inputText value="#{equiBean.id}"></p:inputText>
+		<p:inputText value="#{equiBean.id}">
+			<p:ajax event="keyup" update="disp"></p:ajax>
+		</p:inputText>
+		<b>Disponible:</b> <p:outputLabel value="#{equiBean.getEquipo() eq null}" style="color:green;" id="disp"> </p:outputLabel>
 		<p:outputLabel value="Fecha de inicio de actividad:"></p:outputLabel>
 		<p:calendar value="#{equiBean.fechaInicioActividad}"></p:calendar>
 		<p:outputLabel value="Fecha de Adquisicion:"></p:outputLabel>
@@ -82,15 +84,20 @@ xmlns:p="http://primefaces.org/ui">
 				<br></br>
 				<h:outputLabel value="Numero de elemento:"></h:outputLabel>
 				<br></br>
-				<h:inputText value="#{elmBean.id}"></h:inputText>
+				<p:inputText value="#{elmBean.id}">
+					<p:ajax event="keyup" update="elmdis"></p:ajax>
+				</p:inputText>
+				<br></br>
+				Disponible: <h:outputLabel value="#{elmBean.getElemento() eq null}" id="elmdis">
+				</h:outputLabel>
 				<br></br>
 				<h:outputLabel value="Fabricante:"></h:outputLabel>
 				<br></br>
-				<h:inputText value="#{elmBean.fabricante}"></h:inputText>
+				<p:inputText value="#{elmBean.fabricante}"></p:inputText>
 				<br></br>
 				<h:outputLabel value="Referencia:"></h:outputLabel>
 				<br></br>
-				<h:inputText value="#{elmBean.referencia}"></h:inputText>
+				<p:inputText value="#{elmBean.referencia}"></p:inputText>
 				<br></br>
 				<h:outputLabel value="fecha adquisicion:"></h:outputLabel>
 				<br></br>
@@ -131,7 +138,7 @@ xmlns:p="http://primefaces.org/ui">
 				 <f:selectItem itemLabel="MOUSE" itemValue="MOUSE" noSelectionOption="true" />
 				 <f:selectItem itemLabel="TECLADO" itemValue="TECLADO" noSelectionOption="true" />
 				 </p:selectOneMenu>
-		<h:commandButton value="Buscar elementos de esta categoria" update="@form"></h:commandButton>
+		<h:commandButton value="Buscar elementos de esta categoria" update="@form" style="color:white; background:green; padding:8px;"></h:commandButton>
 		<br></br>
 		<b>Categoria: #{equiBean.getCategoria()}</b>
 		<br></br>

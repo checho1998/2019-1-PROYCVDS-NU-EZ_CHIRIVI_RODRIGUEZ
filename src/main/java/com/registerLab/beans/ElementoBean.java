@@ -28,6 +28,7 @@ public class ElementoBean extends BaseBeanRegisterLab{
 	public ElementoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
+		categoria= "TORRE";
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -73,6 +74,9 @@ public class ElementoBean extends BaseBeanRegisterLab{
 	public ArrayList<Elemento> getElementosActivos(){
 		return servicios.getElementosActivos();
 		
+	}
+	public Elemento getElemento() {
+		return servicios.getElemento(id);
 	}
 	
 }

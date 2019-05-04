@@ -16,6 +16,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
+import com.registerLab.entities.Equipo;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 
@@ -178,6 +179,9 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 		catch(Exception e) {
 			context.addMessage(null, new FacesMessage("error","No se puede modificar la asociacion verifique la informacion ingresada") );
 		}
+	}
+	public Equipo getEquipo() {
+		return servicios.getEquipo(id);
 	}
 	
 	

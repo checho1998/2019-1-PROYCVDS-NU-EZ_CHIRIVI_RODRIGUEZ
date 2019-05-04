@@ -15,6 +15,7 @@ import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 @ManagedBean(name="laboBean")
@@ -121,5 +122,8 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));
 		}
+	}
+	public Laboratorio getLaboratorio() {
+		return servicios.getLaboratorio(id);
 	}
 }

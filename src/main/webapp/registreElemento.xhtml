@@ -62,15 +62,20 @@ xmlns:p="http://primefaces.org/ui">
 		<h:outputLabel value="Numero de elemento:"></h:outputLabel>
 		<p:growl id="growl" showDetail="true" sticky="true" />
 		<br></br>
-		<h:inputText value="#{elmBean.id}"></h:inputText>
+		<p:inputText value="#{elmBean.id}">
+			<p:ajax event="keyup" update="elmdis"></p:ajax>
+		</p:inputText>
+		<br></br>
+				Disponible: <h:outputLabel value="#{elmBean.getElemento() eq null}" id="elmdis">
+				</h:outputLabel>
 		<br></br>
 		<h:outputLabel value="Fabricante:"></h:outputLabel>
 		<br></br>
-		<h:inputText value="#{elmBean.fabricante}"></h:inputText>
+		<p:inputText value="#{elmBean.fabricante}"></p:inputText>
 		<br></br>
 		<h:outputLabel value="Referencia:"></h:outputLabel>
 		<br></br>
-		<h:inputText value="#{elmBean.referencia}"></h:inputText>
+		<p:inputText value="#{elmBean.referencia}"></p:inputText>
 		<br></br>
 		<h:outputLabel value="Fecha adquisicion:"></h:outputLabel>
 		<br></br>

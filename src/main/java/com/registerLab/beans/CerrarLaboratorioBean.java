@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Laboratorio;
@@ -29,6 +31,7 @@ public class CerrarLaboratorioBean extends BaseBeanRegisterLab{
 		FacesContext context = FacesContext.getCurrentInstance(); 
 		try {
 			servicios.cerrarLaboratorio(lab.getId());
+			servicios.AgregarNovedad("Cerrar Laboratorio", "Finalizacion del laboratorio", lab.getId() , lab.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			context.addMessage(null, new FacesMessage("SuccessFull","El laboratorio "+String.valueOf(lab.getId()) +" "+String.valueOf(lab.getNombre()+" a sido cerrado")));
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));

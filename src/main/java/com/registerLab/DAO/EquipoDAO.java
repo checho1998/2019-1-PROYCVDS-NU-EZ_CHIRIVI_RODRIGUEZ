@@ -31,6 +31,8 @@ public interface EquipoDAO{
 	
 	
 	void darBaja(int equipo);
+	
+	ArrayList<Equipo> getEquiposinLab();
 
 	void desvincularEquipo(int idEquipo);
 	

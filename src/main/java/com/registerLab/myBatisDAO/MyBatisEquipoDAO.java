@@ -89,5 +89,10 @@ public class MyBatisEquipoDAO implements EquipoDAO{
 	public ArrayList<Equipo> getAllEquipos() {
 		return mapper.getAllEquipos();
 	}
+	
+	@Override
+	public ArrayList<Equipo> getEquiposinLab(){
+		return mapper.getEquiposinLab();
+	}
 
 }

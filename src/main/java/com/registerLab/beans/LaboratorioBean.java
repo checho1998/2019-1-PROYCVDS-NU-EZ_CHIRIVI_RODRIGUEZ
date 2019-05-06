@@ -69,6 +69,10 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		equipos.add(e);
 	}
 	
+	public void remove(Equipo e) {
+		equipos.remove(e);
+	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -89,15 +93,15 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		return equipos;
 	}
 	
-	public ArrayList<Equipo> getEquipos1(){
-		return servicios.getEquipos();
+	public ArrayList<Equipo> getEquipossinLab(){
+		return servicios.getEquiposinLab();
 	}
 
 	public void setEquipos(ArrayList<Equipo> equipos) {
 		this.equipos = equipos;
 	}
 	
-	public void setEquipos1(ArrayList<Equipo> equipos){
+	public void setEquipossinLab(ArrayList<Equipo> equipos){
 		this.equipos = equipos;
 	}
 
@@ -116,6 +120,7 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 			servicios.agregarLaboratorio(id, nombre, capacidad, null);
 			for(Equipo e:equipos) {
 				servicios.asociarEquipo(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+				servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio", id, e.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			}
 			equipos.clear();
 	        context.addMessage(null, new FacesMessage("Succesfull","Laboratorio registrado.") );
@@ -126,4 +131,5 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public Laboratorio getLaboratorio() {
 		return servicios.getLaboratorio(id);
 	}
+	
 }

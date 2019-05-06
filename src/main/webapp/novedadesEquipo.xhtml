@@ -3,7 +3,7 @@
 xmlns:h="http://xmlns.jcp.org/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:p="http://primefaces.org/ui">
- <h:head><title>Registrar Laboratorio</title>
+ <h:head><title>Ver Novedad</title>
   	<style type="text/css">
  		.my_test li{
  			display:inline;
@@ -60,7 +60,8 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_from">
-		<p:outputLabel value="Ver novedades:"></p:outputLabel>
+		<center><h1>VER NOVEDADES</h1></center>
+		<br></br>
 		<p:dataTable value="#{vinBean.getAllEquipos()}" var="equi">
 			<p:column headerText="Id">${equi.getId()}</p:column>
 			<p:column headerText="Fecha Inicio Actividad:">${equi.getFechaInicioActividad()}</p:column>

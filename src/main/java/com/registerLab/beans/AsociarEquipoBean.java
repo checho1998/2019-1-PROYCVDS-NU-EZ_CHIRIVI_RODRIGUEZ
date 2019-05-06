@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.inject.Injector;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Equipo;
@@ -33,11 +35,17 @@ public class AsociarEquipoBean extends BaseBeanRegisterLab{
 	public ArrayList<Equipo> getEquipos(){
 		return servicios.getEquipos();
 	}
+	
+	public ArrayList<Equipo> getEquiposinLab(){
+		return servicios.getEquiposinLab();
+	}
+	
 	public void asociarEquipo(Equipo e) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
 			//System.out.println(laboratorio);
 			servicios.asociarEquipo(e.getId(), laboratorio);
+			servicios.AgregarNovedad("Asociacion de Equipo", "Completar capacidad del laboratorio", laboratorio, e.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 	        context.addMessage(null, new FacesMessage("Succesfull","Equipo asociado"));
 
 		} catch (ECILabException e1) {

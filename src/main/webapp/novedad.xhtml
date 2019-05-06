@@ -61,24 +61,24 @@ xmlns:p="http://primefaces.org/ui">
 	<div>
 	<h:form id="m_form">
 		<p:growl id="growl" showDetail="true" sticky="true" />
-			<h3 style="margin:10px;">Registrar Novedad</h3>
+			<center><h1>REGISTAR NOVEDADES</h1></center>
 			<br></br>
 			<div class="conf">
 			<div>
-				<h:outputLabel value="Registro de novedades"></h:outputLabel>
+				<p:outputLabel value="En es este formulario puede realizar la creacion de una nueva novedad"></p:outputLabel>
 				<br></br>
-				<h:outputLabel value="Detalle:   "></h:outputLabel>
-				<h:inputText value="#{novBean.detalle}"></h:inputText>
+				<p:outputLabel value="Detalle:   "></p:outputLabel>
+				<p:inputText value="#{novBean.detalle}"></p:inputText>
 				<br></br>
-				<h:outputLabel value="Descripcion:   "></h:outputLabel>
+				<p:outputLabel value="Descripcion:   "></p:outputLabel>
 				<br></br>
 				<p:inputTextarea rows="6" cols="33" value="#{novBean.descripcion}"/>
 				<br></br>
-				<h:outputLabel value="Equipo: "></h:outputLabel>
-				<h:inputText value="#{novBean.detalle}"></h:inputText>
+				<p:outputLabel value="Equipo: "></p:outputLabel>
+				<p:inputText value="#{novBean.detalle}"></p:inputText>
 				<br></br>
-				<h:outputLabel value="Elemento: "></h:outputLabel>
-				<h:inputText value="#{novBean.elemento}"></h:inputText>
+				<p:outputLabel value="Elemento: "></p:outputLabel>
+				<p:inputText value="#{novBean.elemento}"></p:inputText>
 				<br></br>
 				<br></br>
 				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>

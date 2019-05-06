@@ -61,7 +61,7 @@ xmlns:p="http://primefaces.org/ui">
 	
 	<h:form id="m_from">
 		<p:growl id="growl" showDetail="true" sticky="true" />
-		<center><h1>Registrar Laboratorio</h1></center>
+		<center><h1>REGISTRAR LABORATORIO</h1></center>
 		<h:panelGrid columns="2" cellpadding="8">
 		<p:outputLabel value="En este formulario realizara el registro de un laboratorio con su respectiva informacion:"></p:outputLabel>
 		<br></br>
@@ -81,10 +81,16 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${equ.getId()}</p:column>
 			<p:column headerText="Fecha Inicio Actividad">${equ.getFechaInicioActividad()}</p:column>
 			<p:column headerText="Fecha Adquisicion">${equ.getFechaAdquisicion()}</p:column>
+			<p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{laboBean.remove(equ)}" update="@form"></h:commandLink></p:column>
 		</p:dataTable>
 		<br></br>
 		<br></br>
-		<p:dataTable value="#{laboBean.getEquipos1()}" var="equipo" paginator="true" rows="10">
+		<p:outputLabel value="Equipos disponibles:"></p:outputLabel>
+		<br></br>
+		<p:outputLabel value="En caso de no a ver equipos disponibles, registre equipos:  "></p:outputLabel>
+		<p:button outcome="registreEquipo" value="Registar Equipo"></p:button>
+		<br></br>
+		<p:dataTable value="#{laboBean.getEquipossinLab()}" var="equipo" paginator="true" rows="10">
 			<p:column headerText="Id">${equipo.getId()}</p:column>
 			<p:column headerText="Fabricante">${equipo.getFechaInicioActividad()}</p:column>
 			<p:column headerText="Fecha fin actividad">${equipo.getFechaFinActividad()}</p:column>

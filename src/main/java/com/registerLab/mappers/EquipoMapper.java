@@ -30,6 +30,8 @@ public interface EquipoMapper {
 	
 	public ArrayList<Equipo> getEquipos();
 	
+	public ArrayList<Equipo> getEquiposinLab();
+	
 	public boolean equipoPoseElemento(int elemento);
 	
 	public void darBaja(@Param("equipo")int equipo);

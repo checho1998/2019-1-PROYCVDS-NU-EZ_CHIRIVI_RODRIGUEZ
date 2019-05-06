@@ -68,7 +68,7 @@ xmlns:p="http://primefaces.org/ui">
 		</p:dataTable>
 		<br></br>
 		<b>Equipos disponibles para asociar:</b>
-		<p:dataTable value="#{vinBean.getEquipos()}" var="equ" paginator="true" rows="7">
+		<p:dataTable value="#{vinBean.getEquiposinLab()}" var="equ" paginator="true" rows="7">
 			<p:column headerText="id">${equ.getId()}</p:column>
 			<p:column headerText="Fecha inicio Actividad">${equ.getFechaInicioActividad()}</p:column>
 			<p:column headerText="fecha fin actividad">${equ.getFechaFinActividad()}</p:column>

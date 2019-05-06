@@ -250,4 +250,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		// TODO Auto-generated method stub
 		return novedad.getNovedadesElemento(elemento);
 	}
+	
+	public ArrayList<Equipo> getEquiposinLab(){
+		return equipo.getEquiposinLab();
+	}
 }

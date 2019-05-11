@@ -45,7 +45,7 @@ public class AsociarEquipoBean extends BaseBeanRegisterLab{
 		try {
 			//System.out.println(laboratorio);
 			servicios.asociarEquipo(e.getId(), laboratorio);
-			servicios.AgregarNovedad("Asociacion de Equipo", "Completar capacidad del laboratorio", laboratorio, e.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+			servicios.AgregarNovedad("Asociacion de Equipo", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 	        context.addMessage(null, new FacesMessage("Succesfull","Equipo asociado"));
 
 		} catch (ECILabException e1) {

@@ -29,6 +29,8 @@
 		fechafinactividad as fechafinactividad_elemento
 	 	from elemento where fechafinactividad is null and equipo is null
 	</select>
+	
+	
 
 	<select id="getElemento" parameterType="map" resultMap="ElementoResult">
 		select id as id_elemento,

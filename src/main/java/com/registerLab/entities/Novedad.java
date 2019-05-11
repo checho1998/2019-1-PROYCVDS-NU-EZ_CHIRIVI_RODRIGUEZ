@@ -7,6 +7,13 @@ public class Novedad {
 	private Date fechaNovedad;
 	private String descripcion;
 	private String justificacion;
+	private int equipo;
+	private int elemento;
+	private String usuario;
+	private int laboratorio;
+	
+		
+	
 	public Novedad() {
 		
 	}
@@ -33,5 +40,29 @@ public class Novedad {
 	}
 	public String getDescripcion() {
 		return descripcion;
+	}
+	public int getLaboratorio() {
+		return laboratorio;
+	}
+	public void setLaboratorio(int laboratorio) {
+		this.laboratorio = laboratorio;
+	}
+	public int getEquipo() {
+		return equipo;
+	}
+	public void setEquipo(int equipo) {
+		this.equipo = equipo;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public int getElemento() {
+		return elemento;
+	}
+	public void setElemento(int elemento) {
+		this.elemento = elemento;
 	}
 }

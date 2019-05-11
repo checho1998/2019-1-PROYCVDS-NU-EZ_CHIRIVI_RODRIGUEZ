@@ -34,6 +34,8 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	@Inject
 	private ElementoDAO elemento;
 	
+	
+	
 	public Usuario getUsuario(String correo) {
 		return usuario.getUsuario(correo);
 	}
@@ -254,4 +256,6 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Equipo> getEquiposinLab(){
 		return equipo.getEquiposinLab();
 	}
+	
+	
 }

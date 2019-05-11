@@ -120,7 +120,7 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 			servicios.agregarLaboratorio(id, nombre, capacidad, null);
 			for(Equipo e:equipos) {
 				servicios.asociarEquipo(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-				servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio", id, e.getId(), servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+				servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			}
 			equipos.clear();
 	        context.addMessage(null, new FacesMessage("Succesfull","Laboratorio registrado.") );

@@ -33,7 +33,7 @@
 		WHERE equipo=#{Equipo}
  	</select>
  	<select id="getNovedadesElemento" parameterType="map" resultMap="NovedadResult">
- 		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
+ 		SELECT id as id_novedad, fechanovedad,descripcion,justificacion,equipo,usuario
 		FROM NOVEDAD
 		WHERE elemento=#{elemento}
  	</select>

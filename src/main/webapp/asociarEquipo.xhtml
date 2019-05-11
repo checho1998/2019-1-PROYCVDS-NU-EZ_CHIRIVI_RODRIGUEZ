@@ -68,7 +68,7 @@ xmlns:p="http://primefaces.org/ui">
 	
 	<h:form id="m_form">
 		<p:dataTable value="#{asoBean.getLaboratorios()}" var="lab" rows="20" paginator="true">
-			<p:column headerText="Id laboraorio">${lab.getId()}</p:column>
+			<p:column headerText="Id laboratorio">${lab.getId()}</p:column>
 			<p:column headerText="Nombre laboratorio">${lab.getNombre()}</p:column>
 			<p:column headerText="Revisar laboratorio">
 				<p:button outcome="equipos" value="Ver Laboratorio" >

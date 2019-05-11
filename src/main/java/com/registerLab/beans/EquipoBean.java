@@ -120,12 +120,9 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 			if(elementos.size()<4) throw new ECILabException("Faltan elementos para registrar este equipo");
 			if(fechaAdquisicion!=null) d= new Date(fechaAdquisicion.getTime());
 			if(fechaInicioActividad!=null) da= new Date(fechaInicioActividad.getTime());
-			servicios.insertarEquipoSinLaboratorio(id, da, null, d);
-			for(Elemento e:elementos) {
-				servicios.asociarElemento(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			}
-			context.addMessage(null, new FacesMessage("Succesfull","Equipo Insertado.") );
+			servicios.insertarEquipoSinLaboratorio(id, da, null, d, elementos);
 			elementos.clear();
+			context.addMessage(null, new FacesMessage("Correcto","se ha registrado el equipo"));
 		}catch(Exception e){
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()) );			
 		}

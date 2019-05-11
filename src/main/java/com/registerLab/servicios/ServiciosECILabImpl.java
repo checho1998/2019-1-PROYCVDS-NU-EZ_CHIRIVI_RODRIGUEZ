@@ -51,6 +51,36 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(fechaInicioActividad.before(fechaAdquisicion)) throw new ECILabException("Un equipo no puede iniciar actividad antes de su adquisicion.");
 		equipo.insertarEquipoSinLaboratorio(id, fechaInicioActividad, fechafinactividad, fechaAdquisicion);
 	}
+	public void insertarEquipoSinLaboratorio(int id,Date fechaInicioActividad,Date fechafinactividad,Date fechaAdquisicion,ArrayList<Elemento> elementos) throws ECILabException{
+		if(elementos==null) throw new ECILabException("DEben haber elementos");
+		if(elementos.size()!=4) throw new ECILabException("Verifique el numero de elementos");
+		if(!hayUnElementoDeCadaCategoria(elementos)) throw new ECILabException("Verifique los elementos, hay categorias repetidas.");
+		if(!elementosLibres(elementos)) throw new ECILabException("Algunos elementos ya se encuentran vinculados a otro equipo");
+		insertarEquipoSinLaboratorio(id,fechaInicioActividad,fechafinactividad,fechaAdquisicion);
+		for(Elemento e:elementos) {
+			this.asociarElemento(e.getId(), id);
+		}
+		
+	}
+	private boolean elementosLibres(ArrayList<Elemento> elementos) {
+		for(Elemento e:elementos) {
+			if(this.equipoPoseElemento(e.getId())) return false;
+		}
+		return true;
+	}
+	private boolean hayUnElementoDeCadaCategoria(ArrayList<Elemento> elementos) {
+		String[] categoria = new String[] {"TORRE","MOUSE","TECLADO","PANTALLA"};
+		for(String c:categoria) {
+			if(!existeElementoConCategoria(elementos,c)) return false;
+		}
+		return true;
+	}
+	private boolean existeElementoConCategoria(ArrayList<Elemento> elementos, String categoria) {
+		for(Elemento e:elementos) {
+			if(e.getCategoria().equals(categoria)) return true;
+		}
+		return false;
+	}
 	/*
 	 * @param id - la id de un equipo
 	 * @return el equipo al que corresponde la id

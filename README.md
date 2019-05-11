@@ -44,6 +44,18 @@ Email: jeisson.sanchez@mail.escuelaing.edu.co
 
 Password:pw
 
+Email: claudia.santiago@escuelaing.edu.co
+
+Password: claudia
+
+Email: julian.velasco-b@escuelaing.edu.co
+
+Password: julian
+
+Email:santiago.alzate-s@escuelaing.edu.co
+
+Password: santiago
+
 -----------------------------------------------------------------------------------
 
 

@@ -52,7 +52,7 @@ Email: julian.velasco-b@escuelaing.edu.co
 
 Password: julian
 
-Email:santiago.alzate-s
+Email:santiago.alzate-s@escuelaing.edu.co
 
 Password: santiago
 

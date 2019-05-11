@@ -42,7 +42,9 @@
 		FROM NOVEDAD
 		WHERE elemento=#{elemento}
  	</select>
-
+ 	<insert id="agregarNovedadSinElemento" parameterType="map">
+ 		insert into novedad(id,fechanovedad,descripcion,justificacion,equipo,usuario) select count(*)+1,now(),#{razon},#{justificacion},#{equipo},#{usuario} from novedad 
+ 	</insert>
 	<resultMap type='Novedad' id='NovedadResult'>
 	    <id property='id' column='id_novedad'/>
 	    <result property="fechaNovedad" column="fechanovedad"></result>

@@ -309,6 +309,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public ArrayList<Novedad> getNovedades(int elemento, int equipo) {
 		return novedad.getNovedades(elemento,equipo);
 	}
+	public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario) {
+		novedad.agregarNovedadSinElemento(razon,justificacion,equipo,usuario);
+		
+	}
 	
 	
 }

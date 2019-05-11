@@ -61,5 +61,11 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 	public ArrayList<Novedad> getNovedades(int elemento, int equipo) {
 		return mapper.getNovedadesElementoEquipo(elemento,equipo);
 	}
+
+	@Override
+	public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario) {
+		mapper.agregarNovedadSinElemento(razon,justificacion,equipo,usuario);
+		
+	}
 	
 }

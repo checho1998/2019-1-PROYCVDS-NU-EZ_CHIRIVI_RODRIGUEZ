@@ -28,4 +28,6 @@ public interface NovedadDAO {
 		public ArrayList<Novedad> getNovedadesElemento(int elemento);
 
 		public ArrayList<Novedad> getNovedades(int elemento, int equipo);
+
+		public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario);
 }

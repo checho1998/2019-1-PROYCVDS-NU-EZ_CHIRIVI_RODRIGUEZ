@@ -13,15 +13,24 @@ public class Elemento {
 	
 	public Elemento() {	
 	}
-	
+	/*
+	 * Actualiza la id que le corresponde al elemento
+	 * @param id- La id del elemento a actualizar
+	 */
 	public void setId(int id) {
 		this.id=id;
 	}
-	
+	/*
+	 * Actualiza la categoria que corresponde al elmento
+	 * @param categoria - El valor de la categoria a que corresponde este elemento
+	 */
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
+	/*
+	 * Actualiza la informacion sobre quien elaboro el elemento
+	 * @param fabricante- corresponde a quien elaboro el equipo
+	 */
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}

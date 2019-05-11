@@ -58,6 +58,7 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
+	<!-- Actualiza datos session bean -->
 	#{eqnovsBean.setEquipo(eqnovBean.getEquipo())}
 	<h:form id="m_from">
 		<p:outputLabel value="Elementos de el equipo #{eqnovsBean.getEquipo()}"/>
@@ -68,6 +69,7 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
 			<p:column headerText="Novedades"><p:button value="Ver novedades" style="background:green; color:white;" outcome="Elemento">
 				<f:param value="${elm.getId()}" name="elemento"></f:param>
+				<f:param value="#{eqnovsBean.getEquipo()}" name="equipo"></f:param>
 			</p:button></p:column>
 		</p:dataTable>
 		<br></br>

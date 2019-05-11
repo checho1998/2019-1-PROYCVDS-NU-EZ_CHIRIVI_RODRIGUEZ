@@ -23,7 +23,7 @@ public class LabRegisterTest extends TestBase{
 		if(lab.getUsuario("juan@escuelaing.edu.co")==null) {
 			try {
 				lab.registrarUsuario(1, "juan","pal", "juan@escuelaing.edu.co", "ad", "cl");
-				lab.AgregarElemento(1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,null);
+				lab.AgregarElemento(1, "TORRE", "LENOVO", "IDEA", new Date(01, 02, 2019),null,new Date(02,02,2019));
 				lab.insertarEquipoSinLaboratorio(1, new Date(2, 3, 2019),null,null);
 			} catch (ECILabException e) {
 				
@@ -35,7 +35,7 @@ public class LabRegisterTest extends TestBase{
 		
 		qt().forAll(integers().between(0, 1000)).check(id->{
 			try {
-				lab.insertarEquipoSinLaboratorio(id, null,null, new Date(01,02,2017));
+				lab.insertarEquipoSinLaboratorio(id, new Date(02,02,2017),null, new Date(01,02,2017));
 				//System.out.println("Salio");
 				Equipo eq = lab.getEquipo(id);
 				return eq.getId()==id;
@@ -74,12 +74,12 @@ public class LabRegisterTest extends TestBase{
 		qt().forAll(integers().allPositive(),integers().allPositive()).check(
 				(idEle,idEq) -> {
 			try {
-				lab.AgregarElemento(idEle,"TORRE","LENOVO","IDEA PAD",new Date(19,02,2015),null,null);
+				lab.AgregarElemento(idEle,"TORRE","LENOVO","IDEA PAD",new Date(19,02,2015),null, null);
 			}catch(Exception e) {
 				
 			}
 			try {
-				lab.insertarEquipoSinLaboratorio(idEq, null,null, new Date(01,02,2017));
+				lab.insertarEquipoSinLaboratorio(idEq, new Date(02,02,2017),null, new Date(01,02,2017));
 			}catch(Exception e) {
 				
 			}

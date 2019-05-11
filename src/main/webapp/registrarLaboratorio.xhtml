@@ -58,7 +58,10 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
-	
+	#{laboBean.setId(0)}
+	#{laboBean.setNombre(null)}
+	#{laboBean.setCapacidad(0)}
+	#{laboBean.startEquipos()}
 	<h:form id="m_from">
 		<p:growl id="growl" showDetail="true" sticky="true" />
 		<center><h1>REGISTRAR LABORATORIO</h1></center>
@@ -68,7 +71,10 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>		
 		<p:outputLabel value="Numero de Laboratorio:"></p:outputLabel>
 		<p:inputText value="#{laboBean.id}">
+			 <p:ajax event="keyup" update="out1"/>
 		</p:inputText>
+		<p:outputLabel value="Disponible:"></p:outputLabel>
+		<p:outputLabel id="out1" value="#{laboBean.getLaboratorio() eq null}"></p:outputLabel>
 		<p:outputLabel value="Nombre del Laboratorio"></p:outputLabel>
 		<p:inputText value="#{laboBean.nombre}"></p:inputText>
 		<p:outputLabel value="Capacidad de equipos en el Laboratorio:"></p:outputLabel>
@@ -81,7 +87,7 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${equ.getId()}</p:column>
 			<p:column headerText="Fecha Inicio Actividad">${equ.getFechaInicioActividad()}</p:column>
 			<p:column headerText="Fecha Adquisicion">${equ.getFechaAdquisicion()}</p:column>
-			<p:column headerText="Desasociar"><h:commandLink value="Desasociar" actionListener="#{laboBean.remove(equ)}" update="@form"></h:commandLink></p:column>
+			<p:column headerText="Desasociar"><p:commandLink value="Desasociar" actionListener="#{laboBean.remove(equ)}" update="@form"></p:commandLink></p:column>
 		</p:dataTable>
 		<br></br>
 		<br></br>
@@ -94,10 +100,10 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${equipo.getId()}</p:column>
 			<p:column headerText="Fabricante">${equipo.getFechaInicioActividad()}</p:column>
 			<p:column headerText="Fecha fin actividad">${equipo.getFechaFinActividad()}</p:column>
-			<p:column headerText="Asociar"><h:commandLink value="Asociar" actionListener="#{laboBean.add(equipo)}" update="@form"></h:commandLink></p:column>
+			<p:column headerText="Asociar"><p:commandLink value="Asociar" actionListener="#{laboBean.add(equipo)}" update="@form"></p:commandLink></p:column>
 		</p:dataTable>
 		<br></br>
-		<center><h:commandLink value="Registrar Laboratorio" actionListener="#{laboBean.agregarLaboratorio()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink></center>
+		<center><p:commandLink value="Registrar Laboratorio" actionListener="#{laboBean.agregarLaboratorio()}" update="@form" style="background:green; color:white; padding:10px;"></p:commandLink></center>
 		<br></br>
 	</h:form>
 	<br></br>

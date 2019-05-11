@@ -59,6 +59,10 @@ xmlns:p="http://primefaces.org/ui">
  		</div>
 	</h:form>
 	<div>
+	#{novBean.setDetalle(null)}
+	#{novBean.setDescripcion(null)}
+	#{novBean.setElemento(0)}
+	#{novBean.setEquipo(0)}
 	<h:form id="m_form">
 		<p:growl id="growl" showDetail="true" sticky="true" />
 			<center><h1>REGISTAR NOVEDADES</h1></center>
@@ -81,7 +85,7 @@ xmlns:p="http://primefaces.org/ui">
 				<p:inputText value="#{novBean.elemento}"></p:inputText>
 				<br></br>
 				<br></br>
-				<h:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
+				<p:commandLink value="Registrar" actionListener="#{novBean.registrarNovedad()}" update="@form" style="background:green; color:white; padding:10px;"></p:commandLink>
 			</div>
 			<br></br>
 			<div>

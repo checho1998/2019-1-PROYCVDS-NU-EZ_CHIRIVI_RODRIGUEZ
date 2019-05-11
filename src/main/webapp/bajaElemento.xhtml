@@ -35,7 +35,6 @@ xmlns:p="http://primefaces.org/ui">
  		}
  		.ui-dialog-titlebar{
  			background:#1B8344;
- 			color:white;
  		}
  		.ui-button span{
  			background:#1B8344;
@@ -70,10 +69,10 @@ xmlns:p="http://primefaces.org/ui">
 		<h:outputLabel value="  Dar de baja a un elemento:" style="font-size:30px; padding:10px;"></h:outputLabel>
 		<br></br>
 		<p:dataTable value="#{elmBean.getElementosActivos()}" var="elm" rows="10" paginator="true">
-			<p:column headerText="Id Elemento">${elm.getId()}</p:column>
+			<p:column headerText="Id Elemento" filterBy="${elm.getId()}">${elm.getId()}</p:column>
 			<p:column headerText="Fabricante">${elm.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elm.getReferencia()}</p:column>
-			<p:column headerText="Categoria">${elm.getCategoria()}</p:column>
+			<p:column headerText="Categoria" filterBy="${elm.getCategoria()}">${elm.getCategoria()}</p:column>
 			<p:column headerText="Activo">${elm.getFechaFinActividad() eq null}</p:column>
 			<p:column headerText="Dar de baja:">
 				<p:commandLink value="Dar de baja" actionListener="#{elemBajaBean.darBaja(elm)}" update="@form" style=" color:black; padding:10px;">

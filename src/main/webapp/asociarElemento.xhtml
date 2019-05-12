@@ -66,6 +66,10 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	
 	<h:form id="m_form">
+		<center><H1>Asociar Elemento</H1></center>
+		<br></br>
+		<h3>En este formulario usted podra realizar la asociacion de un elemento con un equipo</h3>
+		<br></br>	
 		<p:dataTable value="#{asoBean.getEquipos()}" var="equ" rows="20" paginator="true">
 			<p:column headerText="Id equipo">${equ.getId()}</p:column>
 			<p:column headerText="Activo">${equ.getFechaFinActividad() eq null}</p:column>

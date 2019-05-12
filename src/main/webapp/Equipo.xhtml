@@ -83,7 +83,7 @@ xmlns:p="http://primefaces.org/ui">
 			</f:facet>
 			<p:column headerText="Descricion"><p:outputLabel value="${novedad.getDescripcion()}"/></p:column>
 			<p:column headerText="Justificacion"><p:outputLabel value="${novedad.getJustificacion()}"/></p:column>
-			<p:column headerText="Fecha"><p:outputLabel value="${novedad.getFechaNovedad()}"/></p:column>
+			<p:column headerText="Fecha" sortBy="${novedad.getFechaNovedad()}"><p:outputLabel value="${novedad.getFechaNovedad()}"/></p:column>
 		</p:dataTable>
 	</h:form>
 	<br></br>

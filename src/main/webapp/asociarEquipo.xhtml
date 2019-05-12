@@ -65,7 +65,10 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
-	
+	<br></br>
+	<center><h1>Asociar Equipo</h1></center>
+	<br></br>
+	<h3>En este formulario usted podra asociar equipos a los respectivos laboratorios</h3>
 	<h:form id="m_form">
 		<p:dataTable value="#{asoBean.getLaboratorios()}" var="lab" rows="20" paginator="true">
 			<p:column headerText="Id laboratorio">${lab.getId()}</p:column>

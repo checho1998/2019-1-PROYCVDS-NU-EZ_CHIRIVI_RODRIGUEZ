@@ -28,7 +28,8 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	private int id;
 	private int capacidad;
 	private String nombre;
-	private Date fechaCierre;	
+	private java.util.Date fechaCierre;	
+	private java.util.Date fechaApertura;
 	private ArrayList<Equipo> equipos;
 	
 	public LaboratorioBean() {
@@ -81,11 +82,11 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		return nombre;
 	}
 	
-	public void setfechaCierre(Date fechaCierre) {
+	public void setfechaCierre(java.util.Date fechaCierre) {
 		this.fechaCierre = fechaCierre;		
 	}
 	
-	public Date getfechaCierre() {
+	public java.util.Date getfechaCierre() {
 		return fechaCierre;
 	}
 	
@@ -116,13 +117,17 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public void agregarLaboratorio() { 
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
+			Date d=null; 
+			d= new Date(fechaApertura.getTime());
 			if(equipos.size() > getCapacidad()) throw new ECILabException("La cantidad de equipos exceden el limite la capacidad del laboratorio");
-			servicios.agregarLaboratorio(id, nombre, capacidad, null);
+			if (equipos.size() == 0) throw new ECILabException("El laboratorio debe tener al menos un equipo asociado");
+			servicios.agregarLaboratorio(id, nombre, capacidad, null,d);
 			for(Equipo e:equipos) {
 				servicios.asociarEquipo(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-				servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+				//servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 			}
 			equipos.clear();
+			limpiar();
 	        context.addMessage(null, new FacesMessage("Succesfull","Laboratorio registrado.") );
 		}catch(ECILabException e) {
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()));
@@ -130,6 +135,22 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	}
 	public Laboratorio getLaboratorio() {
 		return servicios.getLaboratorio(id);
+	}
+
+	public java.util.Date getFechaApertura() {
+		return fechaApertura;
+	}
+
+	public void setFechaApertura(java.util.Date fechaApertura) {
+		this.fechaApertura = fechaApertura;
+	}
+	
+	public void limpiar() {
+		this.capacidad =0;
+		this.fechaApertura = null;
+		this.fechaCierre = null;
+		this.id = 0;
+		this.nombre = null;
 	}
 	
 }

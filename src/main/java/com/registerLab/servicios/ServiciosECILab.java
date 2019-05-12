@@ -53,7 +53,7 @@ public interface ServiciosECILab {
 	
 	public ArrayList<Novedad> getNovedades();
 	
-	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException;
+	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre, Date fechaapertura) throws ECILabException;
 
 	public List<Laboratorio> getLaboratorios();
 	public void darBajaConEquipoAsociado(Elemento e, Equipo eq);
@@ -65,4 +65,14 @@ public interface ServiciosECILab {
 	public ArrayList<Equipo> getEquiposinLab();
 	
 	public void cerrarLaboratorio(int laboratorio) throws ECILabException;
+	
+	public List<Laboratorio> getTodosLaboratorios();
+	
+	public int cantidadEquipo( int laboratorio);
+	
+	public ArrayList<Novedad> getNovedadesLabEqui(int labo);
+	
+	public int ElementosLaboratorio(int laboratorio);
+	
+	public int equiposLaboratorios(String mes);
 }

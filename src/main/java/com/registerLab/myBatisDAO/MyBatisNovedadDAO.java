@@ -52,4 +52,9 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 		return mapper.getNovedadesElemento(elemento);
 	}
 	
+	@Override
+	public ArrayList<Novedad> getNovedadesLabEqui(int labo){
+		return mapper.getNovedadesLabEqui(labo);
+	}
+	
 }

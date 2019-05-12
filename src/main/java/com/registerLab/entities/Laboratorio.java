@@ -7,7 +7,10 @@ public class Laboratorio {
 	private String nombre;
 	private int capacidad;
 	private Date fechaCierre;
+	private Date fechaApertura;
 	private ArrayList<Equipo> equipos;
+	
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -28,7 +31,7 @@ public class Laboratorio {
 		return fechaCierre;
 	}
 	
-	public void setFechaAdquisicion(Date fechaCierre) {
+	public void setFechaCierre(Date fechaCierre) {
 		this.fechaCierre = fechaCierre;
 	}
 	
@@ -37,6 +40,14 @@ public class Laboratorio {
 	}
 	public ArrayList<Equipo> getEquipos(){
 		return equipos;
+	}
+
+	public Date getFechaApertura() {
+		return fechaApertura;
+	}
+
+	public void setFechaApertura(Date fechaApertura) {
+		this.fechaApertura = fechaApertura;
 	}
 	
 	

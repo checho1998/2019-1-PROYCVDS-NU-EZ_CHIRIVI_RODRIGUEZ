@@ -3,6 +3,8 @@ package com.registerLab.myBatisDAO;
 import java.sql.Date;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
 import com.registerLab.DAO.EquipoDAO;
@@ -30,10 +32,10 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	}
 	
 	@Override
-	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException {
+	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre, Date fechaapertura) throws ECILabException {
 		if (getLaboratorio(id) != null) throw new ECILabException ("Este laboratorio ya esta registrado");
 		if (nombre == null || nombre == "") throw new ECILabException ("El nombre del laboratorio no debe estar vacio");
-		mapper.agregarLaboratorio(id, nombre, capacidad, fechacierre);
+		mapper.agregarLaboratorio(id, nombre, capacidad, fechacierre,fechaapertura);
 	}
 	
 	@Override
@@ -51,5 +53,25 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	public void cerrarLaboratorio(int laboratorio) {
 		mapper.cerrarLaboratorio(laboratorio);
 		
+	}
+	
+	@Override
+	public List<Laboratorio> getTodosLaboratorios(){
+		return mapper.getTodosLaboratorios();
+	}
+	
+	@Override
+	public int cantidadEquipo( int laboratorio) {
+		return mapper.cantidadEquipo(laboratorio);
+	}
+	
+	@Override
+	public int ElementosLaboratorio(int laboratorio) {
+		return mapper.ElementosLaboratorio(laboratorio);
+	}
+	
+	@Override
+	public int equiposLaboratorios(String mes) {
+		return mapper.equiposLaboratorios(mes);
 	}
 }

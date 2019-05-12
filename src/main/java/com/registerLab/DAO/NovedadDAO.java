@@ -3,27 +3,30 @@ package com.registerLab.DAO;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Novedad;
 
 public interface NovedadDAO {
 	
-		public Novedad getNovedad(int id)throws ECILabException;
+		Novedad getNovedad(int id)throws ECILabException;
+		int getUltimaNovedad();
 		
-		public int getUltimaNovedad();
-		
-		public void agregarNovedad(
+		void agregarNovedad(
 		String descripcion,
 		String justificacion,
 		int idEquipo,
 		int idElemento,
 		int usuario) throws ECILabException;
 
-		public void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario);
+		void registrarNovedadSinEquipo(String descripcion, String justificacion, int elemento, int usuario);
 		
-		public ArrayList<Novedad> getNovedades();
+		ArrayList<Novedad> getNovedades();
 
-		public ArrayList<Novedad> novedadesEquipo(int equipo);
+		ArrayList<Novedad> novedadesEquipo(int equipo);
 
-		public ArrayList<Novedad> getNovedadesElemento(int elemento);
+		ArrayList<Novedad> getNovedadesElemento(int elemento);
+		
+		ArrayList<Novedad> getNovedadesLabEqui(int labo);
 }

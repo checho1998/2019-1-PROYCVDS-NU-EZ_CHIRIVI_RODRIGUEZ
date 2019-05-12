@@ -210,9 +210,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 	
 	@Override
-	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre) throws ECILabException{
+	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre,Date fechaapertura) throws ECILabException{
 		if(capacidad<=0) throw new ECILabException("La capacidad del laboratorio no puede ser negativa o cero");
-		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre);
+		laboratorio.agregarLaboratorio(id, nombre, capacidad, fechacierre,fechaapertura);
 	}
 	
 	public boolean equipoAsociadoaLaboratorio(int equipo) {
@@ -257,5 +257,28 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		return equipo.getEquiposinLab();
 	}
 	
+	@Override
+	public List<Laboratorio> getTodosLaboratorios(){
+		return laboratorio.getTodosLaboratorios();
+	}
 	
+	@Override
+	public int cantidadEquipo( int laboratorio) {
+		return this.laboratorio.cantidadEquipo(laboratorio);
+	}
+	
+	@Override
+	public ArrayList<Novedad> getNovedadesLabEqui(int labo){
+		return novedad.getNovedadesLabEqui(labo);
+	}
+	
+	@Override
+	public int ElementosLaboratorio(int laboratorio) {
+		return this.laboratorio.ElementosLaboratorio(laboratorio);
+	}
+	
+	@Override
+	public int equiposLaboratorios(String mes) {
+		return this.laboratorio.equiposLaboratorios(mes);
+	}
 }

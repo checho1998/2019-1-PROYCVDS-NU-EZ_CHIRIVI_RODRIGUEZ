@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.sql.Date;
 
+
 import com.google.inject.Inject;
 import com.registerLab.ECILabException;
 import com.registerLab.entities.Elemento;
@@ -133,7 +134,7 @@ public class LabRegisterTest extends TestBase{
 	public void deberiaRegistrarUnLaboratorio() {
 		qt().forAll(integers().allPositive()).check(id->{
 			try {
-				lab.agregarLaboratorio(id, "Redes", 20, null);
+				lab.agregarLaboratorio(id, "Redes", 20, null,null);
 			}catch(ECILabException e) {
 				
 			}finally {
@@ -145,7 +146,7 @@ public class LabRegisterTest extends TestBase{
 	public void deberiaDarDeBajaALaboratorio() {
 		qt().forAll(integers().allPositive()).check(id->{
 			try {
-				lab.agregarLaboratorio(id,"Redes",20,null);
+				lab.agregarLaboratorio(id,"Redes",20,null,null);
 			}catch(ECILabException e) {
 				return true;
 			}

@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
-
   
 <mapper namespace="com.registerLab.mappers.NovedadMapper">
 	<select id="getNovedades" resultMap="NovedadResult" parameterType="map">
@@ -13,6 +12,13 @@
  <select id="getNovedad" parameterType="map"  resultMap="NovedadResult">
  	select * from novedad 
  	where id=#{idNov}
+ </select>
+ 
+ <select id="getNovedadesLabEqui" parameterType="map"  resultMap="NovedadResult">
+ 	select novedad.id,novedad.descripcion,novedad.justificacion,novedad.fechanovedad
+ 	,novedad.equipo from novedad inner join equipo on novedad.equipo = equipo.id
+ 	 left join laboratorio on equipo.laboratorio = laboratorio.id  
+ 	 where laboratorio.id = #{lab}
  </select>
  
  <select id="getUltimaNovedad" parameterType="map"  resultMap="NovedadResult" >
@@ -42,6 +48,10 @@
 	    <id property='id' column='id_novedad'/>
 	    <result property="fechaNovedad" column="fechanovedad"></result>
 	    <result property="descripcion" column="descripcion"></result>
-	    <result property="justificacion" column="justificacion"></result>      
+	    <result property="justificacion" column="justificacion"></result>
+		<result property="equipo" column="equipo"></result>
+		<result property="usuario" column="usuario"></result>
+		<result property="elemento" column="elemento"></result>
+		<result property="laboratorio" column="laboratorio"></result>
 	</resultMap>
 </mapper>

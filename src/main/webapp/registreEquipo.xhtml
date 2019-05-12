@@ -47,9 +47,12 @@ xmlns:p="http://primefaces.org/ui">
 		}
  	</style>
  </h:head>
- 
  <h:body style="margin:0px; padding:0px;">
  <img src="labinfo.jpg" style="width:250px;"></img>
+ #{equiBean.setId(0)}
+ #{equiBean.setFechaInicioActividad(null)}
+ #{equiBean.setFechaAdquisicion(null)}
+ #{equiBean.startElementos()}
  <br></br>
  	<h:form>
  		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
@@ -113,7 +116,7 @@ xmlns:p="http://primefaces.org/ui">
 				 </p:selectOneMenu>
 				<br></br>
 				<br></br>
-				<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="@form" style="background:#1B8344; color:white; padding:10px;"></h:commandLink>
+				<p:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="@form" style="background:#1B8344; color:white; padding:10px;"></p:commandLink>
 	    </p:overlayPanel>
 		<br></br>
 		<center>
@@ -138,7 +141,7 @@ xmlns:p="http://primefaces.org/ui">
 				 <f:selectItem itemLabel="MOUSE" itemValue="MOUSE" noSelectionOption="true" />
 				 <f:selectItem itemLabel="TECLADO" itemValue="TECLADO" noSelectionOption="true" />
 				 </p:selectOneMenu>
-		<h:commandButton value="Buscar elementos de esta categoria" update="@form" style="color:white; background:green; padding:8px;"></h:commandButton>
+		<p:commandButton value="Buscar elementos de esta categoria" update="@form" style="color:white; background:green; padding:8px;"></p:commandButton>
 		<br></br>
 		<b>Categoria: #{equiBean.getCategoria()}</b>
 		<br></br>
@@ -147,12 +150,12 @@ xmlns:p="http://primefaces.org/ui">
 			<p:column headerText="Id">${elemento.getId()}</p:column>
 			<p:column headerText="Fabricante">${elemento.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${elemento.getReferencia()}</p:column>
-			<p:column headerText="Asociar"><h:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></h:commandLink></p:column>
+			<p:column headerText="Asociar"><p:commandLink value="Asociar" actionListener="#{equiBean.add(elemento)}" update="@form"></p:commandLink></p:column>
 		</p:dataTable>
 		</div>
 		<br></br>
 		<br></br>
-		<center><h:commandLink value="Registrar equipo" actionListener="#{equiBean.registrarEquipo()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink></center>			
+		<center><p:commandLink value="Registrar equipo" actionListener="#{equiBean.registrarEquipo()}" update="@form" style="background:green; color:white; padding:10px;"></p:commandLink></center>			
 	</h:form>	
 	<br></br>
 	<div class="pers">

@@ -56,6 +56,11 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
  		</div>
 	</h:form>
+	#{elmBean.setId(0)}
+	#{elmBean.setFabricante(null)}
+	#{elmBean.setReferencia(null)}
+	#{elmBean.setFechaAdquisicion(null)}
+	#{elmBean.setCategoria(null)}
 	<h:form id="m_form">
 		<center><h1>Registrar elemento</h1></center>
 		<br></br>
@@ -93,7 +98,7 @@ xmlns:p="http://primefaces.org/ui">
 		 </p:selectOneMenu>
 		<br></br>
 		<br></br>
-		<h:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></h:commandLink>
+		<p:commandLink value="Registrar elemento" actionListener="#{elmBean.registrarElemento()}" update="m_form" style="background:green; color:white; padding:10px;"></p:commandLink>
 		<br></br>
 		</div>
 		<br></br>

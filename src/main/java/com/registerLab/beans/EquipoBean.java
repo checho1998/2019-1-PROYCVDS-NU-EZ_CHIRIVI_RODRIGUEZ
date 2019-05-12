@@ -43,26 +43,7 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public EquipoBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
-		elementos = new ArrayList<Elemento>() {
-			@Override
-			public boolean add(Elemento e) {
-				if(e.getFechaFinActividad()==null || servicios.elementoAsociadoaEquipo(e.getId())) {
-					ArrayList<Elemento> toRemove = new ArrayList<>();
-					for(int i=0;i<size();i++) {
-						if(get(i).getCategoria().equals(e.getCategoria())) toRemove.add(get(i));
-					}
-					for(Elemento el:toRemove) {
-						remove(el);
-					}
-					return super.add(e);
-				}
-				else {
-					FacesContext context = FacesContext.getCurrentInstance();
-					context.addMessage(null, new FacesMessage("Succesfull","No fue posible añadir el elemento seleccionado") );
-					return false;
-				}
-			} 
-		};
+		startElementos();
 	}
 	public String getCategoria() {
 		return categoria;
@@ -83,13 +64,13 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void setfechaInicioActividad(java.util.Date fechaInicioActividad) {
+	public void setFechaInicioActividad(java.util.Date fechaInicioActividad) {
 		this.fechaInicioActividad = fechaInicioActividad;
 	}
-	public void setfechaFinActividad(java.util.Date fechaFinActividad) {
+	public void setFechaFinActividad(java.util.Date fechaFinActividad) {
 		this.fechaFin = fechaFinActividad;
 	}
-	public void setfechaAdquisicion(java.util.Date fechaAdquisicion) {
+	public void setFechaAdquisicion(java.util.Date fechaAdquisicion) {
 		this.fechaAdquisicion=fechaAdquisicion;
 	}
 	public void setElementos(ArrayList<Elemento> elementos) {
@@ -128,7 +109,9 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public ArrayList<Elemento> getelementos() {
 		return elementos;
 	}
-	
+	/*
+	 * Registra un equipo y los elementos a este
+	 */
 	public void registrarEquipo() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try{
@@ -137,16 +120,16 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 			if(elementos.size()<4) throw new ECILabException("Faltan elementos para registrar este equipo");
 			if(fechaAdquisicion!=null) d= new Date(fechaAdquisicion.getTime());
 			if(fechaInicioActividad!=null) da= new Date(fechaInicioActividad.getTime());
-			servicios.insertarEquipoSinLaboratorio(id, da, null, d);
-			for(Elemento e:elementos) {
-				servicios.asociarElemento(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-			}
-			context.addMessage(null, new FacesMessage("Succesfull","Equipo Insertado.") );
+			servicios.insertarEquipoSinLaboratorio(id, da, null, d, elementos);
 			elementos.clear();
+			context.addMessage(null, new FacesMessage("Correcto","se ha registrado el equipo"));
 		}catch(Exception e){
 			context.addMessage(null, new FacesMessage("Error",e.getMessage()) );			
 		}
 	}
+	/*
+	 * 
+	 */
 	public void asociarElemento() {
 			elementos.add(servicios.getElemento(idElemento));
 			FacesContext context = FacesContext.getCurrentInstance();
@@ -156,7 +139,7 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 				actual=new Date (fechaActual.getTime());
 				int ultimo = servicios.getUltimaNovedad();
 				servicios.asociarElemento(idElemento, id,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-				servicios.AgregarNovedad("Se realiza una nueva asociacion al elemento con su respectivo equipo","Nueva asociacion de elemento", id, idElemento,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+				servicios.AgregarNovedad("Se realiza una nueva asociacion al elemento "+String.valueOf(idElemento)+" con su respectivo equipo "+String.valueOf(id),"Nueva asociacion de elemento", id, idElemento,servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 				context.addMessage(null, new FacesMessage("Succesfull","elemento asociado.") );
 				
 				
@@ -183,8 +166,29 @@ public class EquipoBean  extends BaseBeanRegisterLab {
 	public Equipo getEquipo() {
 		return servicios.getEquipo(id);
 	}
-	
-	
-	
-
+	/*
+	 * Inicia el arrayList de elementos para evitar que a un equipo se vinculen mas de un elemento de la misma categoria
+	 */
+	public void startElementos() {
+		elementos = new ArrayList<Elemento>() {
+			@Override
+			public boolean add(Elemento e) {
+				if(e.getFechaFinActividad()==null || servicios.elementoAsociadoaEquipo(e.getId())) {
+					ArrayList<Elemento> toRemove = new ArrayList<>();
+					for(int i=0;i<size();i++) {
+						if(get(i).getCategoria().equals(e.getCategoria())) toRemove.add(get(i));
+					}
+					for(Elemento el:toRemove) {
+						remove(el);
+					}
+					return super.add(e);
+				}
+				else {
+					FacesContext context = FacesContext.getCurrentInstance();
+					context.addMessage(null, new FacesMessage("Succesfull","No fue posible añadir el elemento seleccionado") );
+					return false;
+				}
+			} 
+		};
+	}
 }

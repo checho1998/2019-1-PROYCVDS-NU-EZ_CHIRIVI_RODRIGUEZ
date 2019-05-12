@@ -56,6 +56,7 @@ public interface ServiciosECILab {
 	public void agregarLaboratorio(int id, String nombre, int capacidad, Date fechacierre, Date fechaapertura) throws ECILabException;
 
 	public List<Laboratorio> getLaboratorios();
+	
 	public void darBajaConEquipoAsociado(Elemento e, Equipo eq);
 	
 	public void desvincularElemento(Elemento e, Equipo eq);
@@ -66,6 +67,7 @@ public interface ServiciosECILab {
 	
 	public void cerrarLaboratorio(int laboratorio) throws ECILabException;
 	
+<<<<<<< HEAD
 	public List<Laboratorio> getTodosLaboratorios();
 	
 	public int cantidadEquipo( int laboratorio);
@@ -75,4 +77,7 @@ public interface ServiciosECILab {
 	public int ElementosLaboratorio(int laboratorio);
 	
 	public int equiposLaboratorios(String mes);
+=======
+	
+>>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 }

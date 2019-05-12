@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.registerLab.mappers.NovedadMapper">
+	<select parameterType="map" id="getNovedadesElementoEquipo" resultMap="NovedadResult">
+		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
+		FROM NOVEDAD
+		WHERE novedad.equipo=#{equipo} AND novedad.elemento=#{elemento}
+	</select>
 	<select id="getNovedades" resultMap="NovedadResult" parameterType="map">
 		SELECT id as id_novedad, fechanovedad,descripcion,justificacion
 		FROM NOVEDAD
@@ -43,7 +48,9 @@
 		FROM NOVEDAD
 		WHERE elemento=#{elemento}
  	</select>
-
+ 	<insert id="agregarNovedadSinElemento" parameterType="map">
+ 		insert into novedad(id,fechanovedad,descripcion,justificacion,equipo,usuario) select count(*)+1,now(),#{razon},#{justificacion},#{equipo},#{usuario} from novedad 
+ 	</insert>
 	<resultMap type='Novedad' id='NovedadResult'>
 	    <id property='id' column='id_novedad'/>
 	    <result property="fechaNovedad" column="fechanovedad"></result>

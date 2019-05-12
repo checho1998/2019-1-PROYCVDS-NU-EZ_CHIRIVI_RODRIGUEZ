@@ -51,6 +51,22 @@ public class MyBatisNovedadDAO implements NovedadDAO{
 		// TODO Auto-generated method stub
 		return mapper.getNovedadesElemento(elemento);
 	}
+
+	@Override
+	/*
+	 * @param elemento - id del elemento
+	 * @param equipo - id del equipo
+	 * @return devuelve las novedades que corresponden a la id del los elementos y equipos dados 
+	 */
+	public ArrayList<Novedad> getNovedades(int elemento, int equipo) {
+		return mapper.getNovedadesElementoEquipo(elemento,equipo);
+	}
+
+	@Override
+	public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario) {
+		mapper.agregarNovedadSinElemento(razon,justificacion,equipo,usuario);
+		
+	}
 	
 	@Override
 	public ArrayList<Novedad> getNovedadesLabEqui(int labo){

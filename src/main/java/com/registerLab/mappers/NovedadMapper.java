@@ -27,6 +27,13 @@ public interface NovedadMapper {
 	public ArrayList<Novedad> novedadesEquipo(@Param("Equipo")int equipo);
 
 	public ArrayList<Novedad> getNovedadesElemento(@Param("elemento")int elemento);
+<<<<<<< HEAD
 	
 	public ArrayList<Novedad> getNovedadesLabEqui(@Param("lab") int labo);
+=======
+
+	public ArrayList<Novedad> getNovedadesElementoEquipo(@Param("elemento")int elemento, @Param("equipo")int equipo);
+
+	public void agregarNovedadSinElemento(@Param("razon") String razon,@Param("justificacion") String justificacion,@Param("equipo") int equipo,@Param("usuario") int usuario);
+>>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 }

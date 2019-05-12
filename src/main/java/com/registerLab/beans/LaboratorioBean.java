@@ -35,27 +35,7 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public LaboratorioBean() {
 		injector = super.getInjector();
 		servicios = injector.getInstance(ServiciosECILabImpl.class);
-		equipos = new ArrayList<Equipo>() {
-			@Override
-			public boolean add(Equipo e) {
-				if(e.getFechaFinActividad()==null || servicios.equipoAsociadoaLaboratorio(e.getId())) {
-					ArrayList<Equipo> toRemove = new ArrayList<>();
-					for(int i=0;i<size();i++) {
-						if(get(i).getId() == e.getId()) toRemove.add(get(i));
-					}
-					for(Equipo el:toRemove) {
-						remove(el);
-					}
-					return super.add(e);
-					
-				}
-				else {
-					FacesContext context = FacesContext.getCurrentInstance();
-					context.addMessage(null, new FacesMessage("Succesfull","No fue posible añadir el equipo seleccionado") );
-					return false;
-				}
-			} 
-		};
+		startEquipos();
 	}
 	
 	public void setId(int id) {
@@ -69,6 +49,9 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public void add(Equipo e) {
 		equipos.add(e);
 	}
+	/*
+	 * @param e - equipo a ser removido de los posibles equipos que conformen el laboratorio
+	 */
 	
 	public void remove(Equipo e) {
 		equipos.remove(e);
@@ -124,7 +107,11 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 			servicios.agregarLaboratorio(id, nombre, capacidad, null,d);
 			for(Equipo e:equipos) {
 				servicios.asociarEquipo(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+<<<<<<< HEAD
 				//servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+=======
+				servicios.agregarNovedadSinElemento("Asocio equipo a laboratorio", "Completar laboratorio", id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
+>>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 			}
 			equipos.clear();
 			limpiar();
@@ -136,6 +123,7 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public Laboratorio getLaboratorio() {
 		return servicios.getLaboratorio(id);
 	}
+<<<<<<< HEAD
 
 	public java.util.Date getFechaApertura() {
 		return fechaApertura;
@@ -151,6 +139,30 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		this.fechaCierre = null;
 		this.id = 0;
 		this.nombre = null;
+=======
+	public void startEquipos() {
+		equipos = new ArrayList<Equipo>() {
+			@Override
+			public boolean add(Equipo e) {
+				if(e.getFechaFinActividad()==null || servicios.equipoAsociadoaLaboratorio(e.getId())) {
+					ArrayList<Equipo> toRemove = new ArrayList<>();
+					for(int i=0;i<size();i++) {
+						if(get(i).getId() == e.getId()) toRemove.add(get(i));
+					}
+					for(Equipo el:toRemove) {
+						remove(el);
+					}
+					return super.add(e);
+					
+				}
+				else {
+					FacesContext context = FacesContext.getCurrentInstance();
+					context.addMessage(null, new FacesMessage("Succesfull","No fue posible añadir el equipo seleccionado") );
+					return false;
+				}
+			} 
+		};
+>>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 	}
 	
 }

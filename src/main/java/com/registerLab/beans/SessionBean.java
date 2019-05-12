@@ -53,6 +53,7 @@ public class SessionBean extends BaseBeanRegisterLab{
 		try {
 			Subject currentUser = SecurityUtils.getSubject();
 			String hex = new Sha256Hash(password).toHex();
+			System.out.println(hex);
 			UsernamePasswordToken token = new UsernamePasswordToken(email, hex);
 			token.setRememberMe(true);
 			currentUser.login(token);

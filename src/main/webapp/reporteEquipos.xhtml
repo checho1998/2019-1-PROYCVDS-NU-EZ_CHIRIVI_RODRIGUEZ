@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:f="http://java.sun.com/jsf/core">
+ <h:head><title>Reporte de Equipos</title>
+  	<style type="text/css">
+ 		.my_test li{
+ 			display:inline;
+ 			padding:10px;
+ 			margin:10px;
+ 		}
+ 		
+ 		.pers{
+ 			color:white; 
+ 			background:#1B8344;
+ 			padding:5px;
+ 			margin:5px;	
+ 			width:100%;
+ 		}
+ 		
+ 		.pers ul li{
+ 			padding:5px;
+ 			margin:5px;
+ 		}
+ 		
+ 		.temp{
+ 			font-size:20px;
+ 		}
+ 		
+ 		.ui-datatable-data tr td{
+ 			background:white;
+ 		}
+ 		
+ 		.ui-paginator{
+ 			background:white;
+ 		}
+ 		
+ 		.ui-datatable-tablewrapper table thead tr th{
+ 			background:	#1B8344;
+ 			color:white;
+ 		}
+ 		
+ 		.pers{
+			width:100%;
+			background:#1B8344;
+		}
+ 	</style>
+ </h:head>
+ 
+ <h:body style= "margin:0px; padding:0px;">
+ <img src="labinfo.jpg" style="width:250px;"></img>
+ <br></br>
+ 
+ 	<h:form>
+ 		<div style="margin:0px; padding:5px; background:#1B8344; width:100%">
+ 			<div style="text-align:right;">
+				<ul class="my_test">
+					<li><a href="useradmin.xhtml" style="color:white">Regresar</a></li>
+					<li style="color:white;">#{sesBean.getUsuario().getNombre()} #{sesBean.getUsuario().getApellido()}</li>
+					<li><h:commandLink value="Log out" actionListener="#{sesBean.logout()}" style="color:white; background:gray; padding:10px;"></h:commandLink></li>
+				</ul>
+			</div>
+ 		</div>
+	</h:form>
+	<center><h1>Reporte de Equipos</h1></center>
+	<h:form>
+	<p:dataTable value="#{regElmBean.getTotalEquipos()}" var="equip" paginator="true" rows="6" widgetVar="equiposTable">
+		<p:column headerText="Codigo" filterBy="#{equip.getId()}" >
+			${equip.getId()}
+		</p:column>
+		<p:column headerText="Referencia" filterBy="#{equip.getFechaInicioActividad()}">
+			${equip.getFechaInicioActividad()}
+		</p:column>
+		<p:column headerText="Activo" filterBy="${equip.getFechaFinActividad() eq null}" >
+			${equip.getFechaFinActividad() eq null}
+		</p:column>
+		
+		 <p:column headerText="Reporte de Equipo">
+			<p:button outcome="reportesEquipo" value="Ver Reporte" >
+				<f:param value="${equip.getId()}" name="equipo" ></f:param>
+			</p:button>
+		</p:column>
+		
+	</p:dataTable>
+	</h:form>	
+	
+	<br></br>
+	<br></br>
+	<br></br>
+	
+	<div class="pers">
+		Algunos enlaces de interes:<br></br>
+		<ul>
+			<li><a href="https://www.escuelaing.edu.co/es/" style="color:white;">Escuela Colombiana de Ingenieria Julio Garavito.</a></li>
+			<li><a href="http://laboratorio.is.escuelaing.edu.co/" style="color:white">Laboratorio de informatica</a></li>
+		</ul>
+	</div>		
+ </h:body>
+</html>

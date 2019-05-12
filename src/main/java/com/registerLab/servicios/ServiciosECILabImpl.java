@@ -35,19 +35,73 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	private ElementoDAO elemento;
 	
 	
-	
+	/*
+	 * @param correo - correo del usuario a buscar
+	 * @return devuelve el Usuario correspondiente al correo
+	 */
 	public Usuario getUsuario(String correo) {
 		return usuario.getUsuario(correo);
 	}
-	
+	/*
+	 * @Param id la id del equipo a registrar
+	 * @throws ECILabException
+	 */
 	public void insertarEquipoSinLaboratorio(int id,Date fechaInicioActividad,Date fechafinactividad,Date fechaAdquisicion) throws ECILabException {
+		if(fechaInicioActividad==null || fechaAdquisicion==null) throw new ECILabException("fecha adquisicion o fecha fin de actividad no pueden ser nulas");
+		if(fechaInicioActividad.before(fechaAdquisicion)) throw new ECILabException("Un equipo no puede iniciar actividad antes de su adquisicion.");
 		equipo.insertarEquipoSinLaboratorio(id, fechaInicioActividad, fechafinactividad, fechaAdquisicion);
 	}
 	
+	public void insertarEquipoSinLaboratorio(int id,Date fechaInicioActividad,Date fechafinactividad,Date fechaAdquisicion,ArrayList<Elemento> elementos) throws ECILabException{
+	
+		if(elementos==null) throw new ECILabException("DEben haber elementos");
+		if(elementos.size()!=4) throw new ECILabException("Verifique el numero de elementos");
+		if(!hayUnElementoDeCadaCategoria(elementos)) throw new ECILabException("Verifique los elementos, hay categorias repetidas.");
+		if(!elementosLibres(elementos)) throw new ECILabException("Algunos elementos ya se encuentran vinculados a otro equipo");
+		insertarEquipoSinLaboratorio(id,fechaInicioActividad,fechafinactividad,fechaAdquisicion);
+		for(Elemento e:elementos) {
+			this.asociarElemento(e.getId(), id);
+		}
+		
+	}
+	
+	private boolean elementosLibres(ArrayList<Elemento> elementos) {
+	
+		for(Elemento e:elementos) {
+			if(this.equipoPoseElemento(e.getId())) return false;
+		}
+		return true;
+	}
+	
+	private boolean hayUnElementoDeCadaCategoria(ArrayList<Elemento> elementos) {
+	
+		String[] categoria = new String[] {"TORRE","MOUSE","TECLADO","PANTALLA"};
+		for(String c:categoria) {
+			if(!existeElementoConCategoria(elementos,c)) return false;
+		}
+		return true;
+	}
+	
+	private boolean existeElementoConCategoria(ArrayList<Elemento> elementos, String categoria) {
+	
+		for(Elemento e:elementos) {
+			if(e.getCategoria().equals(categoria)) return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * @param id - la id de un equipo
+	 * @return el equipo al que corresponde la id
+	 */
 	public Equipo getEquipo(int id) {
 		return equipo.getEquipo(id);
 	}
 	
+	/*
+	 * @param id - la id de un elemento
+	 * @return el elemento al que corresponde el id
+	 */
 	public Elemento getElemento(int id) {
 		return elemento.getElemento(id);
 	}
@@ -56,18 +110,33 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		return elemento.consultarElementos();
 	}
 	
+	/*
+	 * @param id - la id del elemento a insertar
+	 * @param categoria - la categoria al que corresponde el elemento a ser insertado -TORRE -MOUSE -TECLADO -PANTALLA
+	 * @param fabricante - quien elaboro el elemento
+	 * @param referencia - corresponde al modelo del equipo
+	 * @param fechaAdquisicion corresponde a la fecha de compra del elemento
+	 * @param fechaInicioActividad cuando el equipo inicio a ser utilizado
+	 * @param fechaFinActivida fecha en que el equipo termina suvida util  
+	 */
 	public void AgregarElemento(int id, String categoria, String fabricante, String referencia, Date fechaAdquisicion, Date fechaInicioActividad, Date fechaFinActivida) throws ECILabException {
 		elemento.AgregarElemento(id, categoria, fabricante, referencia, fechaAdquisicion, fechaInicioActividad, fechaFinActivida);
 	}
 	
-	
+	/*
+	 * @param descripcion - la descripcion del procedimiento que se realizo sobre un equipo
+	 * @param justificacion - razon por la cual el se realizo el procedimiento al equipo
+	 * @param idEquipo - corresponde al equipo sobre el cual se genero la novedada
+	 * @param idElemento - corresponde al elemento sobre el cual se genero la novedad
+	 * @param usuario - quien registra esta novedad
+	 */
 	public void AgregarNovedad(String descripcion,String justificacion,int idEquipo,int idElemento,int usuario) throws ECILabException {
 		if(equipo.getEquipo(idEquipo)==null) throw new ECILabException("No existe el equipo.");
 		if(elemento.getElemento(idElemento)==null) throw new ECILabException("No existe el Elemento.");
 		if(!equipoPosee(equipo.getEquipo(idEquipo),idElemento)) throw new ECILabException("Equipo y elemento no se encuentran vinculados");
 		novedad.agregarNovedad(descripcion, justificacion, idEquipo, idElemento,usuario);
 	}
-
+	
 	private boolean equipoPosee(Equipo equipo2, int idElemento) {
 		for(Elemento e:equipo2.getElementos()) {
 			if(e.getId()==idElemento) return true;
@@ -76,6 +145,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 
 	@Override
+	/*
+	 * @param id - la id de la novedad a buscar
+	 * @return la novedad correspondiente a la id
+	 */
 	public Novedad getNovedad(int id) throws ECILabException  {
 		return novedad.getNovedad(id);
 	}
@@ -86,6 +159,12 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	}
 	
 	@Override
+	/*
+	 * Asocia un equipo a un elemento
+	 * @param idElemento - la id que corresponde al elemento a asociar al equipo
+	 * @param idEquipoN - corresponde a la id del equipo al que se le desea asociar un elemento
+	 * @param usuario - corresponde a la id del usuario que aprobo el asociar el elemento a el equipo
+	 */
 	public void asociarElemento(int idElemento, int IdEquipoN,int usuario) throws ECILabException {
 		Elemento e = getElemento(idElemento);
 		if(e==null) throw new ECILabException("No existe el elemento a vincular.");
@@ -94,8 +173,14 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(equipo.getEquipo(IdEquipoN)==null) throw new ECILabException("No existe este equipo.");
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
 		equipo.asociarElemento(idElemento, IdEquipoN);
-		novedad.agregarNovedad("Asociacion elemento","completar equipo", IdEquipoN, idElemento,usuario);
+		novedad.agregarNovedad("Asociacion elemento "+String.valueOf(idElemento),"completar equipo "+String.valueOf(IdEquipoN), IdEquipoN, idElemento,usuario);
 	}
+	
+	/*
+	 * Asocia un elemento a un equipo
+	 * @param idElemento - la id del equipo al que se le dea asociar un elemento
+	 * @param idEquipo - la id del equipo al que se le desea asociar un elemento
+	 */
 	
 	public void asociarElemento(int idElemento, int IdEquipoN) throws ECILabException {
 		Elemento e = getElemento(idElemento);
@@ -109,6 +194,10 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
 	
+	/*
+	 * @param elemto - corresponde a la id de un un elemento
+	 * @return determina si un elemento se encuentra vinculado a un equipo
+	 */
 	public boolean elementoAsociadoaEquipo(int elemento) {
 		return this.elemento.elementoAsociadoaEquipo(elemento);
 	}
@@ -255,6 +344,18 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	
 	public ArrayList<Equipo> getEquiposinLab(){
 		return equipo.getEquiposinLab();
+	}
+	/*
+	 * @param equipo - La id del elemento
+	 * @param elemento la id del elemeto
+	 * @return  todas las novedades correspondientes al elemento y equipo dados
+	 */
+	public ArrayList<Novedad> getNovedades(int elemento, int equipo) {
+		return novedad.getNovedades(elemento,equipo);
+	}
+	public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario) {
+		novedad.agregarNovedadSinElemento(razon,justificacion,equipo,usuario);
+		
 	}
 	
 	@Override

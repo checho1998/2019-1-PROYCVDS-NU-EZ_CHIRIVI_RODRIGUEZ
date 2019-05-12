@@ -26,7 +26,15 @@ public interface NovedadDAO {
 
 		ArrayList<Novedad> novedadesEquipo(int equipo);
 
+<<<<<<< HEAD
 		ArrayList<Novedad> getNovedadesElemento(int elemento);
 		
 		ArrayList<Novedad> getNovedadesLabEqui(int labo);
+=======
+		public ArrayList<Novedad> getNovedadesElemento(int elemento);
+
+		public ArrayList<Novedad> getNovedades(int elemento, int equipo);
+
+		public void agregarNovedadSinElemento(String razon, String justificacion, int equipo, int usuario);
+>>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 }

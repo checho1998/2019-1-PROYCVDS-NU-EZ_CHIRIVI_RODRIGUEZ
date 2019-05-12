@@ -70,15 +70,11 @@ xmlns:p="http://primefaces.org/ui">
 		<br></br>
 		<br></br>		
 		<p:outputLabel value="Numero de Laboratorio:"></p:outputLabel>
-<<<<<<< HEAD
-		<p:inputText value="#{laboBean.id}"></p:inputText>
-=======
 		<p:inputText value="#{laboBean.id}">
-			 <p:ajax event="keyup" update="out1"/>
+			<p:ajax event="keyup" update="out1"/>
 		</p:inputText>
 		<p:outputLabel value="Disponible:"></p:outputLabel>
 		<p:outputLabel id="out1" value="#{laboBean.getLaboratorio() eq null}"></p:outputLabel>
->>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 		<p:outputLabel value="Nombre del Laboratorio"></p:outputLabel>
 		<p:inputText value="#{laboBean.nombre}"></p:inputText>
 		<p:outputLabel value="Capacidad de equipos en el Laboratorio:"></p:outputLabel>

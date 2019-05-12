@@ -51,7 +51,9 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(fechaInicioActividad.before(fechaAdquisicion)) throw new ECILabException("Un equipo no puede iniciar actividad antes de su adquisicion.");
 		equipo.insertarEquipoSinLaboratorio(id, fechaInicioActividad, fechafinactividad, fechaAdquisicion);
 	}
+	
 	public void insertarEquipoSinLaboratorio(int id,Date fechaInicioActividad,Date fechafinactividad,Date fechaAdquisicion,ArrayList<Elemento> elementos) throws ECILabException{
+	
 		if(elementos==null) throw new ECILabException("DEben haber elementos");
 		if(elementos.size()!=4) throw new ECILabException("Verifique el numero de elementos");
 		if(!hayUnElementoDeCadaCategoria(elementos)) throw new ECILabException("Verifique los elementos, hay categorias repetidas.");
@@ -62,25 +64,32 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		}
 		
 	}
+	
 	private boolean elementosLibres(ArrayList<Elemento> elementos) {
+	
 		for(Elemento e:elementos) {
 			if(this.equipoPoseElemento(e.getId())) return false;
 		}
 		return true;
 	}
+	
 	private boolean hayUnElementoDeCadaCategoria(ArrayList<Elemento> elementos) {
+	
 		String[] categoria = new String[] {"TORRE","MOUSE","TECLADO","PANTALLA"};
 		for(String c:categoria) {
 			if(!existeElementoConCategoria(elementos,c)) return false;
 		}
 		return true;
 	}
+	
 	private boolean existeElementoConCategoria(ArrayList<Elemento> elementos, String categoria) {
+	
 		for(Elemento e:elementos) {
 			if(e.getCategoria().equals(categoria)) return true;
 		}
 		return false;
 	}
+	
 	/*
 	 * @param id - la id de un equipo
 	 * @return el equipo al que corresponde la id
@@ -88,6 +97,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public Equipo getEquipo(int id) {
 		return equipo.getEquipo(id);
 	}
+	
 	/*
 	 * @param id - la id de un elemento
 	 * @return el elemento al que corresponde el id
@@ -99,6 +109,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public List<Elemento> getElementos(){
 		return elemento.consultarElementos();
 	}
+	
 	/*
 	 * @param id - la id del elemento a insertar
 	 * @param categoria - la categoria al que corresponde el elemento a ser insertado -TORRE -MOUSE -TECLADO -PANTALLA
@@ -125,6 +136,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		if(!equipoPosee(equipo.getEquipo(idEquipo),idElemento)) throw new ECILabException("Equipo y elemento no se encuentran vinculados");
 		novedad.agregarNovedad(descripcion, justificacion, idEquipo, idElemento,usuario);
 	}
+	
 	private boolean equipoPosee(Equipo equipo2, int idElemento) {
 		for(Elemento e:equipo2.getElementos()) {
 			if(e.getId()==idElemento) return true;
@@ -163,6 +175,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		equipo.asociarElemento(idElemento, IdEquipoN);
 		novedad.agregarNovedad("Asociacion elemento "+String.valueOf(idElemento),"completar equipo "+String.valueOf(IdEquipoN), IdEquipoN, idElemento,usuario);
 	}
+	
 	/*
 	 * Asocia un elemento a un equipo
 	 * @param idElemento - la id del equipo al que se le dea asociar un elemento
@@ -180,6 +193,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		elemento.desvincularElementos(e.getCategoria(),equipo.getEquipo(IdEquipoN).getId());
 		equipo.asociarElemento(idElemento, IdEquipoN);
 	}
+	
 	/*
 	 * @param elemto - corresponde a la id de un un elemento
 	 * @return determina si un elemento se encuentra vinculado a un equipo

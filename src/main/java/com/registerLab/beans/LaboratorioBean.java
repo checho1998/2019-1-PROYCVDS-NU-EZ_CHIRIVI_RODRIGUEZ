@@ -107,11 +107,11 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 			servicios.agregarLaboratorio(id, nombre, capacidad, null,d);
 			for(Equipo e:equipos) {
 				servicios.asociarEquipo(e.getId(), id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-<<<<<<< HEAD
+
 				//servicios.AgregarNovedad("Crear Laboratorio", "Completar capacidad del laboratorio",e.getId(),0, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
-=======
+
 				servicios.agregarNovedadSinElemento("Asocio equipo a laboratorio", "Completar laboratorio", id, servicios.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
->>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
+
 			}
 			equipos.clear();
 			limpiar();
@@ -123,8 +123,6 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 	public Laboratorio getLaboratorio() {
 		return servicios.getLaboratorio(id);
 	}
-<<<<<<< HEAD
-
 	public java.util.Date getFechaApertura() {
 		return fechaApertura;
 	}
@@ -139,7 +137,8 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 		this.fechaCierre = null;
 		this.id = 0;
 		this.nombre = null;
-=======
+	}
+	
 	public void startEquipos() {
 		equipos = new ArrayList<Equipo>() {
 			@Override
@@ -162,7 +161,6 @@ public class LaboratorioBean extends BaseBeanRegisterLab  {
 				}
 			} 
 		};
->>>>>>> 3afe81c3387b4860d9a31e5c7e6983099b03d642
 	}
 	
 }

@@ -82,4 +82,5 @@ public class AsociarBean extends BaseBeanRegisterLab{
 		this.equipo = equipo;
 	}
 	
+	
 }

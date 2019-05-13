@@ -1,17 +1,17 @@
 # 2019-1-PROYCVDS-NUNEZ_CHIRIVI_RODRIGUEZ_SANCHEZ
 
-### Profesores 
+## Profesores 
 	- Julian Velasco (Product Owner)
 	- Santiago Alzate (Product Owner)
 	- Claudia Santiago (Costumer)
 	
-### Integrantes:
+## Integrantes:
 	- Daniel Felipe Rodriguez Villalba (Front)
 	- Jimmy Armando Chirivi Nivia (UX)
 	- Jeisson Geovanny Sanchez Ramos (Design)
 	- Sergio Alejandro Nuñez Mendivelso (Back)
 
-### Descripción del producto:
+## Descripción del producto:
 
 	## Descripción general:
 	
@@ -48,8 +48,8 @@
 	
 	Asociar Equipo, Elemento:
 	
-	![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarElemen.PNG)
-	![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarEqui.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarElemen.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarEqui.PNG)
 	
 	#Descripcion:
 	 - En cada uno de los diferentes asociar se podra asociar cada diferente elemento a cada equipo sin que un equipo quede 

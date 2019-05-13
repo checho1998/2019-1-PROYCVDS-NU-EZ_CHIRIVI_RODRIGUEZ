@@ -1,26 +1,26 @@
 # 2019-1-PROYCVDS-NUNEZ_CHIRIVI_RODRIGUEZ_SANCHEZ
 
-## Profesores 
+### Profesores 
 	- Julian Velasco (Product Owner)
 	- Santiago Alzate (Product Owner)
 	- Claudia Santiago (Costumer)
 	
-## Integrantes:
+### Integrantes:
 	- Daniel Felipe Rodriguez Villalba (Front)
 	- Jimmy Armando Chirivi Nivia (UX)
 	- Jeisson Geovanny Sanchez Ramos (Design)
 	- Sergio Alejandro Nuñez Mendivelso (Back)
 
-## Descripción del producto:
+### Descripción del producto:
 
-	* Descripción general:
+	## Descripción general:
 	
 		- Es una plataforma diseñada para el control de los laboratorios, equipos y elementos de un computador 
 		que	estan en estos, con el fin de tener un mayor seguimiento de las reformas, arreglos y cambios que se 
 		realizan a cada uno de estos. Ademas tener una base de datos donde se tiene almacenado cada laboratorio, 
 		Equipo y elemento con sus respectivas novedades.
 		
-	 * Manual de usuario:
+	## Manual de usuario:
 	 
 		- Para ingresar a la plataforma entre al link de Heroku (https://proyecto-test-cdvs.herokuapp.com/), 
 		esto lo dirigira a la pagina principal, en la cual debe ingresar con sus credenciales, esto lo enviara a 
@@ -28,7 +28,7 @@
 		Laboratorios y Novedades, cada uno de estos con sus respectivos registrar, dar de baja, historial y 
 		visualizacion.
 	
-	* Imágenes
+	## Imágenes
 	
 	Pagina de Inicio:
 	![Inicio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)

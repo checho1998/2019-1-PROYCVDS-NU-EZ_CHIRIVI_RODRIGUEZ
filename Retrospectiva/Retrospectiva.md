@@ -1,7 +1,7 @@
 # Retrospectivas
 
 
-* Sprint 1
+## Sprint 1:
 
 	- Hicimos mal el planeo del Sprint ya que no nos reunimos para estimar el tiempo de cada actividad.
 	- Al no saber el uso de Taiga no lo aplicamos bien, por lo que la grafica esta desde que lo planeamos bien.
@@ -24,7 +24,7 @@
 ![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint1.png)
 
 
-* Sprint 2
+## Sprint 2:
 
 	- Falto la novedad que se genera al momento de registrar los equipos y al momento de asociar los elementos a estos.
 	- Falto la novedad que se genera al momento de crear un laboratorio y al momento de asociar el equipo a estos.
@@ -35,4 +35,18 @@
 	- Hubo buen trabajo en equipo y apoyo mutuo.
 	- Se corrigieron los errores que se presnetaban en el Sprint 1.
 	
-	- Debemos tener mayor cuidado en la estimación de el tiempo para las tareas. 
+	- Debemos tener mayor cuidado en la estimación de el tiempo para las tareas.
+	
+![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint2.png)
+
+
+## Sprint 3:
+
+
+	
+	- Se planifico bien el Sprint.
+	- Hubo buen trabajo en equipo y apoyo mutuo.
+	- Se corrigieron los errores que se presnetaban en el Sprint 2.	
+	
+	
+![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint3.png)

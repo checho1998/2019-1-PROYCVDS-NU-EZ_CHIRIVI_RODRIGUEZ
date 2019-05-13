@@ -61,9 +61,7 @@
 ![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)
 ### Diagrama de clases
 
-
-### Descripción de la arquitectura
-
+	
 
 ### Enlace a la aplicación en Heroku:
 Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
@@ -80,7 +78,12 @@ Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
 	- Sergio Alejandro Nuñez Mendivelso (Back)
 	
 ### Metodologia: 
-
+	
+	Nos reuniamos un dia apenas iniciado el Sprint para saber que tareas iba a relizar cada uno y detallar la
+	estimacion de cada tarea para asi saber cuantas horas trabajar y repartirnos el trabajo, nos comunicabamos 
+	por medio de las redes sociales para reportar los errores que se nos presentaban para darle solucion 
+	apoyandonos entre todos.
+	
 ### Taiga enlace:
 [Taiga](https://tree.taiga.io/project/jeisonsr43-historial-de-equipos-labinfo/backlog)
 

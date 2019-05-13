@@ -40,7 +40,6 @@ xmlns:f="http://java.sun.com/jsf/core">
 		}
  	</style>
  </h:head>
- 
  <h:body style= "margin:0px; padding:0px;">
  <img src="labinfo.jpg" style="width:250px;"></img>
  <br></br>
@@ -54,7 +53,9 @@ xmlns:f="http://java.sun.com/jsf/core">
 				</ul>
 			</div>
  		</div>
+ 	#{reporteEqean.setIdEquipo(repsEquipBean.getEquipo())}
 	</h:form>
+	#{repsEquipBean.setEquipo(reporteEqean.getIdEquipo())}
 	<br></br>
 	<center><h1>Reportes del Equipo</h1></center>
 	<br></br>
@@ -69,6 +70,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 	<p:outputLabel value="Estado del Equipo: #{reporteEqean.EquipoActivo()}"/>
 	<br></br>
 	<h:form>
+	#{reporteEqean.setIdEquipo(repsEquipBean.getEquipo())}
 	<p:dataTable id="nov" value="#{reporteEqean.getNovedades()}" var="novedad" paginator="true" rows="10"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
 		<f:facet name="{Exporters}">
 				<h:commandLink>

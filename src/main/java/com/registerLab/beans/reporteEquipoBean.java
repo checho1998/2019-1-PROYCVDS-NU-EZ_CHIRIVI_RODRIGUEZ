@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.google.inject.Injector;
 import com.registerLab.entities.Elemento;
@@ -17,7 +18,7 @@ import com.registerLab.entities.Novedad;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
 @ManagedBean(name="reporteEqean")
-@RequestScoped
+@SessionScoped
 public class reporteEquipoBean extends BaseBeanRegisterLab {
 	
 	private Injector injector;

@@ -28,12 +28,11 @@
 	Laboratorios y Novedades, cada uno de estos con sus respectivos registrar, dar de baja, historial y 
 	visualizacion.
 	
-### Imágenes
-	Pagina de Inicio:
+### Pagina de Inicio:
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
 	
-	#Descripcion:
-		- En esta pagina de inicio podra iniciar secion si lo desea con su respectivo usuario y contraseña.
+#### Descripcion:
+	- En esta pagina de inicio podra iniciar secion si lo desea con su respectivo usuario y contraseña.
 		
 	Registrar Laboratorio, Equipo, Elemento, Novedad:
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarElemento.PNG)

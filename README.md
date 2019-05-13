@@ -31,17 +31,32 @@
 	## Imágenes
 	
 	Pagina de Inicio:
-	![Inicio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
+	
 	#Descripcion:
 		- En esta pagina de inicio podra iniciar secion si lo desea con su respectivo usuario y contraseña.
+		
 	Registrar Laboratorio, Equipo, Elemento, Novedad:
-	![RegistrarElemento](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarElemento.PNG)
-	![RegistrarEquipo](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarEquipo.PNG)
-	![RegistrarNovedad](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarNovedad.PNG)
-	![RegistrarLaboratorio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarLaboratorio.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarElemento.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarEquipo.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarNovedad.PNG)
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarLaboratorio.PNG)
+	
 	#Descripcion:
 	 - En cada uno de los diferentes registrar usted podra ingresar un laboratorio con sus respectivos equipos, sus equipos con 
-	 los diferentes elementos de cada equipo y el elemento con sus especificaciones.
+	 los diferentes elementos sin que el equipo quede incompleto de cada equipo y el elemento con sus especificaciones.
+	
+	Asociar Equipo, Elemento:
+	
+	![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarElemen.PNG)
+	![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarEqui.PNG)
+	
+	#Descripcion:
+	 - En cada uno de los diferentes asociar se podra asociar cada diferente elemento a cada equipo sin que un equipo quede 
+	 incompleto y cada equipo a cada laboratorio.
+	
+	
+	 
 
 -----------------------------------------------------------------------------------
 

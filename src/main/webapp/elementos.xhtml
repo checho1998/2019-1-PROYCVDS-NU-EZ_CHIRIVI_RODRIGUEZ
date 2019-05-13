@@ -91,16 +91,16 @@ xmlns:p="http://primefaces.org/ui">
 		<p:growl id="growl" showDetail="true" sticky="true" />
 		<br></br>
     	<p:dataTable value="#{elmBean.getElementosActivos()}" var="elem" rows="10" paginator="true">
-		<p:column headerText="Codigo">
+		<p:column headerText="Codigo" filterBy="${elem.getId()}">
 			${elem.getId()}
 		</p:column>
-		<p:column headerText="Fabricante">
+		<p:column headerText="Fabricante" filterBy="${elem.getFabricante()}">
 			${elem.getFabricante()}
 		</p:column>
-		<p:column headerText="Referencia">
+		<p:column headerText="Referencia" filterBy="${elem.getReferencia()}">
 			${elem.getReferencia()}
 		</p:column>
-		<p:column headerText="Categoria">
+		<p:column headerText="Categoria" filterBy="${elem.getCategoria()}">
 			${elem.getCategoria()}
 		</p:column>
 		<p:column headerText="Asociar elemento">

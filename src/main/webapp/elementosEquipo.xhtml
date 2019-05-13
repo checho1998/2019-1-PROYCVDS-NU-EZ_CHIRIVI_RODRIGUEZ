@@ -76,17 +76,21 @@ xmlns:p="http://primefaces.org/ui">
 	</h:form>
 	#{bajaeqBean.setEquipo(equiBajaBean.getEquipoBaja())}
 	#{bajaeqBean.validar()}
-	<h2>ID: #{bajaeqBean.getEquipo()}</h2>
+	<h2 style="margin:2px;">ID Equipo: #{bajaeqBean.getEquipo()}</h2>
 	<h:form>
 		#{equiBajaBean.setEquipoBaja(bajaeqBean.getEquipo())}
 		<p:growl id="message" showDetail="true" sticky="true"/>
-		<b>Dar de baja</b>
-		<p:dataTable value="#{bajaeqBean.getDarBaja()}" var="baj" paginator="true" rows="10">
+		<b>Elementos a dar de baja:</b>
+		<br></br>
+		<p:dataTable value="#{bajaeqBean.getDarBaja()}" var="baj" paginator="true" rows="10" rendered="#{bajaeqBean.getDarBaja().size()>0}">
 			<p:column headerText="id">${baj.getId()}</p:column>
-			<p:column headerText="id">${baj.getFabricante()}</p:column>
+			<p:column headerText="fabricante">${baj.getFabricante()}</p:column>
+			<p:column headerText="Referencia">${baj.getReferencia()}</p:column>
+			<p:column headerText="Categoria">${baj.getCategoria()}</p:column>
 		</p:dataTable>
-		<b>Desasociar</b>
-		<p:dataTable value="#{bajaeqBean.getDesasociar()}" var="baj" paginator="true" rows="10">
+		<b>Elementos a Desasociar:</b>
+		<br></br>
+		<p:dataTable value="#{bajaeqBean.getDesasociar()}" var="baj" paginator="true" rows="10" rendered="#{bajaeqBean.getDesasociar().size()>0}">
 			<p:column headerText="id">${baj.getId()}</p:column>
 			<p:column headerText="Fabricante">${baj.getFabricante()}</p:column>
 			<p:column headerText="Referencia">${baj.getReferencia()}</p:column>

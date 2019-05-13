@@ -31,7 +31,6 @@
 	
 	Pagina de Inicio:
 	
-	![Inicio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
 -----------------------------------------------------------------------------------
 
 

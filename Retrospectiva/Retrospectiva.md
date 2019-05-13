@@ -37,7 +37,7 @@
 	
 	- Debemos tener mayor cuidado en la estimación de el tiempo para las tareas.
 	
-![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint2.png)
+![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint2.PNG)
 
 
 ## Sprint 3:
@@ -49,4 +49,4 @@
 	- Se corrigieron los errores que se presnetaban en el Sprint 2.	
 	
 	
-![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint3.png)
+![Imagen](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Retrospectiva/Sprint3.PNG)

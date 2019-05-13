@@ -24,12 +24,13 @@
 	 
 		- Para ingresar a la plataforma entre al link de Heroku (https://proyecto-test-cdvs.herokuapp.com/), esto 
 		lo dirigira a la pagina principal, en la cual debe ingresar con sus credenciales, esto lo enviara a la pagina
-		principal de la aplicacion, en la cual se encontraran menus por Elementos, Equipos, Laboratorios y Novedades, cada
-		uno de estos con sus respectivos registrar, dar de baja, historial y visualizacion.
+		principal de la aplicacion, en la cual se encontraran menus por Elementos, Equipos, Laboratorios y Novedades,
+		cada uno de estos con sus respectivos registrar, dar de baja, historial y visualizacion.
 	
 	### Imágenes
 	
 	Pagina de Inicio:
+	
 	![Inicio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
 -----------------------------------------------------------------------------------
 

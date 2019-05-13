@@ -39,9 +39,9 @@
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarEquipo.PNG)
 ### Registrar Elemento:
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarNovedad.PNG)
-### Registrar Novedad: 
+### Registrar Novedad:
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarLaboratorio.PNG)	
-#### Descripcion:
+#### Descripción:
 	En cada uno de los diferentes registrar usted podra ingresar un laboratorio con sus respectivos equipos, sus equipos con 
 	los diferentes elementos sin que el equipo quede incompleto de cada equipo y el elemento con sus especificaciones.
 	
@@ -54,9 +54,20 @@
 #### Descripcion:
 	En cada uno de los diferentes asociar se podra asociar cada diferente elemento a cada equipo sin que 
 	un equipo quede incompleto y cada equipo a cada laboratorio.
-	
-	
-	 
+
+## Arquitectura y Diseño detallado:
+### Modelo E-R.
+![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)
+### Diagrama de clases
+
+
+### Descripción de la arquitectura
+
+
+### Enlace a la aplicación en Heroku:
+Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
+### Enlace al sistema de integración continua:
+[![CircleCI](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ.svg?style=svg)](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ)
 
 -----------------------------------------------------------------------------------
 

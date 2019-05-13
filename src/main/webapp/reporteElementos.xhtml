@@ -65,12 +65,6 @@ xmlns:f="http://java.sun.com/jsf/core">
 			#{elemt.getId()}
 		</p:column>
 		<p:column headerText="Categoria" sortBy="#{elemt.getCategoria()}" filterBy="#{elemt.getCategoria()}" >
-			 <f:facet name="filter">
-                <p:selectOneMenu onchange="PF('elementosTable').filter()" styleClass="custom-filter">
-                    <f:selectItem itemLabel="Seleccione una" itemValue="#{null}" noSelectionOption="true" />
-                    <f:selectItems value="#{regElmBean.categorias}" />
-                </p:selectOneMenu>
-            </f:facet>
 			#{elemt.getCategoria()}
 		</p:column>
 		<p:column headerText="Fabricante" sortBy="#{elemt.getFabricante()}" filterBy="#{elemt.getFabricante()}">

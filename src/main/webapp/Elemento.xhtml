@@ -76,8 +76,8 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dataTable id="novedades" value="#{ENovBean.getNovedadElementoEquipo()}" var="novedad" paginator="true" rows="10"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
 		<f:facet name="{Exporters}">
 				<h:commandLink>
-                    <p:outputLabel value="Exportar"></p:outputLabel>
-                    <p:dataExporter type="xls" target="novedades" fileName="novedades elemento #{ENovBean.getElemento()}" />
+                     <img src="excel.png" style="width:20px; height:20px;"></img>
+                    <p:dataExporter type="xls" target="novedades" fileName="novedades elemento #{ENovBean.getElemento()} en el equipo #{ENovBean.getEquipo()}" />
                 </h:commandLink>
 			</f:facet>
 			<p:column headerText="Id"><p:outputLabel value="${novedad.getId()}"/></p:column>

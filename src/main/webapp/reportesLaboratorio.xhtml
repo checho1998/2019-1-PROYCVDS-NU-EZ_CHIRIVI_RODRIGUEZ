@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
 xmlns:h="http://xmlns.jcp.org/jsf/html"
-xmlns:p="http://primefaces.org/ui">
+xmlns:p="http://primefaces.org/ui"
+xmlns:f="http://java.sun.com/jsf/core">
  <h:head><title>Reportes de Laboratorio</title>
   	<style type="text/css">
  		.my_test li{
@@ -72,20 +73,32 @@ xmlns:p="http://primefaces.org/ui">
 	<br></br>
 	<center><p:outputLabel value="Equipos Asociados"/></center>
 	<br></br>
-	<p:dataTable value="#{reportLabBean.getLaboratorio(repotsLabBean.getLaboratorio()).getEquipos()}" var="equipo" paginator="true" rows="6">
-		<p:column headerText="Codigo">${equipo.getId()}</p:column>
-		<p:column headerText="Fecha Aquisicion">${equipo.getFechaAdquisicion()}</p:column>
-		<p:column headerText="Fecha Inicion Actividad">${equipo.getFechaInicioActividad()}</p:column>
+	<p:dataTable id="equipo" value="#{reportLabBean.getLaboratorio(repotsLabBean.getLaboratorio()).getEquipos()}" var="equipo" paginator="true" rows="6" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
+		<f:facet name="{Exporters}">
+				<h:commandLink>
+                    <img src="excel.png" style="width:20px; height:20px;"></img>
+                    <p:dataExporter type="xls" target="equipo" fileName="Equipos laboratorio #{repotsLabBean.getLaboratorio()} - #{reportLabBean.NombreLaboratorio()}" />
+                </h:commandLink>
+			</f:facet>
+		<p:column headerText="Codigo"><p:outputLabel value="${equipo.getId()}"/></p:column>
+		<p:column headerText="Fecha Aquisicion"><p:outputLabel value="${equipo.getFechaAdquisicion()}"/></p:column>
+		<p:column headerText="Fecha Inicion Actividad"><p:outputLabel value="${equipo.getFechaInicioActividad()}"/></p:column>
 	</p:dataTable>
 	<br></br>
 	<br></br>
 	<center><p:outputLabel value="Actividades del Laboratorio"/></center>
-	<p:dataTable value="#{reportLabBean.getNovedadesRelacionadas(repotsLabBean.getLaboratorio())}" var="nov" paginator="true" rows="6">
-		<p:column headerText="Codigo">${nov.getId()}</p:column>
-		<p:column headerText="Descripcion">${nov.getDescripcion()}</p:column>
-		<p:column headerText="Justificacion">${nov.getJustificacion()}</p:column>
-		<p:column headerText="Fecha">${nov.getFechaNovedad()}</p:column>
-		<p:column headerText="Equipo">${nov.getEquipo()}</p:column>		
+	<p:dataTable id="novedades" value="#{reportLabBean.getNovedadesRelacionadas(repotsLabBean.getLaboratorio())}" var="nov" paginator="true" rows="6" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
+		<f:facet name="{Exporters}">
+				<h:commandLink>
+                    <img src="excel.png" style="width:20px; height:20px;"></img>
+                    <p:dataExporter type="xls" target="novedades" fileName="Actividades laboratorio #{repotsLabBean.getLaboratorio()} - #{reportLabBean.NombreLaboratorio()}" />
+                </h:commandLink>
+			</f:facet>
+		<p:column headerText="Codigo"><p:outputLabel value="${nov.getId()}"/></p:column>
+		<p:column headerText="Descripcion"><p:outputLabel value="${nov.getDescripcion()}"/></p:column>
+		<p:column headerText="Justificacion"><p:outputLabel value="${nov.getJustificacion()}"/></p:column>
+		<p:column headerText="Fecha"><p:outputLabel value="${nov.getFechaNovedad()}"/></p:column>
+		<p:column headerText="Equipo"><p:outputLabel value="${nov.getEquipo()}"/></p:column>		
 	</p:dataTable>
 	</h:form>	
 </h:body>

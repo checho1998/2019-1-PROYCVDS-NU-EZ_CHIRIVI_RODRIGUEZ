@@ -1,37 +1,73 @@
 # 2019-1-PROYCVDS-NUNEZ_CHIRIVI_RODRIGUEZ_SANCHEZ
 
-### Profesores 
+## Profesores 
 	- Julian Velasco (Product Owner)
 	- Santiago Alzate (Product Owner)
 	- Claudia Santiago (Costumer)
 	
-### Integrantes:
+## Integrantes:
 	- Daniel Felipe Rodriguez Villalba (Front)
 	- Jimmy Armando Chirivi Nivia (UX)
 	- Jeisson Geovanny Sanchez Ramos (Design)
 	- Sergio Alejandro Nuñez Mendivelso (Back)
 
-### Descripción del producto:
+## Descripción del producto:
 
-	## Descripción general:
+### Descripción general:
 	
-		- Es una plataforma diseñada para el control de los laboratorios, equipos y elementos de un computador 
-		que	estan en estos, con el fin de tener un mayor seguimiento de las reformas, arreglos y cambios que se 
-		realizan a cada uno de estos. Ademas tener una base de datos donde se tiene almacenado cada laboratorio, 
-		Equipo y elemento con sus respectivas novedades.
+	Es una plataforma diseñada para el control de los laboratorios, equipos y elementos de un computador 
+	que estan en estos, con el fin de tener un mayor seguimiento de las reformas, arreglos y cambios que se 
+	realizan a cada uno de estos. Ademas tener una base de datos donde se tiene almacenado cada laboratorio, 
+	Equipo y elemento con sus respectivas novedades.
 		
-	## Manual de usuario:
+### Manual de usuario:
 	 
-		- Para ingresar a la plataforma entre al link de Heroku (https://proyecto-test-cdvs.herokuapp.com/), 
-		esto lo dirigira a la pagina principal, en la cual debe ingresar con sus credenciales, esto lo enviara a 
-		la pagina principal de la aplicacion, en la cual se encontraran menus por Elementos, Equipos, 
-		Laboratorios y Novedades, cada uno de estos con sus respectivos registrar, dar de baja, historial y 
-		visualizacion.
+	Para ingresar a la plataforma entre al link de Heroku (https://proyecto-test-cdvs.herokuapp.com/), 
+	esto lo dirigira a la pagina principal, en la cual debe ingresar con sus credenciales, esto lo enviara a 
+	la pagina principal de la aplicacion, en la cual se encontraran menus por Elementos, Equipos, 
+	Laboratorios y Novedades, cada uno de estos con sus respectivos registrar, dar de baja, historial y 
+	visualizacion.
 	
-	## Imágenes
+### Pagina de Inicio:
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
+#### Descripcion:
+	En esta pagina de inicio podra iniciar sesión si lo desea con su respectivo usuario y contraseña.
+		
+### Registrar Laboratorio:
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarElemento.PNG)
+### Registrar Equipo:
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarEquipo.PNG)
+### Registrar Elemento:
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarNovedad.PNG)
+### Registrar Novedad:
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarLaboratorio.PNG)	
+#### Descripción:
+	En cada uno de los diferentes registrar usted podra ingresar un laboratorio con sus respectivos equipos, sus equipos con 
+	los diferentes elementos sin que el equipo quede incompleto de cada equipo y el elemento con sus especificaciones.
 	
-	Pagina de Inicio:
-	![Inicio](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/Inicio.PNG)
+### Asociar Equipo:
+	
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarElem.PNG)
+### Asociar Elemento:
+
+![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/AsociarEqui.PNG)
+#### Descripcion:
+	En cada uno de los diferentes asociar se podra asociar cada diferente elemento a cada equipo sin que 
+	un equipo quede incompleto y cada equipo a cada laboratorio.
+
+## Arquitectura y Diseño detallado:
+### Modelo E-R.
+![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)
+### Diagrama de clases
+
+
+### Descripción de la arquitectura
+
+
+### Enlace a la aplicación en Heroku:
+Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
+### Enlace al sistema de integración continua:
+[![CircleCI](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ.svg?style=svg)](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ)
 
 -----------------------------------------------------------------------------------
 

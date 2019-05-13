@@ -382,4 +382,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 	public int equiposLaboratorios(String mes) {
 		return this.laboratorio.equiposLaboratorios(mes);
 	}
+	public Laboratorio getLaboratorioEquipo(int idEquipo) {
+		return laboratorio.getLaboratorioEquipo(idEquipo);
+	}
 }

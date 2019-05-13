@@ -65,7 +65,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 	</h:form>
 	<center><h1>Reporte de Equipos</h1></center>
 	<h:form>
-	<p:dataTable value="#{regElmBean.getTotalEquipos()}" var="equip" paginator="true" rows="6" widgetVar="equiposTable">
+	<p:dataTable value="#{reporteEqean.getTotalEquipos()}" var="equip" paginator="true" rows="6" widgetVar="equiposTable">
 		<p:column headerText="Codigo" filterBy="#{equip.getId()}" >
 			${equip.getId()}
 		</p:column>
@@ -75,10 +75,20 @@ xmlns:f="http://java.sun.com/jsf/core">
 		<p:column headerText="Activo" filterBy="${equip.getFechaFinActividad() eq null}" >
 			${equip.getFechaFinActividad() eq null}
 		</p:column>
-		
+		<p:column headerText="Nombre laboratorio" filterBy="#{reporteEqean.getLaboratorio(equip.getId()).getNombre()}">
+			#{reporteEqean.getLaboratorio(equip.getId()).getNombre()}
+		</p:column>
+		<p:column headerText="ID laboratorio" filterBy="#{reporteEqean.getLaboratorio(equip.getId()).getId()}">
+			#{reporteEqean.getLaboratorio(equip.getId()).getId()}
+		</p:column>
 		 <p:column headerText="Reporte de Equipo">
 			<p:button outcome="reportesEquipo" value="Ver Reporte" >
 				<f:param value="${equip.getId()}" name="equipo" ></f:param>
+			</p:button>
+		</p:column>
+		<p:column headerText="Dar de baja Equipo">
+			<p:button outcome="elementosEquipo" value="Dar de baja">
+				<f:param value="${equip.getId()}" name="equipoBaja"></f:param>
 			</p:button>
 		</p:column>
 		

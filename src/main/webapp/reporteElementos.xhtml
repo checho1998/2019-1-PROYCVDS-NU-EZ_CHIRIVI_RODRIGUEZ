@@ -60,7 +60,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 	<br></br>
 	<h3>En este formulario usted podra ver la informacion de los elementos registrados</h3>
 	<h:form>
-	<p:dataTable value="#{regElmBean.getTotalElementos()}" var="elemt" paginator="true" rows="6" widgetVar="elementosTable">
+	<p:dataTable value="#{regElmBean.getTotalElementos()}" var="elemt" paginator="true" rows="6">
 		<p:column headerText="Codigo" sortBy="#{elemt.getId()}" filterBy="#{elemt.getId()}" >
 			#{elemt.getId()}
 		</p:column>

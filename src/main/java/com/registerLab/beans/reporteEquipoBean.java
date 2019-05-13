@@ -12,9 +12,11 @@ import javax.faces.bean.RequestScoped;
 import com.google.inject.Injector;
 import com.registerLab.entities.Elemento;
 import com.registerLab.entities.Equipo;
+import com.registerLab.entities.Laboratorio;
+import com.registerLab.entities.Novedad;
 import com.registerLab.servicios.ServiciosECILabImpl;
 
-@ManagedBean(name="regElmBean")
+@ManagedBean(name="reporteEqean")
 @RequestScoped
 public class reporteEquipoBean extends BaseBeanRegisterLab {
 	
@@ -50,18 +52,17 @@ public class reporteEquipoBean extends BaseBeanRegisterLab {
 		this.idEquipo = idEquipo;
 	}
 	
-	public String EquipoActivo() {
-	
-		if (getEquipo().getFechaFinActividad() == null) {
-			this.activo = "Activo";
-			
-		}
-		else {
-			this.activo = "Inactivo"; 
-		}
-	
-		return activo;
-	
+	public boolean EquipoActivo() {
+		return getEquipo().getFechaFinActividad() == null;
+	}
+	public Laboratorio getLaboratorio(){
+		return servicios.getLaboratorioEquipo(idEquipo);
+	}
+	public ArrayList<Novedad> getNovedades(){
+		return servicios.novedadesEquipo(idEquipo);
+	}
+	public Laboratorio getLaboratorio(int equipo) {
+		return servicios.getLaboratorioEquipo(equipo);
 	}
 	
 	

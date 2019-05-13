@@ -30,4 +30,6 @@ public interface LaboratorioDAO{
 	int ElementosLaboratorio(int laboratorio);
 	
 	int equiposLaboratorios(String mes);
+
+	Laboratorio getLaboratorioEquipo(int idEquipo);
 }

@@ -74,4 +74,9 @@ public class MyBatisLaboratorioDAO implements LaboratorioDAO{
 	public int equiposLaboratorios(String mes) {
 		return mapper.equiposLaboratorios(mes);
 	}
+
+	@Override
+	public Laboratorio getLaboratorioEquipo(int idEquipo) {
+		return mapper.getLaboratorioEquipo(idEquipo);
+	}
 }

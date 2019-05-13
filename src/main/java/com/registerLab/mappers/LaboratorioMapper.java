@@ -29,4 +29,6 @@ public interface LaboratorioMapper {
 	public int ElementosLaboratorio(@Param("labo") int laboratorio);
 	
 	public int equiposLaboratorios(@Param("mes") String mes);
+
+	public Laboratorio getLaboratorioEquipo(@Param("id")int idEquipo);
 }

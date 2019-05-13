@@ -61,6 +61,7 @@ public  class ServiciosECILabImpl implements ServiciosECILab{
 		insertarEquipoSinLaboratorio(id,fechaInicioActividad,fechafinactividad,fechaAdquisicion);
 		for(Elemento e:elementos) {
 			this.asociarElemento(e.getId(), id);
+			this.AgregarNovedad("Se asocio el elemento "+String.valueOf(e.getId())+" al equipo "+String.valueOf(id), "Elemento necesario para registrar el equipo", id, e.getId(), this.getUsuario(SecurityUtils.getSubject().getPrincipal().toString()).getId());
 		}
 		
 	}

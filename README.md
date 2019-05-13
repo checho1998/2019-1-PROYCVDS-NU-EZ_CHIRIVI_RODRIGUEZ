@@ -42,8 +42,9 @@
 ### Registrar Novedad:
 ![Imagenes](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Imagenes/RegistrarLaboratorio.PNG)	
 #### Descripción:
-	En cada uno de los diferentes registrar usted podra ingresar un laboratorio con sus respectivos equipos, sus equipos con 
-	los diferentes elementos sin que el equipo quede incompleto de cada equipo y el elemento con sus especificaciones.
+	En cada uno de los diferentes registrar usted podra ingresar un laboratorio con sus respectivos equipos, sus 
+	equipos con los diferentes elementos sin que el equipo quede incompleto de cada equipo y el elemento con sus 
+	especificaciones.
 	
 ### Asociar Equipo:
 	
@@ -68,6 +69,16 @@
 Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
 ### Enlace al sistema de integración continua:
 [![CircleCI](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ.svg?style=svg)](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ)
+
+## Descripción del proceso:
+### Integrantes:
+	- Daniel Felipe Rodriguez Villalba (Front)
+	- Jimmy Armando Chirivi Nivia (UX)
+	- Jeisson Geovanny Sanchez Ramos (Design)
+	- Sergio Alejandro Nuñez Mendivelso (Back)
+### Metodologia: 
+### Taiga
+![Taiga](https://tree.taiga.io/project/jeisonsr43-historial-de-equipos-labinfo/backlog)
 
 -----------------------------------------------------------------------------------
 

@@ -71,8 +71,8 @@ xmlns:p="http://primefaces.org/ui">
 	<h3>En este formulario usted podra asociar equipos a los respectivos laboratorios</h3>
 	<h:form id="m_form">
 		<p:dataTable value="#{asoBean.getLaboratorios()}" var="lab" rows="20" paginator="true">
-			<p:column headerText="Id laboratorio">${lab.getId()}</p:column>
-			<p:column headerText="Nombre laboratorio">${lab.getNombre()}</p:column>
+			<p:column headerText="Id laboratorio" filterBy="${lab.getId()}">${lab.getId()}</p:column>
+			<p:column headerText="Nombre laboratorio" filterBy="${lab.getNombre()}">${lab.getNombre()}</p:column>
 			<p:column headerText="Revisar laboratorio">
 				<p:button outcome="equipos" value="Ver Laboratorio" >
 					<f:param name="laboratorio" value="${lab.getId()}" />

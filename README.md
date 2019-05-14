@@ -142,5 +142,5 @@ Password: santiago
 -----------------------------------------------------------------------------------
 
 
-![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD.PNG)
+![Base de datos](https://github.com/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ/blob/master/Base%20de%20datos/BD1.PNG)
 

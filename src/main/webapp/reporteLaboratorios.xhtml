@@ -56,7 +56,6 @@ xmlns:f="http://java.sun.com/jsf/core">
 			</div>
  		</div>
 	</h:form>
-	<h:form>
 	<center><h1>Reporte de Laboratorios</h1></center>
 	<br></br>
 	<h3>En este formulario usted podra ver la informacion de los laboratorios registrados</h3>
@@ -71,7 +70,8 @@ xmlns:f="http://java.sun.com/jsf/core">
 	<p:donutChart model="#{reportLabBean.donutModel}" style="width: 1000px; height: 200px;"/>
 	<br></br>
 	<p:outputLabel value="Laboratorios: "></p:outputLabel>
-	<p:dataTable id="novedades" value="#{reportLabBean.getTotalLaboratorios()}" var="lab" paginator="true" rows="6" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}          {Exporters}">
+	<h:form>
+	<p:dataTable id="novedades" value="#{reportLabBean.getTotalLaboratorios()}" var="lab" paginator="true" rows="6" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}{Exporters}" rowKey="#{lab.getId()}">
 		<f:facet name="{Exporters}">
 				<h:commandLink>
                     <img src="excel.png" style="width:20px; height:20px;"></img>
@@ -86,7 +86,7 @@ xmlns:f="http://java.sun.com/jsf/core">
 			<p:outputLabel value="#{lab.getNombre()}"/>
 		</p:column>
 		
-		<p:column headerText="Cantidad de Equipos" sortBy="#{reportLabBean.cantidadEquipos(lab)}" filterBy="#{reportLabBean.cantidadEquipos(lab)}">
+		<p:column headerText="Cantidad de Equipos" sortBy="#{reportLabBean.cantidaEquipos(lab)}" filterBy="#{reportLabBean.cantidaEquipos(lab)}">
 			<p:outputLabel value="#{reportLabBean.cantidaEquipos(lab)}"/>	
 		</p:column>
 				
@@ -108,9 +108,9 @@ xmlns:f="http://java.sun.com/jsf/core">
 		</p:column>
 		
 	</p:dataTable>
+	</h:form>
 	</p:panel>
 	<br></br>
-	</h:form>
 	<br></br>	
 	<div class="pers">
 		Algunos enlaces de interes:<br></br>

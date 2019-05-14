@@ -62,8 +62,8 @@ xmlns:p="http://primefaces.org/ui">
 	<h:form id="m_from">
 		<center><h1>VER NOVEDADES EN EQUIPOS</h1></center>
 		<br></br>
-		<p:dataTable value="#{vinBean.getAllEquipos()}" var="equi">
-			<p:column headerText="Id">${equi.getId()}</p:column>
+		<p:dataTable value="#{vinBean.getAllEquipos()}" var="equi" paginator="true" rows="10">
+			<p:column headerText="Id" filterBy="${equi.getId()}">${equi.getId()}</p:column>
 			<p:column headerText="Fecha Inicio Actividad:">${equi.getFechaInicioActividad()}</p:column>
 			<p:column headerText="Fecha Fin Actividad:">${equi.getFechaFinActividad()}</p:column>
 			<p:column headerText="Novedades"><p:button value="Ver novedades" style="background:green; color:white;" outcome="Equipo">

@@ -34,10 +34,6 @@ xmlns:p="http://primefaces.org/ui">
  			color:white;
  			text-align:center;
  		}
- 		.ui-datatable-data .ui-datatable-tablewrapper table thead tr th{
- 			background:blue;
- 			color:white;
- 		}
  		.ui-paginator{
  			background:white;
  		}
@@ -75,8 +71,8 @@ xmlns:p="http://primefaces.org/ui">
 	<h:form id="m_form">
 		<p:growl id="message" showDetail="true" sticky="true"/>
 		<p:dataTable value="#{cerrarLabBean.getLaboratorios()}" var="laboratorio" paginator="true" rows="10">
-			<p:column headerText="Id Laboratorio">${laboratorio.getId()}</p:column>
-			<p:column headerText="Nombre Laboratorio">${laboratorio.getNombre()}</p:column>
+			<p:column headerText="Id Laboratorio" filterBy="${laboratorio.getId()}">${laboratorio.getId()}</p:column>
+			<p:column headerText="Nombre Laboratorio" filterBy="${laboratorio.getNombre()}">${laboratorio.getNombre()}</p:column>
 			<p:column headerText="Fecha Creacion">${laboratorio.getFechaApertura()}</p:column>
 			<p:column headerText="Cerrar Laboratorio"><p:commandLink value="Cerrar" actionListener="#{cerrarLabBean.cerrarLaboratorio(laboratorio)}" update="@form">
 				<p:confirm header="Confirmation" message="Estas seguro?" icon="pi pi-exclamation-triangle" />

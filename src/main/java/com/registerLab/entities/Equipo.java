@@ -1,8 +1,9 @@
 package com.registerLab.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
-public class Equipo {
+public class Equipo implements Serializable{
 	private int id;
 	private Date fechaInicioActividad;
 	private Date fechaFinActividad;

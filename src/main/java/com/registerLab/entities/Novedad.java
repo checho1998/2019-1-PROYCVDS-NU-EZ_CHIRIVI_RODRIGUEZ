@@ -1,8 +1,9 @@
 package com.registerLab.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Novedad {
+public class Novedad implements Serializable{
 	private int id;
 	private Date fechaNovedad;
 	private String descripcion;

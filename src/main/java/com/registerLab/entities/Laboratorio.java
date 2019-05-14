@@ -1,8 +1,9 @@
 package com.registerLab.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
-public class Laboratorio {
+public class Laboratorio implements Serializable{
 	private int id;
 	private String nombre;
 	private int capacidad;

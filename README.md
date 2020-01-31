@@ -65,9 +65,6 @@
 ### Enlace a la aplicación en Heroku:
 Heroku APP : https://proyecto-test-cdvs.herokuapp.com/
 
-### Enlace al sistema de integración continua:
-[![CircleCI](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ.svg?style=svg)](https://circleci.com/gh/checho1998/2019-1-PROYCVDS-NU-EZ_CHIRIVI_RODRIGUEZ)
-
 ## Descripción del proceso:
 
 ### Integrantes:

@@ -6,10 +6,10 @@
 	- Claudia Santiago (Costumer)
 	
 ## Integrantes:
-	- Daniel Felipe Rodriguez Villalba (Front)
-	- Jimmy Armando Chirivi Nivia (UX)
-	- Jeisson Geovanny Sanchez Ramos (Design)
-	- Sergio Alejandro Nuñez Mendivelso (Back)
+	- Daniel Felipe Rodriguez Villalba 
+	- Jimmy Armando Chirivi Nivia 
+	- Jeisson Geovanny Sanchez Ramos 
+	- Sergio Alejandro Nuñez Mendivelso 
 
 ## Descripción del producto:
 
